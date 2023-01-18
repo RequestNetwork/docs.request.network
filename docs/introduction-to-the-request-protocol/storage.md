@@ -26,7 +26,7 @@ The Ethereum smart contracts are also used to enforce the fee cost of storing a 
 
 For our solution, we use additional smart contracts for fee verification. Using external smart contracts allows us to implement different fee rules in the future. More information can be found in the ethereum-storage repository.
 
-The RequestHashStorage smart contract address can be found on [GitHub](https://github.com/RequestNetwork/requestNetwork/blob/1f24dd17353497cc6ee21abf2d7bfda9e63d2ba5/packages/smart-contracts/artifacts/RequestHashStorage/artifacts.json)
+The RequestHashStorage smart contract address can be found on [GitHub](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/lib/artifacts/RequestHashStorage/index.ts)
 
 ```json
  "mainnet": {
