@@ -29,9 +29,9 @@ const RequestNetwork = require('@requestnetwork/request-client.js');
 
 ```jsx
 const requestNetwork = new RequestNetwork({
-  // The Rinkeby Gateway is the node hosted by Request
-  // You can use it on the Rinkeby network without limit, for testing and discovery of the library
-  nodeConnectionConfig: { baseURL: 'https://gateway-rinkeby.request.network/' },
+  // The Goerli Gateway is the node hosted by Request
+  // You can use it on the Goerli network without limit, for testing and discovery of the library
+  nodeConnectionConfig: { baseURL: 'https://goerli.gateway.request.network/' },
 });
 ```
 

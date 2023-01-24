@@ -51,4 +51,4 @@ extensions: {
 },
 ```
 
-Tests are available [here](https://github.com/RequestNetwork/requestNetwork/tree/796d3f465ea78f75e068645adca38d0836568fe6/packages/payment-detection/test/erc777).
+Tests are available [here](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/payment-detection/test/erc777).

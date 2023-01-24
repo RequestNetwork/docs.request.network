@@ -30,25 +30,25 @@ When we cannot use `input data` or equivalent; typically, for ERC20, we use a _s
 
 If you need the proxy smart contract addresses, we list the most relevant ones below.
 
-[Proxy smart contracts for ERC20](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/artifacts/ERC20Proxy/artifacts.json):
+[Proxy smart contracts for ERC20](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/lib/artifacts/ERC20FeeProxy/index.ts):
 
 ```json
 "mainnet": {
-	"address": "0x5f821c20947ff9be22e823edc5b3c709b33121b3",
+	"address": "0x370DE27fdb7D1Ff1e1BaA7D11c5820a324Cf623C",
 },
-"rinkeby": {
-	"address": "0x162edb802fae75b9ee4288345735008ba51a4ec9",
+"goerli": {
+	"address": "0x399F5EE127ce7432E4921a61b8CF52b0af52cbfE",
 }
 ```
 
-[Proxy smart contracts for ETH when input data cannot be used](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/artifacts/EthereumProxy/artifacts.json):
+[Proxy smart contracts for ETH when input data cannot be used](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/lib/artifacts/EthereumFeeProxy/index.ts):
 
 ```json
 "mainnet": {
-	"address": "0x37a8f5f64f2a84f2377481537f04d2a59c9f59b6",
+	"address": "0xfCFBcfc4f5A421089e3Df45455F7f4985FE2D6a8",
 },
-"rinkeby": {
-	"address": "0x9c6c7817e3679c4b3f9ef9486001eae5aaed25ff",
+"goerli": {
+	"address": "0xe11BF2fDA23bF0A98365e1A4c04A87C9339e8687",
 }
 ```
 
@@ -135,4 +135,4 @@ Option 2: Contribute to the protocol by creating a dedicated payment network for
 * (OPTIONAL) Developing the payment proxy contract, either in the [smart-contracts package](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/smart-contracts) or in a dedicated repository
 * (OPTIONAL) Developing the payment processing in the [payment-processor package](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/payment-processor)
 
-Contact us for your currency requirements: **Join our Discord** [**here**](https://request.network/discord)
+Contact us for your currency requirements: [**Join our Discord here**](https://request.network/discord)

@@ -20,7 +20,7 @@ There are three types of contracts
 
 Declares data hashes and collects the fees.
 
-After a request has been sent to IPFS, the hash is declared to the whole request network system through the RequestHashStorage
+After a request has been sent to IPFS, the hash is declared to the whole request network system through the RequestHashStorage.
 
 Anyone can submit hashes.
 
@@ -46,11 +46,11 @@ Performs an ERC20 token transfer with a payment reference and a transfer to a se
 
 #### [EthereumFeeProxy](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/contracts/EthereumFeeProxy.sol)
 
-This contract performs an Ethereum transfer with a Fee sent to a third address and stores a reference
+This contract performs an Ethereum transfer with a Fee sent to a third address and stores a reference.
 
 #### [EthereumProxy](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/contracts/EthereumProxy.sol)
 
-This contract performs an Ethereum transfer sent to a third address and stores a reference
+This contract performs an Ethereum transfer sent to a third address and stores a reference.
 
 #### [ERC20EscrowToPay](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/contracts/ERC20EscrowToPay.sol)
 
@@ -58,7 +58,7 @@ This contract allows users to lock funds in an escrow and perform payments in ER
 
 #### [BatchConversionPayments](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/contracts/BatchConversionPayments.sol)
 
-This contract makes multiple conversion payments with a payment references, in one transaction
+This contract makes multiple conversion payments with a payment references, in one transaction.
 
 #### [BatchNoConversionPayments](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/contracts/BatchNoConversionPayments.sol)
 
@@ -66,7 +66,7 @@ This contract makes multiple payments with payment references, in one transactio
 
 #### [BatchPayments](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/contracts/BatchPayments.sol)
 
-This contract makes multiple payments with references, in one transaction, without conversion.&#x20;
+This contract makes multiple payments with references, in one transaction, without conversion.
 
 #### [ERC20SwapToPay](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/contracts/ERC20SwapToPay.sol)
 

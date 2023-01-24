@@ -13,7 +13,7 @@ export interface ISignatureProvider {
 
 ### Example 1
 
-For example, your own package to sign need an ethereum address and return the signature as a hexadecimal string:
+For example, your own package to sign needs an ethereum address and return the signature as a hexadecimal string:
 
 ```typescript
 class mySignaturePackage {
@@ -41,7 +41,7 @@ import mySignaturePackage from 'mySignaturePackage';
  * Implementation of the signature provider for my wallet
  */
 export default class MySignatureProvider implements SignatureProviderTypes.ISignatureProvider {
-  /** list of supported signing method */
+  /** list of supported signing methods */
   public supportedMethods: SignatureTypes.METHOD[] = [SignatureTypes.METHOD.ECDSA];
   /** list of supported identity types */
   public supportedIdentityTypes: IdentityTypes.TYPE[] = [IdentityTypes.TYPE.ETHEREUM_ADDRESS];
@@ -50,7 +50,7 @@ export default class MySignatureProvider implements SignatureProviderTypes.ISign
    * Signs data
    *
    * @param string data the data to sign
-   * @returns IIdentity the identity to sign with if not given, the default signer will be used
+   * @returns IIdentity the identity to sign with. If not given, the default signer will be used
    *
    * @returns string the signature
    */
@@ -94,7 +94,7 @@ const requestNetwork = new RequestNetwork.RequestNetwork({
 
 \## Example 2
 
-For example, your own package to sign need an internal identifier and return the signature as a Buffer:
+For example, your own package to sign needs an internal identifier and return the signature as a Buffer:
 
 ```typescript
 class mySignaturePackage {
