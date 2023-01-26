@@ -28,7 +28,7 @@ A request with no payment network provided doesn't have a balance.
 
 ### Confirmed/Pending action
 
-Request relies on other blockchain technologies to ensure data immutability. Most blockchain doesn't offer transaction instant finality. This means that when performing an action on the request, this action can't directly be confirmed as effective.
+Request relies on other blockchain technologies to ensure data immutability. Most blockchains don't offer transaction instant finality. This means that when performing an action on the request, this action can't directly be confirmed as effective.
 
 As long as the action hasn't persisted and is not confirmed, the action is marked as "pending". The "pending" state helps have a fast response and a good user experience. Until the request is Confirmed, it should not be relied upon.
 
@@ -54,7 +54,7 @@ Payment detection is a method defined by the payment network to determine the cu
 
 A payment network is a predefined set of rules to agree on the balance of a request. The payment network is defined during the creation of the request.
 
-A payment network is generally related to one currency, but it's not always the case (the Declarative payment network is currency agnostic)
+A payment network is generally related to one currency, but it's not always the case (the Declarative payment network is currency agnostic).
 
 ### Request Data
 
@@ -86,7 +86,7 @@ Confirmation means that the network has verified the blockchain transaction. Thi
 
 ### Ether
 
-Ether is the native token of the Ethereum blockchain, which is used to pay for transaction fees, miner rewards, and other services on the network.
+Ether is the native token of the Ethereum blockchain, which is used to pay for transaction fees, block proposer rewards, and other services on the network.
 
 ### IPFS
 

@@ -12,7 +12,7 @@ import { getRequestPaymentValues } from '@requestnetwork/payment-processor/dist/
 import { ClientTypes } from '@requestnetwork/types';
 ```
 
-In this example, we will use the [Gnosis multisig](https://github.com/gnosis/MultiSigWallet/blob/master/contracts/MultiSigWallet.sol). here its partial abi:
+In this example, we will use the [Gnosis multisig](https://github.com/gnosis/MultiSigWallet/blob/master/contracts/MultiSigWallet.sol). Here is its partial abi:
 
 ```typescript
 const multisigAbi = [

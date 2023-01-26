@@ -32,7 +32,7 @@ The RequestHashStorage smart contract address can be found on [GitHub](https://g
  "mainnet": {
   "address": "0x24a66afda3666fb0202f439708ece45c8121a9bb"
 },
-"rinkeby": {
-  "address": "0x309a3a9898f9cafc26499243a980992156671e5e"
+"goerli": {
+  "address": "0x132D0c7309Ca3286a644668469D3b09dFb81f757"
 }
 ```

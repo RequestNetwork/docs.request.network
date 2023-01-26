@@ -28,7 +28,7 @@ The environment variables passed to the script are:
 
 * **MNEMONIC** should be the node wallet mnemonic seed.
 * **WEB3\_PROVIDER\_URL** should be the URL to your web3 provider.
-* **ETHEREUM\_NETWORK\_ID** should be either `1` for Mainnet or `4` for Rinkeby.
+* **ETHEREUM\_NETWORK\_ID** should be either `1` for Mainnet or `5` for Goerli.
 * **IPFS\_HOST** is the URL of your IPFS node. Here we use the Docker host URL.
 
 That's it! Now your Node should be running and syncing to the network. Give it some minutes to finish synchronizing and its API will be available on `http://localhost:3000`.
@@ -48,7 +48,7 @@ services:
     environment:
       IPFS_HOST: ipfs
       ETHEREUM_NETWORK_ID: 4
-      WEB3_PROVIDER_URL: https://rinkeby.infura.io/v3/<your API key>
+      WEB3_PROVIDER_URL: https://goerli.infura.io/v3/<your API key>
       MNEMONIC: <your Mnemonic>
     ports:
       - '3000:3000'

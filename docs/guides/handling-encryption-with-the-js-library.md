@@ -4,20 +4,19 @@
 Manipulating private keys must be done with care. Losing them can lead to a loss of data, privacy or non-repudiation safety!
 {% endhint %}
 
-A request can be encrypted in order to make its details private to selected stakeholders. In this guide, we won't explain how encryption is managed under the hood. We will mention encryption or decryption of requests with payers' and payee's keys, wherein the reality, we use an intermediate symmetric key. See more details on [github](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/transaction-manager/specs/encryption.md)
+A request can be encrypted in order to make its details private to selected stakeholders. In this guide, we won't explain how encryption is managed under the hood. We will mention encryption or decryption of requests with payers and payees keys. Although in practice, we will use an intermediate symmetric key. See more details on [github](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/transaction-manager/specs/encryption.md).
 
 The transaction layer manages the encryption, [see more details on the Request Protocol section](../introduction-to-the-request-protocol/transaction.md).
 
 To manipulate encrypted requests you need a Decryption Provider, e.g.:
 
 * Ethereum Private Key Decryption Provider (provided by Request for illustration), using the private keys directly. _This provider manipulates private keys clearly, which is not entirely secure. Please consider creating your own; see below._
-* A browser extension is under development.
 
-You can also create your decryption provider following the [specification](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/transaction-manager/specs/decryption-provider.md). Feel free to contact us for any help or any idea about it: **Join our Discord** [**here**](https://request.network/discord)
+You can also create your decryption provider following the [specification](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/transaction-manager/specs/decryption-provider.md). Feel free to contact us for any help or any idea about it: [**Join our Discord here**](https://request.network/discord)
 
 ### Create an encrypted request
 
-Ethereum Private Key Decryption Provider (see on [github](https://github.com/RequestNetwork/requestNetwork/tree/development/packages/epk-decryption))
+Ethereum Private Key Decryption Provider (see on [github](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/epk-decryption))
 
 ```typescript
 import EPKDecryptionProvider from '@requestnetwork/epk-decryption';
