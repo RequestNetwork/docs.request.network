@@ -37,7 +37,7 @@ const requestNetwork = new RequestNetwork({
 
 1. What node should you use?
 
-To follow this guide or test your integration, you should use `https://gateway-rinkeby.request.network`.
+To follow this guide or test your integration, you should use `https://goerli.gateway.request.network/`.
 
 For production, you have two options, compared in the integrations section:
 
