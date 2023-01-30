@@ -1,26 +1,26 @@
 # Transaction
 
-This layer converts actions into transactions to be sent to Data-Access. It also handles the encryption.
+The transaction layer is responsible for converting actions into a channel of transactions and vice versa. It also optionally encrypts and decrypts those transactions such that only stakeholders of the request can read them.
 
 [https://github.com/RequestNetwork/requestNetwork/tree/master/packages/transaction-manager](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/transaction-manager)
 
 #### Encryption
 
-The transaction layer can encrypt transactions for privacy purposes.
+Transactions can be stored in the clear, unencrypted, meaning that anyone can read the request. \
+\
+Transactions can also be encrypted, such that only stakeholders of the request can read them. Any number of stakeholders can be included in the creation of an encrypted request. Request uses an encryption scheme nearly identical to [HTTPS](https://www.freecodecamp.org/news/https-explained-with-carrier-pigeons-7029d2193351/). It uses a symmetric key (usually referred to as the "channel key") to encrypt and decrypt the transaction channel content, and asymmetric keys to encrypt and decrypt copies of the symmetric key.
 
-Having privacy can be important for the payee and the payer. In some instances, there could be other parties who would need to read the request. For this need, we implemented a solution where an indefinite number of parties can be added to be able to read the request. They are the stakeholders of the request.
+* A unique channel key that is shared with all the stakeholders
+* A set of public and private key pairs, each pair controlled by a single stakeholder
 
-To implement privacy where an indefinitely chosen set of stakeholders can read the request we adopted a system composed of two types of key:
+The channel key uses Advanced Encryption Standard (AES), a symmetric encryption technology; this means the same key is used to encrypt and decrypt.
 
-* A unique channel key that is shared to all the stakeholders
-* A set of private keys where the stakeholder privately holds each
+The public and private key pairs use Elliptic Curve Integrated Encryption Scheme (ECIES), an asymmetric encryption technology where the public key encrypts and the private key decrypts.
 
-The channel key uses Advanced Encryption Standard (AES), which is a technology for symmetric encryption; this means the key to encrypt and decrypt data is the same.
+Every transaction of the same request is encrypted with the same channel key. The encrypted transactions form the channel (hence the name channel key).&#x20;
 
-The private keys use Elliptic Curve Integrated Encryption Scheme (ECIES), a asymmetric encryption technology.
+The channel key is encrypted with each stakeholder's public key. This way, every stakeholder can decrypt the channel key and in turn, decrypt the transactions in the channel.
 
-When the transaction is received, it will be encrypted only once with the channel key. Every transaction of the same request is encrypted with the same channel key. The encrypted transactions form the channel (hence the name channel key). We made this choice because every request can have a different set of stakeholders (even if the payee and the payer are the same) therefore, we want every request to be encrypted with a different key.
-
-The channel key allows encrypted data to be stored only once. For every stakeholder to be able to read the request, the channel key is encrypted with each stakeholder's public key. These encrypted channel keys are publicly available inside the transaction data.
+This design using both symmetric and asymmetric encryption allows the transaction data _once_ and only the channel key needs to be duplicated, once for each stakeholder.
 
 See the details of encrypted request creation in [handling-encryption-with-the-js-library.md](../guides/handling-encryption-with-the-js-library.md "mention")

@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Get Started With Request](README.md)
-* [Introduction to the Request Protocol](introduction-to-the-request-protocol/README.md)
+* [Request Protocol](introduction-to-the-request-protocol/README.md)
   * [Request Logic](introduction-to-the-request-protocol/request-logic.md)
   * [Advanced Logic](introduction-to-the-request-protocol/advanced-logic.md)
   * [Transaction](introduction-to-the-request-protocol/transaction.md)
@@ -10,8 +10,8 @@
   * [Data flow](introduction-to-the-request-protocol/data-flow.md)
   * [Request IPFS network](introduction-to-the-request-protocol/request-ipfs-network.md)
 * [Setup Request Network](setup-request-network/README.md)
-  * [Request Network Client introduction](setup-request-network/request-network-client-introduction.md)
-  * [Introduction to Request Node hosting](setup-request-network/introduction-to-request-node-hosting.md)
+  * [Request Network Client](setup-request-network/request-network-client-introduction.md)
+  * [Request Node Hosting](setup-request-network/introduction-to-request-node-hosting.md)
   * [Running a node with Docker](setup-request-network/running-a-node-with-docker.md)
   * [Running from the code repository](setup-request-network/running-from-the-code-repository.md)
   * [Deploying a node in Kubernetes with Helm](setup-request-network/deploying-a-node-in-kubernetes-with-helm.md)

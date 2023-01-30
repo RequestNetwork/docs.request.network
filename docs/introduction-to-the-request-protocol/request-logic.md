@@ -20,7 +20,7 @@ Actions are the essential elements that compose a request. From this layer's poi
 * The payer accepts the request
 * The payer increases the expected amount of the request by 1 ETH (the expected amount of the request can only be increased by the payer and decreased by the payee)
 
-Given the list of these actions, we can interpret the state of the request `0xaaa`, it's a request that has been accepted by the payer where he will have to pay 2 ETH to the payee.
+Given the list of these actions, we can interpret the state of the request. The example above describes a request that has been accepted by the payer where he will have to pay 2 ETH to the payee.
 
 Note that the hash of the \
 &#x20;action determines the request Id. Therefore, this action doesn't specify the request Id since it doesn't exist yet. The update actions (`accept` and `increaseExpectedAmount`) specify the request Id in their data.
@@ -32,15 +32,15 @@ There are two kinds of action:
 
 #### Signature
 
-In addition to providing the structure to form an action composing a request, the logic layer is also responsible for signing the action.
+In addition to providing the structure to form an action composing a request, the request logic layer is also responsible for signing the action.
 
 To abstract the signing process from the layer (and eventually be able to use it in other packages), the signing process is done through external packages named signature providers.
 
 The protocol repository currently contains two signature provider packages:
 
-* epk-signature ([https://github.com/RequestNetwork/requestNetwork/tree/master/packages/epk-signature](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/epk-signature))
-* web3-signature ([https://github.com/RequestNetwork/requestNetwork/tree/master/packages/web3-signature](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/web3-signature))
+* [epk-signature](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/epk-signature)
+* [web3-signature](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/web3-signature)
 
-Both packages use the Elliptic Curve Digital Signature Algorithm (ECDSA) used in Ethereum. web3-signature will connect to Metamask to ask users to sign request while for epk-signature, the private keys are clear and managed manually.
+Both packages use the Elliptic Curve Digital Signature Algorithm (ECDSA) used in Ethereum. web3-signature will connect to Metamask to ask users to sign requests.  epk-signature uses private keys that are stored in the clear and managed manually.
 
-`web3-signature` provider should be used if you want to create a fully-decentralized solution where the users manage their own private key. `epk-signature` provider is adapted when you want to manage the private key for the users and have good flexibility to do it; it's never a good idea to let users handle plain private keys.
+The `web3-signature` provider should be used to create a fully-decentralized solution where the users manage their own private keys. The `epk-signature` provider is used to manage the private keys on behalf of the users. It's never a good idea to let users handle plain private keys.

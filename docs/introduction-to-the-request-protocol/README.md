@@ -1,8 +1,8 @@
-# Introduction to the Request Protocol
+# Request Protocol
 
-Request is an open and unique database for payment requests including invoices or individual payment requests. It aims to be universal and power products used by different companies, from startups to large organizations, from the private to the public sector.
+Request is an open database for any type of payment request - from business invoices to reimbursements between friends. It aims to support products at any scale from startups to large organizations, from the private to the public sector.
 
-The Request Protocol is the core of Request. It's the bottom layer that defines and handles the data of a request and persists them to a distributed ledger to make Request open, trustless, secure, and resilient.
+The Request Protocol is the core of Request. It's the bottom layer that defines and handles the data of a request and persists it to a distributed ledger to make Request open, trustless, secure, and resilient.
 
 This section is aimed at helping you understand how the protocol is structured, how it works and meets its requirements. It is particularly useful if you want to propose changes or implement them yourself.
 
@@ -10,7 +10,7 @@ This section is aimed at helping you understand how the protocol is structured, 
 
 The Request Protocol has one fundamental purpose: **to persist, on a distributed ledger, data representing requests and to be able to retrieve these data efficiently**.
 
-To organize these different purposes, the Request Protocol follows the layered architecture pattern. Each layer is responsible for a specific task and a specific level of abstraction. This layered architecture also simplifies the understandability of the code; we believe it's an important matter for an open-source project.
+To achieve this, the Request Protocol follows the layered architecture pattern. Each layer is responsible for a specific task and a specific level of abstraction. This layered architecture is highly extensible and hopefully easy to understand.
 
 The protocol is composed of four layers:
 
@@ -21,7 +21,7 @@ The protocol is composed of four layers:
 
 &#x20;_Layers of the Request Protocol, each layer is described in the next section._
 
-This layered architecture allows packages reusability and makes the protocol more upgradeable. For example, our current implementation uses Ethereum and IPFS. Still, suppose Storj turns out to be a better solution for storing data in a decentralized database than IPFS. In that case, we can create a new storage layer that uses Storj over IPFS and make the data-access layer using this new package instead.
+This layered architecture allows package reusability and makes the protocol more upgradeable. For example, our current implementation uses Ethereum and IPFS. Still, suppose Arweave turns out to be a better solution for storing data in a decentralized database than IPFS. In that case, we can create a new storage layer that uses Arweave and make the data-access layer using this new package instead.
 
 ### Interface vs implementation
 
