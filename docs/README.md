@@ -1,15 +1,15 @@
-# Get Started With Request
+---
+description: >-
+  Request Network is creating a transparent, immutable ecosystem of financial
+  products.
+---
 
-Request enables a **global cooperative financial system** where people and organizations are in full control over their financial data and choices.
+# What is Request Network?
 
-Users share payment requests securely thanks to a common, immutable storage medium that keeps track of changes. Financial experiences become seamless with Request.
+<figure><img src=".gitbook/assets/LinkedIn_Personal_Header.jpg" alt=""><figcaption></figcaption></figure>
 
-### Integration options
+Blockchain transactions omit information necessary for accounting, compliance, and other financial services. This is a challenge for businesses that want to use blockchain technology.
 
-Different integration schemas are possible with Request. This tutorial aims to discover the features of the network and, at the same time to guide you through different integration options.
+Request Protocol stores the information needed by businesses to run their finances on-chain while maintaining compliance and privacy. Proving their financial activity on-chain unlocks a unique opportunity for businesses to acquire income-backed services like loans, insurance, or fundraising. Moreover, it paves the way for automatic auditing, triple-entry accounting, and automatic tax reporting.
 
-Within this guide, we naturally guide you through all options in order of complexity. For a detailed overview, head to the integration options
-
-{% hint style="info" %}
-If you are already familiar with the basic concepts of Request, you can jump to the [Request Network Client](setup-request-network/request-network-client-introduction.md) or [Request Node Hosting](setup-request-network/introduction-to-request-node-hosting.md).
-{% endhint %}
+Users share payment requests securely via a common, immutable storage medium. It enables a global cooperative financial system where people and organizations are in full control over their financial data and choices.

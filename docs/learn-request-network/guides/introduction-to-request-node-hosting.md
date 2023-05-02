@@ -1,4 +1,4 @@
-# Introduction to Request Node hosting
+# Request Node Hosting
 
 Now you should be comfortable with features of the Request network.
 
@@ -22,9 +22,9 @@ You may also want to host your Node in a server. Hosting your Node is the most d
 
 There are currently three supported ways to run a Request Node:
 
-* Run from [**Docker**](broken-reference). The easiest way to run the Request Node.
-* Run the [**code**](broken-reference) from the git repository. Especially useful if you are making changes to the protocol layers.
-* Use our kubernetes [**helm**](broken-reference) charts. The best solution if you want to host your Node on a Kubernetes cluster.
+* Run from [**Docker**](../../setup-request-network/broken-reference/). The easiest way to run the Request Node.
+* Run the [**code**](../../setup-request-network/broken-reference/) from the git repository. Especially useful if you are making changes to the protocol layers.
+* Use our kubernetes [**helm**](../../setup-request-network/broken-reference/) charts. The best solution if you want to host your Node on a Kubernetes cluster.
 
 On the following pages, you can find detailed steps to run each one.
 

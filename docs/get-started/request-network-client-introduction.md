@@ -1,10 +1,10 @@
-# Request Network Client introduction
+# Installation
 
 Collecting payments on your project consists of using the Request Client to create a request, detect the payment, and provide status updates of the Request.
 
 This package allows you to interact with the Request blockchain through the Request nodes. This client-side library uses Request nodes as servers connected in HTTP.
 
-You can view the documentation about the [Request Node here](broken-reference).
+You can view the documentation about the [Request Node here](../setup-request-network/broken-reference/).
 
 It ships both as a commonjs and a UMD module. This means you can use it in node application and in web pages. Request uses this library, to track and handle all the states of the payment until it’s completed.
 
@@ -41,5 +41,5 @@ To follow this guide or test your integration, you should use `https://goerli.ga
 
 For production, you have two options, compared in the integrations section:
 
-* If you want to host your Request Node, [have a look at the next section](broken-reference)
+* If you want to host your Request Node, [have a look at the next section](../setup-request-network/broken-reference/)
 * If you prefer to use a node as a service, Request hosts one for you at this location: `https://gateway.request.network`. For the moment, it comes free of charges and fees. If you reach the limit or want to know more, [get in touch with us!](https://request.network/discord)

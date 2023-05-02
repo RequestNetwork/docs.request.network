@@ -50,7 +50,7 @@ The identity defines a stakeholder of a request that allows signing or encryptin
 
 Payment detection is a method defined by the payment network to determine the current balance of a request.
 
-### Payment Network
+### Payment Network (aka Payment Extension)
 
 A payment network is a predefined set of rules to agree on the balance of a request. The payment network is defined during the creation of the request.
 

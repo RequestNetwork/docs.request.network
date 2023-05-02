@@ -1,8 +1,8 @@
 # Use cases
 
 **What can you do with Request Network?**\
-****\
-****Request Network is an open-source protocol that revolves around payment requests. Developers can contribute and create new use cases using invoices on the network.
+\
+Request Network is an open-source protocol that revolves around payment requests. Developers can contribute and create new use cases using invoices on the network.
 
 
 
