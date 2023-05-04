@@ -1,5 +1,19 @@
 # Retrieve a request
 
+### Request Data
+
+```typescript
+/** Interface request data */
+export interface IRequestData extends Omit<RequestLogic.IRequest, 'currency'> {
+  currency: string;
+  meta: RequestLogic.IReturnMeta | null;
+  balance: Payment.IBalanceWithEvents<any> | null;
+  contentData: any;
+  currencyInfo: RequestLogic.ICurrency;
+  pending: RequestLogic.IPendingRequest | null;
+}
+```
+
 ### Retrieve a request by ID
 
 #### fromRequestId Function Signature
@@ -28,6 +42,7 @@ import { RequestNetwork, Types } from '@requestnetwork/request-client.js';
 
 const requestId = '01c9190b6d015b3a0b2bbd0e492b9474b0734ca19a16f2fda8f7adec10d0fa3e7a'
 const request = await requestNetwork.fromRequestId(requestId);
+const requestData = await request.getData();
 ```
 
 ### Retrieve requests for a given Ethereum address
