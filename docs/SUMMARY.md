@@ -12,7 +12,8 @@
 ## Learn Request Network
 
 * [Guides](learn-request-network/guides/README.md)
-  * [Creating an ERC20 request](learn-request-network/guides/creating-an-erc20-request.md)
+  * [Create an ERC20 request](learn-request-network/guides/creating-an-erc20-request.md)
+  * [Retrieve a request](learn-request-network/guides/retrieve-a-request.md)
   * [Pay a request](learn-request-network/guides/pay-a-request.md)
   * [How payment networks work](learn-request-network/guides/how-payment-networks-work.md)
   * [Pay through a proxy-contract with a multisig](learn-request-network/guides/pay-through-a-proxy-contract-with-a-multisig.md)

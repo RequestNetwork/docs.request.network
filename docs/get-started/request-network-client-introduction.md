@@ -1,45 +1,61 @@
 # Installation
 
-Collecting payments on your project consists of using the Request Client to create a request, detect the payment, and provide status updates of the Request.
+Access to Request Network requires a combination of the Request Client library and Request Node service. To help get started quickly, the Request Network Foundation runs several Request Node "Gateways" so builders need only install the Request Client library.&#x20;
 
-This package allows you to interact with the Request blockchain through the Request nodes. This client-side library uses Request nodes as servers connected in HTTP.
-
-You can view the documentation about the [Request Node here](../setup-request-network/broken-reference/).
-
-It ships both as a commonjs and a UMD module. This means you can use it in node application and in web pages. Request uses this library, to track and handle all the states of the payment until it’s completed.
-
-1. Install the Request Client
+### Install the Request Client
 
 ```shell
-# install the request js library
-npm install @requestnetwork/request-client.js
-# install a request signature provider (e.g: web3-signature to use Metamask)
-npm install @requestnetwork/web3-signature
+npm install @requestnetwork/request-client.js@0.40.1-next.1892
 ```
 
-1. Import the client
+### Install the \`web3-signature\` package
 
-```jsx
-import { RequestNetwork } from '@requestnetwork/request-client.js';
+The Request Client library uses modular design and dependency injection to inject custom functionality into any layer of the Request software stack. A common example is the `web3-signature` package that allows signing messages using a web3 wallet like Metamask.
 
+```bash
+npm install @requestnetwork/web3-signature@0.4.37-next.1892
+```
+
+### Import the request-client and web3-signature packages
+
+The Request Client library is available as a UMD or CommonJS module and can be used in both node applications and web pages.
+
+{% tabs %}
+{% tab title="UMD" %}
+<pre class="language-tsx"><code class="lang-tsx"><strong>import { RequestNetwork } from '@requestnetwork/request-client.js';
+</strong><strong>import { Web3SignatureProvider } from '@requestnetwork/web3-signature';
+</strong></code></pre>
+{% endtab %}
+
+{% tab title="CommonJS" %}
+```tsx
 const RequestNetwork = require('@requestnetwork/request-client.js');
+const Web3SignatureProvider = require('@requestnetwork/web3-signature');
 ```
+{% endtab %}
+{% endtabs %}
 
-1. Configure the node
+### Configure the client
 
-```jsx
-const requestNetwork = new RequestNetwork({
-  // The Goerli Gateway is the node hosted by Request
-  // You can use it on the Goerli network without limit, for testing and discovery of the library
-  nodeConnectionConfig: { baseURL: 'https://goerli.gateway.request.network/' },
+The following command creates a new Request Client instance and configures it to:
+
+* Connect to the Gnosis Request Node Gateway maintained by the Request Network Foundation.
+* Use the web3-signature package to sign requests using a web3 wallet like Metamask.
+
+```tsx
+const signatureProvider = new Web3SignatureProvider(window.ethereum);
+const requestClient = new RequestNetwork({
+  nodeConnectionConfig: { baseURL: 'https://xdai.gateway.request.network/' },
+  signatureProvider,
 });
 ```
 
-1. What node should you use?
+{% hint style="info" %}
+Requests are _created_ using Gnosis Chain, but this doesn't mean _payment_ must occur on Gnosis Chain. Payment can occur on any of the supported chains including 20+ EVM-compatible chains or NEAR.
+{% endhint %}
 
-To follow this guide or test your integration, you should use `https://goerli.gateway.request.network/`.
+#### Alternative Configurations
 
-For production, you have two options, compared in the integrations section:
-
-* If you want to host your Request Node, [have a look at the next section](../setup-request-network/broken-reference/)
-* If you prefer to use a node as a service, Request hosts one for you at this location: `https://gateway.request.network`. For the moment, it comes free of charges and fees. If you reach the limit or want to know more, [get in touch with us!](https://request.network/discord)
+* To create testnet requests, connect to the Goerli Request Node Gateway: `https://goerli.gateway.request.network`
+* To sign requests using an Ethereum private key outside of a wallet, use the `epk-signature` package.
+* To create mock storage requests, where the request is stored in memory on the local machine and cleared as soon as the script is finished running, set the `useMockStorage` argument to `true` when instantiating the `RequestNetwork`object.
