@@ -43,6 +43,16 @@ Altogether it looks like this:
 CodeSandBox showing how to retrieve a user's requests and display them in a table.
 {% endembed %}
 
+<details>
+
+<summary>CodeSandBox Preview</summary>
+
+The embedded CodeSandBox above is not broken, but it does take a long time to transpile the first time it is viewed. Conservatively, it may take 30 minutes. Here's a preview of what it will look like:
+
+![](../.gitbook/assets/CodeSandBox\_Preview\_Retrieve\_a\_users\_requests.png)
+
+</details>
+
 Other operations coming soon! In the meantime check out the following guides:
 
 <table data-card-size="large" data-column-title-hidden data-view="cards"><thead><tr><th></th><th></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Create a request</td><td></td><td><a href="../learn-request-network/guides/creating-an-erc20-request.md">creating-an-erc20-request.md</a></td><td></td></tr><tr><td></td><td>Retrieve a request</td><td></td><td><a href="../learn-request-network/guides/retrieve-a-request.md">retrieve-a-request.md</a></td><td></td></tr><tr><td></td><td>Pay a request</td><td></td><td><a href="../learn-request-network/guides/pay-a-request.md">pay-a-request.md</a></td><td></td></tr><tr><td></td><td>Detect a payment</td><td></td><td><a href="../learn-request-network/guides/detect-a-payment.md">detect-a-payment.md</a></td><td></td></tr></tbody></table>
