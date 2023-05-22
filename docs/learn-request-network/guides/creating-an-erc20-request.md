@@ -73,7 +73,7 @@ To create a request using erc20 proxy contract payment network, we need to provi
 
 ```typescript
 const paymentNetwork: RequestNetwork.Types.Payment.IPaymentNetworkCreateParameters = {
-  id: RequestNetwork.Types.Payment.PAYMENT_NETWORK_ID.ERC20_PROXY_CONTRACT,
+  id: RequestNetwork.Types.Extension.PAYMENT_NETWORK_ID.ERC20_PROXY_CONTRACT,
   parameters: {
     paymentAddress: '0x92FC764853A9A0287b7587E59aDa47165b3B2675',
   },
@@ -96,7 +96,7 @@ To create a request using the erc20 address-based payment network, we need to pr
 
 ```typescript
 const addressBasedPaymentNetwork: RequestNetwork.Types.Payment.IPaymentNetworkCreateParameters = {
-  id: RequestNetwork.Types.Payment.PAYMENT_NETWORK_ID.ERC20_ADDRESS_BASED,
+  id: RequestNetwork.Types.Extension.PAYMENT_NETWORK_ID.ERC20_ADDRESS_BASED,
   parameters: {
     paymentAddress: '0x92FC764853A9A0287b7587E59aDa47165b3B2675',
   },
