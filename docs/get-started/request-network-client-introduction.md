@@ -5,7 +5,7 @@ Access to Request Network requires a combination of the Request Client library a
 ### Install the Request Client
 
 ```shell
-npm install @requestnetwork/request-client.js@0.40.1-next.1892
+npm install @requestnetwork/request-client.js@next
 ```
 
 ### Install the \`web3-signature\` package
@@ -13,7 +13,7 @@ npm install @requestnetwork/request-client.js@0.40.1-next.1892
 The Request Client library uses modular design and dependency injection to inject custom functionality into any layer of the Request software stack. A common example is the `web3-signature` package that allows signing messages using a web3 wallet like Metamask.
 
 ```bash
-npm install @requestnetwork/web3-signature@0.4.37-next.1892
+npm install @requestnetwork/web3-signature@next
 ```
 
 ### Import the request-client and web3-signature packages
