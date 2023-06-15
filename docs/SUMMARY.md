@@ -36,15 +36,6 @@
   * [Data flow](learn-request-network/introduction-to-the-request-protocol/data-flow.md)
   * [Request IPFS network](learn-request-network/introduction-to-the-request-protocol/request-ipfs-network.md)
 * [Glossary](learn-request-network/glossary.md)
-* [Use cases](learn-request-network/use-cases/README.md)
-  * [Manage Invoices](learn-request-network/use-cases/manage-invoices.md)
-  * [Recurring Payments](learn-request-network/use-cases/recurring-payments.md)
-  * [Invoice Factoring](learn-request-network/use-cases/invoice-factoring.md)
-  * [Credit Scoring](learn-request-network/use-cases/credit-scoring.md)
-  * [Bank Guarantee](learn-request-network/use-cases/bank-guarantee.md)
-  * [Hedge Receivables](learn-request-network/use-cases/hedge-receivables.md)
-  * [RequestNFT as a collateral](learn-request-network/use-cases/requestnft-as-a-collateral.md)
-  * [Proof of payment (Gaming, E-Commerce, etc.)](learn-request-network/use-cases/proof-of-payment-gaming-e-commerce-etc..md)
 
 ***
 
