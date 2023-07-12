@@ -52,19 +52,16 @@ The easiest way to run a local Ethereum network is by using our pre-configured g
 docker run --name ganache -d -p 8545:8545 requestnetwork/ganache
 ```
 
-#### Local network using ganache-cli
+#### Local network using hardhat
 
-You can also run ganache-cli to set up a local network.
-
-Install and run [ganache-cli](https://github.com/trufflesuite/ganache-cli) using:
+You can also run hardhat to set up a local network.
 
 ```bash
-yarn global add ganache-cli
 cd packages/smart-contracts
-yarn ganache
+yarn hardhat
 ```
 
-Now you have ganache-cli running on your second console. We're still missing all the important smart-contracts that Request uses. On a new console, run:
+Now you have hardhat running on your second console. We're still missing all the important smart-contracts that Request uses. On a new console, run:
 
 ```bash
 cd packages/smart-contracts
