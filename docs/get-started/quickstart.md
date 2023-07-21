@@ -23,17 +23,17 @@ First, construct a `RequestNetwork` object and connect it to the Goerli Request 
 })
 </code></pre>
 
-Then, call `fromIdentity()` to get an array of `Request` objects. This function retrieves the payment requests stored in IPFS and queries on-chain events to determine the balance paid so far.
+Then, call `fromIdentity()` to get an array of `Request` objects. This function retrieves the `Request`s stored in IPFS and queries on-chain events to determine the balances paid so far.
 
 ```typescript
-const address = "0x7eB023BFbAeE228de6DC5B92D0BeEB1eDb1Fd567";
+const identity = "0x7eB023BFbAeE228de6DC5B92D0BeEB1eDb1Fd567";
 const requests = await requestClient.fromIdentity({
   type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
-  value: address
+  value: identity
 })
 ```
 
-Finally, call `getData()` on each `Request`.
+Finally, call `getData()` on each `Request` to get the request contents.
 
 ```typescript
 const requestDatas = requests.map((request) => request.getData())
@@ -53,6 +53,29 @@ To create an unencrypted ERC-20 request, first construct a `RequestNetwork` obje
 * Pass in a `Web3SignatureProvider` instance connected to the web3 provider
 
 {% tabs %}
+{% tab title="ethers Provider" %}
+```typescript
+import { RequestNetwork } from "@requestnetwork/request-client.js";
+import { Web3SignatureProvider } from "@requestnetwork/web3-signature";
+import { BrowserProvider, JsonRpcProvider, parseUnits} from "ethers";
+
+let provider;
+if (RPC_URL === undefined) {
+  provider = new ethers.BrowserProvider(window.ethereum) // Metamask
+} else {
+  provider = new ethers.JsonRpcProvider(RPC_URL) // Alchemy, Infura, etc.
+}
+
+const web3SignatureProvider = Web3SignatureProvider(provider);
+const requestClient = new RequestNetwork({
+  nodeConnectionConfig: { 
+    baseURL: "https://goerli.gateway.request.network/",
+  },
+  web3SignatureProvider,
+});
+```
+{% endtab %}
+
 {% tab title="wagmi/viem WalletClient" %}
 ```typescript
 import { RequestNetwork } from "@requestnetwork/request-client.js";
@@ -62,16 +85,12 @@ import { useWalletClient } from "wagmi";
 const { data: walletClient } = useWalletClient();
 const web3SignatureProvider = Web3SignatureProvider(walletClient);
 const requestClient = new RequestNetwork({
-    nodeConnectionConfig: { 
-        baseURL: "https://goerli.gateway.request.network/",
-    },
-    web3SignatureProvider,
+  nodeConnectionConfig: { 
+    baseURL: "https://goerli.gateway.request.network/",
+  },
+  web3SignatureProvider,
 });
 ```
-{% endtab %}
-
-{% tab title="ethers Signer" %}
-Coming Soon..
 {% endtab %}
 {% endtabs %}
 
@@ -80,55 +99,70 @@ Prepare the Request creation parameters:
 ```typescript
 import { Types, Utils } from "@requestnetwork/request-client.js";
 
-const payeeAddress = '0x7eB023BFbAeE228de6DC5B92D0BeEB1eDb1Fd567';
-const payerAddress = '0x519145B771a6e450461af89980e5C17Ff6Fd8A92';
-const zeroAddress = '0x0000000000000000000000000000000000000000';
+const payeeIdentity = '0x7eB023BFbAeE228de6DC5B92D0BeEB1eDb1Fd567';
+const payerIdentity = '0x519145B771a6e450461af89980e5C17Ff6Fd8A92';
+const paymentRecipient = payeeIdentity;
+const feeRecipient = '0x0000000000000000000000000000000000000000';
 
 const requestCreateParameters: Types.ICreateRequestParameters = {
   requestInfo: {
+    
+    // The currency in which the request is denominated
     currency: {
       type: Types.RequestLogic.CURRENCY.ERC20,
       value: '0xBA62BCfcAaFc6622853cca2BE6Ac7d845BC0f2Dc',
       network: 'goerli',
     },
+    
+    // The expected amount in parsed units, respecting `decimals`
     expectedAmount: 1234000000000000000000,
+    
+    // The payee identity. Not necessarily the same as the payment recipient.
     payee: {
       type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
-      value: payeeAddress,
+      value: payeeIdentity,
     },
+    
+    // The payer identity. If omitted, any identity can pay the request.
     payer = {
       type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
-      value: payerAddress,
+      value: payerIdentity,
     };
+    // The request creation timestamp.
     timestamp: Utils.getCurrentTimestampInSecond(),
   },
+  
+  // The paymentNetwork is the method of payment and related details.
   paymentNetwork: {
     id: Types.Extension.PAYMENT_NETWORK_ID.ERC20_FEE_PROXY_CONTRACT,
     parameters: {
       paymentNetworkName: 'goerli',
-      paymentAddress: payeeAddress,
-      feeAddress: zeroAddress,  
+      paymentAddress: payeeIdentity,
+      feeAddress: feeRecipient,  
       feeAmount: '0',
     },
   },
+  
+  // The contentData can contain anything.
+  // Consider using rnf_invoice format from @requestnetwork/data-format
   contentData: {
-    // Tip: Consider using rnf_invoice v0.0.3 format from @requestnetwork/data-format
     reason: '🍕',
     dueDate: '2023.06.16',
   },
+  
+  // The identity that signs the request, either payee or payer identity.
   signer: {
     type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
-    value: payeeAddress,
+    value: payeeIdentity,
   },
 };
 ```
 
-Then, call createRequest() to create the request and waitForConfirmation() to wait until the request is persisted in IPFS and the CID hash is stored on-chain.
+Then, call `createRequest()` to create the request and `waitForConfirmation()` to wait until the request is persisted in IPFS and the CID hash is stored on-chain.
 
 ```typescript
 const request = await requestClient.createRequest(requestCreateParameters);
-const confirmedRequest = await request.waitForConfirmation();
-const requestData = request.getData();
+const confirmedRequestData = await request.waitForConfirmation();
 ```
 
 Altogether it looks like this:
@@ -141,4 +175,4 @@ Altogether it looks like this:
 
 Other operation quickstarts coming soon! In the meantime check out the following guides:
 
-<table data-card-size="large" data-column-title-hidden data-view="cards"><thead><tr><th></th><th></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Create a request</td><td></td><td><a href="../learn-request-network/guides/creating-an-erc20-request.md">creating-an-erc20-request.md</a></td><td></td></tr><tr><td></td><td>Retrieve a request</td><td></td><td><a href="../learn-request-network/guides/retrieve-a-request.md">retrieve-a-request.md</a></td><td></td></tr><tr><td></td><td>Pay a request</td><td></td><td><a href="../learn-request-network/guides/pay-a-request.md">pay-a-request.md</a></td><td></td></tr><tr><td></td><td>Detect a payment</td><td></td><td><a href="../learn-request-network/guides/detect-a-payment.md">detect-a-payment.md</a></td><td></td></tr></tbody></table>
+<table data-card-size="large" data-column-title-hidden data-view="cards"><thead><tr><th></th><th></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Retrieve a request</td><td></td><td><a href="../learn-request-network/guides/retrieve-a-request.md">retrieve-a-request.md</a></td><td></td></tr><tr><td></td><td>Create a request</td><td></td><td><a href="../learn-request-network/guides/creating-an-erc20-request.md">creating-an-erc20-request.md</a></td><td></td></tr><tr><td></td><td>Pay a request</td><td></td><td><a href="../learn-request-network/guides/pay-a-request.md">pay-a-request.md</a></td><td></td></tr><tr><td></td><td>Detect a payment</td><td></td><td><a href="../learn-request-network/guides/detect-a-payment.md">detect-a-payment.md</a></td><td></td></tr></tbody></table>
