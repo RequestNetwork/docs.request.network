@@ -18,7 +18,11 @@ Users share payment requests securely via a standard, immutable storage medium. 
 
 Below, you can see a map of the builders we imagine that renewed transparent financial system to have, all using Request Protocol as a foundation for their users to have the privacy, security and data ownership they deserve.&#x20;
 
+<div data-full-width="true">
+
 <figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption><p>Request Network Builders Map</p></figcaption></figure>
+
+</div>
 
 * **Payment applications**: wallets and payment modules benefit from the infrastructure provided, including payment requests and invoice creation, which leads to secure, fast, and easy transfers. The builders offer the protocol many transactions and new invoice data. They also provide users with fast, safe, and user-friendly payments that automatically create invoices that can be managed in builders dealing with invoicing applications.
 * **Invoicing applications**: invoice, billing, and expenses apps benefit from the infrastructure provided, including payment requests and invoice creation, and the ecosystem that provides payment systems that can easily integrate with their platforms. They can offer extra features to their users, provide integrations with automatic audits and tax reports, and integrate with accounting apps in the protocol. These builders provide the protocol with recurring invoices data, easy connection to risk assessment and financial services, and easy entrance to lenders, insurance, and other risk-associated services. They also provide users with user-friendly applications to create, pay, and manage invoices and related services.

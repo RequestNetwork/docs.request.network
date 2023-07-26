@@ -11,6 +11,28 @@ You will learn:
 * How to detect a payment
 {% endhint %}
 
+## Typical Lifecycle of a Request
+
+Note: This is for a "Reference-based" Request, not "Address-based" or "Declarative" requests.
+
+* Create a request
+  * App specifies the payee, payer, currency, and amount (and some other stuff).
+  * Store request contents to IPFS.
+  * Store IPFS Content-addressable ID (CID) on Gnosis chain.
+* Pay a request
+  * Derive paymentReference from the request contents.
+  * Call the payment network smart contract, passing in token address, to address, amount, and paymentReference.
+  * Event is emitted containing token address, to address, amount, and paymentReference.
+* Detect payment
+  * Event is indexed by a Subgraph.
+  * App queries request content from IPFS and payment events from Subgraph.
+
+<div data-full-width="true">
+
+<figure><img src="../.gitbook/assets/Lifecycle of a Request.png" alt=""><figcaption><p>Lifecycle of a Request</p></figcaption></figure>
+
+</div>
+
 ## Retrieve a user's requests
 
 First, construct a `RequestNetwork` object and connect it to the Goerli Request Node Gateway:
