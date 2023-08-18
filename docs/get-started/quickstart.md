@@ -74,8 +74,8 @@ const requestData = request.getData()
 
 Altogether it looks like this:
 
-{% embed url="https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?embed=1" %}
-[https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?embed=1](https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?embed=1)
+{% embed url="https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?file=/app/page.tsx:10,1" fullWidth="true" %}
+[https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?file=/app/page.tsx:10,1](https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?file=/app/page.tsx:10,1)
 {% endembed %}
 
 ## Create a request
@@ -210,8 +210,8 @@ const confirmedRequestData = await request.waitForConfirmation();
 
 Altogether it looks like this:
 
-{% embed url="https://codesandbox.io/p/sandbox/create-a-request-shffng?embed=1" %}
-[https://codesandbox.io/p/sandbox/create-a-request-shffng?embed=1](https://codesandbox.io/p/sandbox/create-a-request-shffng?embed=1)
+{% embed url="https://codesandbox.io/p/sandbox/create-a-request-shffng?file=/app/page.tsx:43,1" fullWidth="true" %}
+[https://codesandbox.io/p/sandbox/create-a-request-shffng?file=/app/page.tsx:43,1](https://codesandbox.io/p/sandbox/create-a-request-shffng?file=/app/page.tsx:43,1)
 {% endembed %}
 
 ## Pay a request
@@ -380,6 +380,8 @@ while (requestData.balance?.balance == previousBalance) {
 }
 ```
 
-Other operation quickstarts coming soon! In the meantime check out the following guides:
+{% embed url="https://codesandbox.io/p/sandbox/pay-a-request-dn7kcf?file=/app/page.tsx:71,1" fullWidth="true" %}
+[https://codesandbox.io/p/sandbox/pay-a-request-dn7kcf?file=/app/page.tsx:71,1](https://codesandbox.io/p/sandbox/pay-a-request-dn7kcf?file=/app/page.tsx:71,1)
+{% endembed %}
 
-<table data-card-size="large" data-column-title-hidden data-view="cards"><thead><tr><th></th><th></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Retrieve a request</td><td></td><td><a href="../learn-request-network/guides/retrieve-a-request.md">retrieve-a-request.md</a></td><td></td></tr><tr><td></td><td>Create a request</td><td></td><td><a href="../learn-request-network/guides/creating-an-erc20-request.md">creating-an-erc20-request.md</a></td><td></td></tr><tr><td></td><td>Pay a request</td><td></td><td><a href="../learn-request-network/guides/pay-a-request.md">pay-a-request.md</a></td><td></td></tr><tr><td></td><td>Detect a payment</td><td></td><td><a href="../learn-request-network/guides/detect-a-payment.md">detect-a-payment.md</a></td><td></td></tr></tbody></table>
+{% embed url="https://www.loom.com/share/1839cf3e79784dc4a6e641903b4f10d2?sid=8caf4cdb-04fe-4753-ab99-b97926c36f20" %}
