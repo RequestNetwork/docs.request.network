@@ -65,8 +65,8 @@ const requestDatas = requests.map((request) => request.getData())
 
 {% tab title="fromRequestId()" %}
 <pre class="language-typescript"><code class="lang-typescript"><strong>const request = await requestClient.fromRequestId(
-</strong>    '019830e9ec0439e53ec41fc627fd1d0293ec4bc61c2a647673ec5aaaa0e6338855'
-)
+</strong><strong>  '019830e9ec0439e53ec41fc627fd1d0293ec4bc61c2a647673ec5aaaa0e6338855'
+</strong>)
 const requestData = request.getData()
 </code></pre>
 {% endtab %}
@@ -231,7 +231,7 @@ Then, retrieve the request and get the request data. Take note of the current re
 
 ```typescript
 const request = await requestClient.fromRequestId(
-    '019830e9ec0439e53ec41fc627fd1d0293ec4bc61c2a647673ec5aaaa0e6338855'
+  '019830e9ec0439e53ec41fc627fd1d0293ec4bc61c2a647673ec5aaaa0e6338855'
 )
 const requestData = request.getData()
 const previousBalance = requestData.balance?.balance
