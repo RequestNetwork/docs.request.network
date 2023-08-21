@@ -170,7 +170,8 @@ const requestCreateParameters: Types.ICreateRequestParameters = {
     payer = {
       type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
       value: payerIdentity,
-    };
+    },
+    
     // The request creation timestamp.
     timestamp: Utils.getCurrentTimestampInSecond(),
   },
@@ -379,6 +380,8 @@ while (requestData.balance?.balance == previousBalance) {
   requestData = request.refresh()
 }
 ```
+
+Altogether it looks like this:
 
 {% embed url="https://codesandbox.io/p/sandbox/pay-a-request-dn7kcf?file=/app/page.tsx:71,1" fullWidth="true" %}
 [https://codesandbox.io/p/sandbox/pay-a-request-dn7kcf?file=/app/page.tsx:71,1](https://codesandbox.io/p/sandbox/pay-a-request-dn7kcf?file=/app/page.tsx:71,1)
