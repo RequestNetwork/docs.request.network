@@ -167,7 +167,7 @@ const requestCreateParameters: Types.ICreateRequestParameters = {
     },
     
     // The payer identity. If omitted, any identity can pay the request.
-    payer = {
+    payer: {
       type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
       value: payerIdentity,
     },
