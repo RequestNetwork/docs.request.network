@@ -158,7 +158,7 @@ const requestCreateParameters: Types.ICreateRequestParameters = {
     
     // The expected amount in parsed units, respecting `decimals`
     // Consider using `parseUnits()` from ethers or viem
-    expectedAmount: 1234000000000000000000,
+    expectedAmount: 1234000000000000000000n,
     
     // The payee identity. Not necessarily the same as the payment recipient.
     payee: {
