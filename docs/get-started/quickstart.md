@@ -1,6 +1,6 @@
 # Quickstart
 
-This page will introduce the four primary operations provided by Request Network’s browser-side JavaScript library, `request-client.js`.
+This page will introduce the four primary operations provided by Request Network’s SDK.
 
 {% hint style="info" %}
 You will learn:
@@ -11,30 +11,6 @@ You will learn:
 * How to detect a payment
 {% endhint %}
 
-## Typical Lifecycle of a Request
-
-{% hint style="info" %}
-This section describes a "Reference-based" Request, not "Address-based" or "Declarative" requests.
-{% endhint %}
-
-* Create a request
-  * App specifies the payee, payer, currency, and amount (and some other stuff).
-  * Store request contents to IPFS.
-  * Store IPFS Content-addressable ID (CID) on Gnosis chain.
-* Pay a request
-  * Derive paymentReference from the request contents.
-  * Call the payment network smart contract, passing in token address, to address, amount, and paymentReference.
-  * Event is emitted containing token address, to address, amount, and paymentReference.
-* Detect payment
-  * Event is indexed by a Subgraph.
-  * App queries request content from IPFS and payment events from Subgraph.
-
-<div data-full-width="true">
-
-<figure><img src="../.gitbook/assets/Lifecycle of a Request.png" alt=""><figcaption><p>Lifecycle of a Request</p></figcaption></figure>
-
-</div>
-
 ## Retrieve a user's requests
 
 First, construct a `RequestNetwork` object and connect it to a Request Node. In this example, we use the Goerli Request Node Gateway:
@@ -43,8 +19,8 @@ First, construct a `RequestNetwork` object and connect it to a Request Node. In 
 <strong>const requestClient = new RequestNetwork({
 </strong>  nodeConnectionConfig: { 
     baseURL: "https://goerli.gateway.request.network/",
-  }
-})
+  },
+});
 </code></pre>
 
 Then, call `fromIdentity()` to get an array of `Request` objects or `fromRequestId()` to get a single `Request` object. This function retrieves the `Request`s stored in IPFS and queries on-chain events to determine the balances paid so far. Finally, call `getData()` on each `Request` to get the request contents.
@@ -53,21 +29,21 @@ Then, call `fromIdentity()` to get an array of `Request` objects or `fromRequest
 {% tab title="fromIdentity()" %}
 {% code fullWidth="true" %}
 ```typescript
-const identity = "0x7eB023BFbAeE228de6DC5B92D0BeEB1eDb1Fd567";
+const identityAddress = "0x519145B771a6e450461af89980e5C17Ff6Fd8A92";
 const requests = await requestClient.fromIdentity({
   type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
-  value: identity
-})
-const requestDatas = requests.map((request) => request.getData())
+  value: identityAddress,
+});
+const requestDatas = requests.map((request) => request.getData());
 ```
 {% endcode %}
 {% endtab %}
 
 {% tab title="fromRequestId()" %}
 <pre class="language-typescript"><code class="lang-typescript"><strong>const request = await requestClient.fromRequestId(
-</strong><strong>  '019830e9ec0439e53ec41fc627fd1d0293ec4bc61c2a647673ec5aaaa0e6338855'
-</strong>)
-const requestData = request.getData()
+</strong><strong>  '019830e9ec0439e53ec41fc627fd1d0293ec4bc61c2a647673ec5aaaa0e6338855',
+</strong>);
+const requestData = request.getData();
 </code></pre>
 {% endtab %}
 {% endtabs %}
@@ -85,6 +61,10 @@ To create an unencrypted ERC-20 request, first construct a `RequestNetwork` obje
 * Connect it to a Request Node. In this example, we use the Goerli Request Node Gateway.
 * Pass in a `Web3SignatureProvider` instance connected to an `ethers` v5 `Provider` and `Signer` or `wagmi` / `viem` `WalletClient`.
 
+{% hint style="warning" %}
+Unfortunately, the Request Network SDK does not yet support ethers v6.
+{% endhint %}
+
 {% tabs %}
 {% tab title="ethers v5" %}
 {% code fullWidth="false" %}
@@ -94,14 +74,14 @@ import { Web3SignatureProvider } from "@requestnetwork/web3-signature";
 import { providers } from "ethers";
 
 let provider;
-if (RPC_URL === undefined) {
+if (process.env.WEB3_PROVIDER_URL === undefined) {
   // Connect to Metamask and other injected wallets
-  provider = new providers.Web3Provider(window.ethereum) 
+  provider = new providers.Web3Provider(window.ethereum);
 } else {
   // Connect to your own Ethereum node or 3rd party node provider
-  provider = new providers.JsonRpcProvider(RPC_URL)
+  provider = new providers.JsonRpcProvider(process.env.WEB3_PROVIDER_URL);
 }
-// providers.DefaultProvider won't work because it doesn't include a Signer.
+// getDefaultProvider() won't work because it doesn't include a Signer.
 
 const web3SignatureProvider = Web3SignatureProvider(provider);
 const requestClient = new RequestNetwork({
@@ -215,29 +195,32 @@ Altogether it looks like this:
 [https://codesandbox.io/p/sandbox/create-a-request-shffng?file=/app/page.tsx:43,1](https://codesandbox.io/p/sandbox/create-a-request-shffng?file=/app/page.tsx:43,1)
 {% endembed %}
 
-## Pay a request
+## Pay a request / Detect a payment
 
 First, construct a `RequestNetwork` object and connect it to a Request Node. In this example, we use the Goerli Request Node Gateway:
 
-<pre class="language-typescript"><code class="lang-typescript">import { RequestNetwork, Types } from "@requestnetwork/request-client.js";
+<pre class="language-typescript" data-full-width="false"><code class="lang-typescript">import { RequestNetwork, Types } from "@requestnetwork/request-client.js";
 <strong>const requestClient = new RequestNetwork({
 </strong>  nodeConnectionConfig: { 
     baseURL: "https://goerli.gateway.request.network/",
   }
-})
+});
 </code></pre>
 
 Then, retrieve the request and get the request data. Take note of the current request balance, to be used later for payment detection.
 
 ```typescript
 const request = await requestClient.fromRequestId(
-  '019830e9ec0439e53ec41fc627fd1d0293ec4bc61c2a647673ec5aaaa0e6338855'
-)
-const requestData = request.getData()
-const previousBalance = requestData.balance?.balance
+  '019830e9ec0439e53ec41fc627fd1d0293ec4bc61c2a647673ec5aaaa0e6338855',
+);
+const requestData = request.getData();
 ```
 
-Then, construct an `ethers` v5 `Provider` and `Signer`. These allow you to read and write to the chain, respectively.
+Then, construct an `ethers` v5 `Provider` and `Signer`. These allow you to read and write to the chain, respectively.&#x20;
+
+{% hint style="warning" %}
+Unfortunately, the Request Network SDK does not yet support ethers v6.
+{% endhint %}
 
 {% tabs %}
 {% tab title="ethers v5" %}
@@ -245,27 +228,28 @@ Then, construct an `ethers` v5 `Provider` and `Signer`. These allow you to read 
 import { providers } from "ethers";
 
 let provider;
-if (RPC_URL === undefined) {
+if (process.env.WEB3_PROVIDER_URL === undefined) {
   // Connect to Metamask and other injected wallets
-  provider = new providers.Web3Provider(window.ethereum) 
+  provider = new providers.Web3Provider(window.ethereum);
 } else {
   // Connect to your own Ethereum node or 3rd party node provider
-  provider = new providers.JsonRpcProvider(RPC_URL)
+  provider = new providers.JsonRpcProvider(process.env.WEB3_PROVIDER_URL);
 }
+// getDefaultProvider() won't work because it doesn't include a Signer.
 
-const signer = await provider.getSigner()
+const signer = await provider.getSigner();
 ```
 {% endtab %}
 
 {% tab title="wagmi" %}
 {% code title="page.tsx" %}
 ```typescript
-import { useEthersV5Provider } from './use-ethers-v5-provider'
-import { useEthersV5Signer } from './use-ethers-v5-signer'
+import { useEthersV5Provider } from './use-ethers-v5-provider';
+import { useEthersV5Signer } from './use-ethers-v5-signer';
 
 return Page() {
-  const provider = useEthersV5Provider()
-  const signer = useEthersV5Signer()
+  const provider = useEthersV5Provider();
+  const signer = useEthersV5Signer();
   ...
 }
 ```
@@ -343,23 +327,30 @@ Very similar to wagmi, but without using hooks. Instead, call `publicClientToPro
 
 Then, check that the payer has sufficient funds using `hasSufficientFunds()`
 
-```typescript
-import { hasSufficientFunds } from "@requestnetwork/payment-processor";
+<pre class="language-typescript"><code class="lang-typescript">import { hasSufficientFunds } from "@requestnetwork/payment-processor";
 
-const hasSufficientFunds = await hasSufficientFunds(requestData, address, {
-  provider: provider
-})
-```
+const _hasSufficientFunds = await hasSufficientFunds(
+  requestData,
+  payerAddress,
+  {
+    provider: provider,
+<strong>  },
+</strong><strong>);
+</strong></code></pre>
 
 Then, in the case of an ERC-20 request, check that the payer has granted sufficient approval using `hasErc20Approval()`. If not, submit an approval transaction using `approveErc20`. Wait for an appropriate number of block confirmations. On Goerli or Ethereum, 2 block confirmations should suffice. Other chains may require more.
 
 ```typescript
 import { approveErc20, hasErc20Approval } from "@requestnetwork/payment-processor";
 
-const hasErc20Approval = await hasErc20Approval(requestData, address, provider)
-if (!hasErc20Approval) {
+const _hasErc20Approval = await hasErc20Approval(
+  requestData,
+  payerAddress,
+  provider
+);
+if (!_hasErc20Approval) {
   const approvalTx = await approveErc20(requestData, signer);
-  const approvalTxReceipt = await approvalTx.wait(2)
+  await approvalTx.wait(2);
 }
 ```
 
@@ -368,16 +359,18 @@ Finally, pay the request using `payRequest()`
 <pre class="language-typescript"><code class="lang-typescript"><strong>import { payRequest } from "@requestnetwork/payment-processor";
 </strong><strong>
 </strong><strong>const paymentTx = await payRequest(requestData, signer);
-</strong><strong>const paymentTxReceipt = await paymentTx.wait(2)
+</strong><strong>await paymentTx.wait(2);
 </strong></code></pre>
 
-Detect that the payment was successful by polling the request and comparing the current balance to the previous balance.
+Detect that the payment was successful by polling the request and waiting until the request balance is greater than or equal to the expected amount.
 
 ```typescript
-const request = await requestClient.fromRequestId(requestData.requestId)
-let requestData = request.getData()
-while (requestData.balance?.balance == previousBalance) {
-  requestData = request.refresh()
+const request = await requestClient.fromRequestId(requestData.requestId);
+let requestData = request.getData();
+
+while (requestData.balance?.balance < requestData.expectedAmount) {
+  requestData = await request.refresh();
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 }
 ```
 
@@ -387,4 +380,4 @@ Altogether it looks like this:
 [https://codesandbox.io/p/sandbox/pay-a-request-dn7kcf?file=/app/page.tsx:71,1](https://codesandbox.io/p/sandbox/pay-a-request-dn7kcf?file=/app/page.tsx:71,1)
 {% endembed %}
 
-{% embed url="https://www.loom.com/share/1839cf3e79784dc4a6e641903b4f10d2?sid=8caf4cdb-04fe-4753-ab99-b97926c36f20" %}
+{% embed url="https://www.loom.com/share/1839cf3e79784dc4a6e641903b4f10d2?sid=8caf4cdb-04fe-4753-ab99-b97926c36f20" fullWidth="true" %}
