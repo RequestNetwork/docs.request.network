@@ -52,6 +52,8 @@ const requestData = request.getData();
 
 Altogether it looks like this:
 
+### CodeSandBox to retrieve a user's requests
+
 {% embed url="https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?file=/app/page.tsx:10,1" fullWidth="true" %}
 [https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?file=/app/page.tsx:10,1](https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?file=/app/page.tsx:10,1)
 {% endembed %}
@@ -190,6 +192,8 @@ Then, call `createRequest()` to create the request and `waitForConfirmation()` t
 const request = await requestClient.createRequest(requestCreateParameters);
 const confirmedRequestData = await request.waitForConfirmation();
 ```
+
+### CodeSandBox to create a request
 
 Altogether it looks like this:
 
@@ -375,6 +379,8 @@ while (requestData.balance?.balance < requestData.expectedAmount) {
   await new Promise((resolve) => setTimeout(resolve, 1000));
 }
 ```
+
+### CodeSandBox to create/pay a request and detect a payment
 
 Altogether it looks like this:
 
