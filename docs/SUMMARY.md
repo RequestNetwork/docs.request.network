@@ -4,7 +4,8 @@
 
 ## Get Started
 
-* [Quickstart](get-started/quickstart.md)
+* [Quickstart - Browser](get-started/quickstart-browser.md)
+* [Quickstart - Node.js](get-started/quickstart-node.js.md)
 * [Installation](get-started/request-network-client-introduction.md)
 * [Contracts](get-started/contracts.md)
 * [FAQ](get-started/faq.md)

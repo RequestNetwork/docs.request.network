@@ -1,6 +1,6 @@
 # Installation
 
-Access to Request Network requires a combination of the Request Client library and Request Node service. To help get started quickly, the Request Network Foundation runs several Request Node "Gateways" so builders need only install the Request Client library.&#x20;
+Access to Request Network requires a combination of the Request Network JavaScript SDK and a Request Node.
 
 ## Install request-client.js package
 
@@ -55,6 +55,12 @@ const { payRequest } = require("@requestnetwork/payment-processor");
 {% endtab %}
 {% endtabs %}
 
+## Request Node Gateways
+
+To help builders get started quickly, the Request Network Foundation operates several Request Node "Gateways" that are free for anyone to use. These gateways offer endpoints for creating and retrieving requests. They also subsidize the protocol fee for creating requests.
+
+<table><thead><tr><th width="173">Gateway</th><th width="111.33333333333331">real/test</th><th>URL</th></tr></thead><tbody><tr><td>Gnosis Gateway</td><td>real</td><td><code>https://xdai.gateway.request.network</code></td></tr><tr><td>Goerli Gateway</td><td>test</td><td><code>https://goerli.gateway.request.network</code></td></tr></tbody></table>
+
 ## Configure the client
 
 The following command creates a new Request Client instance and configures it to :
@@ -71,13 +77,6 @@ const requestClient = new RequestNetwork({
   signatureProvider: web3SignatureProvider,
 });
 ```
-
-{% hint style="info" %}
-The Request Network Foundation operates two Request Node Gateways for anyone to use:
-
-* Gnosis Gateway (for _real_ requests): `https://xdai.gateway.request.network`
-* Goerli Gateway (for _test_ requests): `https://goerli.gateway.request.network`
-{% endhint %}
 
 ### Alternative: Mock Storage
 

@@ -1,6 +1,8 @@
-# Quickstart
+# Quickstart - Browser
 
-This page will introduce the four primary operations provided by Request Network’s SDK.
+This page will introduce the four primary operations provided by Request Network’s SDK while using the `Web3SignatureProvider` to sign requests with a private key stored inside a wallet.
+
+This approach works well for Browser environments _with_ access to a web3 wallet.
 
 {% hint style="info" %}
 You will learn:
@@ -15,7 +17,7 @@ You will learn:
 
 First, construct a `RequestNetwork` object and connect it to a Request Node. In this example, we use the Goerli Request Node Gateway:
 
-<pre class="language-typescript"><code class="lang-typescript">import { RequestNetwork, Types } from "@requestnetwork/request-client.js";
+<pre class="language-javascript"><code class="lang-javascript">import { RequestNetwork, Types } from "@requestnetwork/request-client.js";
 <strong>const requestClient = new RequestNetwork({
 </strong>  nodeConnectionConfig: { 
     baseURL: "https://goerli.gateway.request.network/",
@@ -28,7 +30,7 @@ Then, call `fromIdentity()` to get an array of `Request` objects or `fromRequest
 {% tabs %}
 {% tab title="fromIdentity()" %}
 {% code fullWidth="true" %}
-```typescript
+```javascript
 const identityAddress = "0x519145B771a6e450461af89980e5C17Ff6Fd8A92";
 const requests = await requestClient.fromIdentity({
   type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
@@ -40,7 +42,7 @@ const requestDatas = requests.map((request) => request.getData());
 {% endtab %}
 
 {% tab title="fromRequestId()" %}
-<pre class="language-typescript"><code class="lang-typescript"><strong>const request = await requestClient.fromRequestId(
+<pre class="language-javascript"><code class="lang-javascript"><strong>const request = await requestClient.fromRequestId(
 </strong><strong>  '019830e9ec0439e53ec41fc627fd1d0293ec4bc61c2a647673ec5aaaa0e6338855',
 </strong>);
 const requestData = request.getData();
@@ -126,7 +128,7 @@ const payerIdentity = '0x519145B771a6e450461af89980e5C17Ff6Fd8A92';
 const paymentRecipient = payeeIdentity;
 const feeRecipient = '0x0000000000000000000000000000000000000000';
 
-const requestCreateParameters: Types.ICreateRequestParameters = {
+const requestCreateParameters = {
   requestInfo: {
     
     // The currency in which the request is denominated
