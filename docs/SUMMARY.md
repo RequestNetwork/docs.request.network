@@ -7,8 +7,9 @@
 * [Quickstart - Browser](get-started/quickstart-browser.md)
 * [Quickstart - Node.js](get-started/quickstart-node.js.md)
 * [Installation](get-started/request-network-client-introduction.md)
+* [Request Network Overview](get-started/request-network-overview/README.md)
+  * [Privacy / Encryption](get-started/request-network-overview/privacy-encryption.md)
 * [Contracts](get-started/contracts.md)
-* [FAQ](get-started/faq.md)
 
 ## Learn Request Network
 
@@ -28,6 +29,7 @@
   * [Running a node with Docker](learn-request-network/guides/running-a-node-with-docker.md)
   * [Running from the code repository](learn-request-network/guides/running-from-the-code-repository.md)
   * [Deploying a node in Kubernetes with Helm](learn-request-network/guides/deploying-a-node-in-kubernetes-with-helm.md)
+* [API Reference](learn-request-network/api-reference.md)
 * [Protocol Architecture](learn-request-network/introduction-to-the-request-protocol/README.md)
   * [Request Logic](learn-request-network/introduction-to-the-request-protocol/request-logic.md)
   * [Advanced Logic](learn-request-network/introduction-to-the-request-protocol/advanced-logic.md)
