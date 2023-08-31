@@ -1,4 +1,8 @@
-# How payment networks work
+# Payment Networks
+
+{% hint style="info" %}
+This page is in need of a refresh. We recommend Builders use reference-based payment networks for most payment types.
+{% endhint %}
 
 When a user creates and sends a request, he expects to receive the correct amount of money. But how does he keep track of the payments due and received? Request is a ledger that documents requests for payment and how to agree on completion.
 

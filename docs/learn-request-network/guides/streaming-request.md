@@ -1,14 +1,10 @@
-# Advanced payment methods
+# Streaming Request
 
-## Escrow
-
-One can pay a request in 2 steps to show his contractor that funds are available without making them available. In the first step, the`PayEscrow` method from the [payment-processor](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/payment-processor/src/payment/erc20-escrow-payment.ts) will lock funds until the payer approves the work done. The payer will then use the method `payRequestFromEscrow` to unlock funds.
-
-The escrow contract is deployed on all the chains supported by the Request Network Protocol and is available [here](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/lib/artifacts/ERC20EscrowToPay/index.ts). For now, it is only compatible with ERC20FeeProxy requests.
+Feature exists. Docs coming soon...
 
 ## Streaming payment request
 
-To create a streaming payment request, you have to follow the same steps as for [creating-an-erc20-request.md](creating-an-erc20-request.md "mention") but you will need to add a new kind of extension, identified with ERC777\_STREAM.
+To create a streaming payment request, you have to follow the same steps as for [Broken link](broken-reference "mention") but you will need to add a new kind of extension, identified with ERC777\_STREAM.
 
 For example, one stream will probably be used to pay many requests in a row for a subscription.
 

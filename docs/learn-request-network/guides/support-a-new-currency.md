@@ -11,8 +11,4 @@ const list: CurrencyInput[] = [
 const currencyManager = new CurrencyManager(list);
 ```
 
-{% hint style="info" %}
-You can check the details of a currency with the following REST API: [https://api.request.network/currency/MKR-mainnet](https://api.request.network/currency/MKR-mainnet)
-{% endhint %}
-
-To implement new types of currencies (aside fiat, BTC, ETH, ERC20), [head towards payment networks](how-payment-networks-work.md#other-currencies).
+To implement new types of currencies (aside fiat, BTC, ETH, ERC20), [head towards payment networks](../../get-started/protocol-overview/how-payment-networks-work.md#other-currencies).

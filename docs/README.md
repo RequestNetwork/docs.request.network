@@ -6,21 +6,35 @@ description: >-
 
 # What is Request Network?
 
-<figure><img src=".gitbook/assets/LinkedIn_Personal_Header.jpg" alt=""><figcaption></figcaption></figure>
+<div align="center" data-full-width="false">
 
-Blockchain transactions omit information necessary for accounting, compliance, and other financial services. This is a challenge for businesses that want to use blockchain technology.
+<figure><img src=".gitbook/assets/LinkedIn, Cover image.png" alt=""><figcaption></figcaption></figure>
+
+</div>
+
+Request Network is a protocol for storing payment requests. It solves the core problem: that blockchain transactions lack context for why the transactions occurred.&#x20;
+
+In addition to solving this core problem, it aims to:
+
+* Break down silos of financial data
+* Enable everyone to own their financial data
+* Enable unprecedented use cases
 
 Request Protocol stores the information needed by businesses to run their finances on-chain while maintaining compliance and privacy. Proving their financial activity on-chain unlocks a unique opportunity for companies to acquire income-backed services like loans, insurance, or fundraising. Moreover, it paves the way for automatic auditing, triple-entry accounting, and automatic tax reporting.
 
 Users share payment requests securely via a standard, immutable storage medium. It enables a global cooperative financial system where people and organizations fully control their financial data and choices.
 
+Over the past 6 years, Request Network has grown to be the largest decentralized database of payment requests. Its payment infrastructure supports a wide variety of payment types across over 20 EVM-compatible chains and NEAR.
+
 ## The ecosystem we are building
 
-Below, you can see a map of the builders we imagine that renewed transparent financial system to have, all using Request Protocol as a foundation for their users to have the privacy, security and data ownership they deserve.&#x20;
+Request Network is well suited to build many types of financial applications.
+
+Below, you can see a map of the builders we imagine that renewed transparent financial system to have, all using Request Protocol as a foundation for their users to have the privacy, security, and data ownership they deserve.&#x20;
 
 <div data-full-width="true">
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption><p>Request Network Builders Map</p></figcaption></figure>
+<figure><img src=".gitbook/assets/Request Network Ecosystem.jpg" alt=""><figcaption><p>Request Network Builders Map</p></figcaption></figure>
 
 </div>
 
@@ -32,50 +46,3 @@ Below, you can see a map of the builders we imagine that renewed transparent fin
 * **Auditing, tax reporting, and compliance services** benefit from the infrastructure that allows triple-entry accounting, which enables them to do automatic and real-time accounting, tax reporting, and compliance. They can integrate with billing and accounting applications and provide new, ongoing data to other financial systems providers and risk assessment. These builders provide users with cheap, automatic, real-time audits, tax reports, financial statements, etc.
 
 Surely, many other companies fit in our protocol we just don't know it yet. But if you have any suggestions we are here to listen to them.
-
-## Typical Lifecycle of a Request
-
-<div data-full-width="true">
-
-<figure><img src=".gitbook/assets/Lifecycle of a Request.png" alt=""><figcaption><p>Lifecycle of a Request</p></figcaption></figure>
-
-</div>
-
-* Create a request
-  * The payer or payee signs the request which contains the payee, payer, currency, amount, payment details, and arbitrary content data.
-  * The request can be optionally encrypted such that only the payee, payer, and approved 3rd parties can view the request contents.
-  * The request is persisted in IPFS.&#x20;
-  * The IPFS Content-addressable ID (CID) is stored in a smart contract on Gnosis chain
-
-{% hint style="info" %}
-Requests are _created_ by storing their CIDs on Gnosis, but this doesn't mean _payment_ must occur on Gnosis. _Payment_ can occur on any of the supported chains including 20+ EVM-compatible chains or NEAR.
-{% endhint %}
-
-{% hint style="info" %}
-Once a request is created:&#x20;
-
-* The payee can optionally cancel the request or increase/decrease the expected amount.
-* The payer can optionally accept the request, indicating that they intend to pay it.
-* Both payee and payer can add 3rd party stakeholders if the request is encrypted.
-{% endhint %}
-
-* Pay a request
-  * The payer derives a `paymentReference` from the request contents.
-  * The payer calls a function on the payment network smart contract, passing in the token address, to address, amount, and paymentReference.
-  * An event is emitted containing the token address, to address, amount, and paymentReference.
-
-{% hint style="info" %}
-Most requests are "reference-based" meaning that a `paymentReference` derived from the request contents is logged on-chain via a smart contract that emits an event. Nothing gets written back to IPFS when paying a "reference-based" request.&#x20;
-
-The exception is when paying a "declarative" request, in which case, data _is_ written back to IPFS. This includes when the payer declares that the payment was sent and the payee declares that the payment was received.
-{% endhint %}
-
-* Detect payment
-  * The event is indexed by the payments subgraph
-  * An app can retrieve the request contents from IPFS and calculate the balance based on events from the payments subgraph.
-
-{% hint style="info" %}
-The request balance is calculated by adding up all the on-chain payment events with the same `paymentReference`. Partial payments are possible.
-{% endhint %}
-
-All of these steps are facilitated by the Request Network JavaScript SDK such that the developer needs only make a few function calls. See the Quickstart to learn more.

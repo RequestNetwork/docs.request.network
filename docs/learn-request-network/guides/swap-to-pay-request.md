@@ -1,0 +1,3 @@
+# Swap-to-pay Request
+
+Feature exists. Docs coming soon...

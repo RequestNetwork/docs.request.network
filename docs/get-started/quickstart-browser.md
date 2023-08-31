@@ -1,62 +1,18 @@
 # Quickstart - Browser
 
-This page will introduce the four primary operations provided by Request Network’s SDK while using the `Web3SignatureProvider` to sign requests with a private key stored inside a wallet.
+This page will introduce the primary operations provided by Request Network’s SDK while using the `Web3SignatureProvider` to sign requests with a private key stored inside a wallet.
 
 This approach works well for Browser environments _with_ access to a web3 wallet.
 
 {% hint style="info" %}
 You will learn:
 
-* How to retrieve a user’s requests
 * How to create a request
+* How to update a request (coming soon...)
 * How to pay a request
 * How to detect a payment
+* How to retrieve a user’s requests
 {% endhint %}
-
-## Retrieve a user's requests
-
-First, construct a `RequestNetwork` object and connect it to a Request Node. In this example, we use the Goerli Request Node Gateway:
-
-<pre class="language-javascript"><code class="lang-javascript">import { RequestNetwork, Types } from "@requestnetwork/request-client.js";
-<strong>const requestClient = new RequestNetwork({
-</strong>  nodeConnectionConfig: { 
-    baseURL: "https://goerli.gateway.request.network/",
-  },
-});
-</code></pre>
-
-Then, call `fromIdentity()` to get an array of `Request` objects or `fromRequestId()` to get a single `Request` object. This function retrieves the `Request`s stored in IPFS and queries on-chain events to determine the balances paid so far. Finally, call `getData()` on each `Request` to get the request contents.
-
-{% tabs %}
-{% tab title="fromIdentity()" %}
-{% code fullWidth="true" %}
-```javascript
-const identityAddress = "0x519145B771a6e450461af89980e5C17Ff6Fd8A92";
-const requests = await requestClient.fromIdentity({
-  type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
-  value: identityAddress,
-});
-const requestDatas = requests.map((request) => request.getData());
-```
-{% endcode %}
-{% endtab %}
-
-{% tab title="fromRequestId()" %}
-<pre class="language-javascript"><code class="lang-javascript"><strong>const request = await requestClient.fromRequestId(
-</strong><strong>  '019830e9ec0439e53ec41fc627fd1d0293ec4bc61c2a647673ec5aaaa0e6338855',
-</strong>);
-const requestData = request.getData();
-</code></pre>
-{% endtab %}
-{% endtabs %}
-
-Altogether it looks like this:
-
-### CodeSandBox to retrieve a user's requests
-
-{% embed url="https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?file=/app/page.tsx:10,1" fullWidth="true" %}
-[https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?file=/app/page.tsx:10,1](https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?file=/app/page.tsx:10,1)
-{% endembed %}
 
 ## Create a request
 
@@ -389,3 +345,48 @@ Altogether it looks like this:
 {% endembed %}
 
 {% embed url="https://www.loom.com/share/1839cf3e79784dc4a6e641903b4f10d2?sid=8caf4cdb-04fe-4753-ab99-b97926c36f20" fullWidth="true" %}
+
+## Retrieve a user's requests
+
+First, construct a `RequestNetwork` object and connect it to a Request Node. In this example, we use the Goerli Request Node Gateway:
+
+<pre class="language-javascript"><code class="lang-javascript">import { RequestNetwork, Types } from "@requestnetwork/request-client.js";
+<strong>const requestClient = new RequestNetwork({
+</strong>  nodeConnectionConfig: { 
+    baseURL: "https://goerli.gateway.request.network/",
+  },
+});
+</code></pre>
+
+Then, call `fromIdentity()` to get an array of `Request` objects or `fromRequestId()` to get a single `Request` object. This function retrieves the `Request`s stored in IPFS and queries on-chain events to determine the balances paid so far. Finally, call `getData()` on each `Request` to get the request contents.
+
+{% tabs %}
+{% tab title="fromIdentity()" %}
+{% code fullWidth="true" %}
+```javascript
+const identityAddress = "0x519145B771a6e450461af89980e5C17Ff6Fd8A92";
+const requests = await requestClient.fromIdentity({
+  type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
+  value: identityAddress,
+});
+const requestDatas = requests.map((request) => request.getData());
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="fromRequestId()" %}
+<pre class="language-javascript"><code class="lang-javascript"><strong>const request = await requestClient.fromRequestId(
+</strong><strong>  '019830e9ec0439e53ec41fc627fd1d0293ec4bc61c2a647673ec5aaaa0e6338855',
+</strong>);
+const requestData = request.getData();
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+Altogether it looks like this:
+
+### CodeSandBox to retrieve a user's requests
+
+{% embed url="https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?file=/app/page.tsx:10,1" fullWidth="true" %}
+[https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?file=/app/page.tsx:10,1](https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?file=/app/page.tsx:10,1)
+{% endembed %}
