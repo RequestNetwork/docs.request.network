@@ -8,28 +8,28 @@ The typical lifecycle of a request is as follows:
 
 </div>
 
-* Create a request
-  * The payer or payee signs the request which contains the payee, payer, currency, amount, payment details, and arbitrary content data.
-  * The request can be optionally encrypted such that only the payee, payer, and approved 3rd parties can view the request contents.
-  * The request is persisted in IPFS.&#x20;
-  * The IPFS Content-addressable ID (CID) is stored in a smart contract on Gnosis chain
+## Create a request
+
+* The payer or payee signs the request which contains the payee, payer, currency, amount, payment details, and arbitrary content data.
+* The request can be optionally encrypted such that only the payee, payer, and approved 3rd parties can view the request contents.
+* The request is persisted in IPFS.&#x20;
+* The IPFS Content-addressable ID (CID) is stored in a smart contract on Gnosis chain
 
 {% hint style="info" %}
 Requests are _created_ by storing their CIDs on Gnosis, but this doesn't mean _payment_ must occur on Gnosis. _Payment_ can occur on any of the supported chains including 20+ EVM-compatible chains or NEAR.
 {% endhint %}
 
-{% hint style="info" %}
-Once a request is created:&#x20;
+## Update a request
 
 * The payee can optionally cancel the request or increase/decrease the expected amount.
 * The payer can optionally accept the request, indicating that they intend to pay it.
 * Both payee and payer can add 3rd party stakeholders if the request is encrypted.
-{% endhint %}
 
-* Pay a request
-  * The payer derives a paymentReference from the request contents.
-  * The payer calls a function on the payment network smart contract, passing in the token address, to address, amount, and paymentReference.
-  * An event is emitted containing the token address, to address, amount, and paymentReference.
+## Pay a request
+
+* The payer derives a paymentReference from the request contents.
+* The payer calls a function on the payment network smart contract, passing in the token address, to address, amount, and paymentReference.
+* An event is emitted containing the token address, to address, amount, and paymentReference.
 
 {% hint style="info" %}
 Most requests are "reference-based" meaning that a paymentReference derived from the request contents is logged on-chain via a smart contract that emits an event. Nothing gets written back to IPFS when paying a "reference-based" request.&#x20;
@@ -37,9 +37,10 @@ Most requests are "reference-based" meaning that a paymentReference derived from
 The exception is when paying a "declarative" request, in which case, data _is_ written back to IPFS. This includes when the payer declares that the payment was sent and the payee declares that the payment was received.
 {% endhint %}
 
-* Detect payment
-  * The event is indexed by the payments subgraph
-  * An app can retrieve the request contents from IPFS and calculate the balance based on events from the payments subgraph.
+## Retrieve a request / Detect a payment
+
+* The event is indexed by the payments subgraph
+* An app can retrieve the request contents from IPFS and calculate the balance based on events from the payments subgraph.
 
 {% hint style="info" %}
 The request balance is calculated by adding up all the on-chain payment events with the same paymentReference. Partial payments are possible.

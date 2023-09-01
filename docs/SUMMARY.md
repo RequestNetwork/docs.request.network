@@ -12,6 +12,8 @@
   * [Request Client and Request Node](get-started/protocol-overview/request-client-and-request-node.md)
   * [Payment Networks](get-started/protocol-overview/how-payment-networks-work.md)
   * [Private Requests using Encryption](get-started/protocol-overview/private-requests-using-encryption.md)
+* [Request Node Gateways](get-started/request-node-gateways.md)
+* [Supported Chains](get-started/supported-chains.md)
 * [Contracts](get-started/contracts.md)
 
 ## Learn Request Network
@@ -20,6 +22,7 @@
   * [Updating a Request](learn-request-network/guides/updating-a-request.md)
   * [Configuring Payment Fees](learn-request-network/guides/configuring-payment-fees.md)
   * [Conversion Request](learn-request-network/guides/conversion-request.md)
+  * [Declarative Request](learn-request-network/guides/declarative-request.md)
   * [Batch Payment](learn-request-network/guides/batch-payment.md)
   * [Swap-to-pay Request](learn-request-network/guides/swap-to-pay-request.md)
   * [Swap to Conversion Request](learn-request-network/guides/swap-to-conversion-request.md)
@@ -33,7 +36,8 @@
   * [Share an encrypted request](learn-request-network/guides/share-an-encrypted-request.md)
   * [Detect a payment](learn-request-network/guides/detect-a-payment.md)
   * [Support a new currency](learn-request-network/guides/support-a-new-currency.md)
-* [SDK API Reference](learn-request-network/sdk-api-reference.md)
+* [SDK API Reference](learn-request-network/sdk-api-reference/README.md)
+  * [Configure the Request Client](learn-request-network/sdk-api-reference/configure-the-request-client.md)
 * [Protocol Architecture](learn-request-network/introduction-to-the-request-protocol/README.md)
   * [Request Logic](learn-request-network/introduction-to-the-request-protocol/request-logic.md)
   * [Advanced Logic](learn-request-network/introduction-to-the-request-protocol/advanced-logic.md)

@@ -16,10 +16,7 @@ You will learn:
 
 ## Create a request
 
-To create an unencrypted ERC-20 request, first construct a `RequestNetwork` object:
-
-* Connect it to a Request Node. In this example, we use the Goerli Request Node Gateway.
-* Pass in a `Web3SignatureProvider` instance connected to an `ethers` v5 `Provider` and `Signer` or `wagmi` / `viem` `WalletClient`.
+To create an unencrypted ERC-20 request, first connect to an `ethers` v5 `Provider` and `Signer` or `wagmi` / `viem` `WalletClient.`
 
 {% hint style="warning" %}
 Unfortunately, the Request Network SDK does not yet support ethers v6.
@@ -29,8 +26,6 @@ Unfortunately, the Request Network SDK does not yet support ethers v6.
 {% tab title="ethers v5" %}
 {% code fullWidth="false" %}
 ```typescript
-import { RequestNetwork } from "@requestnetwork/request-client.js";
-import { Web3SignatureProvider } from "@requestnetwork/web3-signature";
 import { providers } from "ethers";
 
 let provider;
@@ -42,32 +37,15 @@ if (process.env.WEB3_PROVIDER_URL === undefined) {
   provider = new providers.JsonRpcProvider(process.env.WEB3_PROVIDER_URL);
 }
 // getDefaultProvider() won't work because it doesn't include a Signer.
-
-const web3SignatureProvider = Web3SignatureProvider(provider);
-const requestClient = new RequestNetwork({
-  nodeConnectionConfig: { 
-    baseURL: "https://goerli.gateway.request.network/",
-  },
-  web3SignatureProvider,
-});
 ```
 {% endcode %}
 {% endtab %}
 
 {% tab title="wagmi" %}
 ```typescript
-import { RequestNetwork } from "@requestnetwork/request-client.js";
-import { Web3SignatureProvider } from "@requestnetwork/web3-signature";
 import { useWalletClient } from "wagmi";
 
 const { data: walletClient } = useWalletClient();
-const web3SignatureProvider = Web3SignatureProvider(walletClient);
-const requestClient = new RequestNetwork({
-  nodeConnectionConfig: { 
-    baseURL: "https://goerli.gateway.request.network/",
-  },
-  web3SignatureProvider,
-});
 ```
 {% endtab %}
 
@@ -76,7 +54,31 @@ Very similar to wagmi, but without using hooks. Construct your own `WalletClient
 {% endtab %}
 {% endtabs %}
 
-Prepare the Request creation parameters:
+Then, construct a `Web3SignatureProvider`, passing in the `ethers` `Provider` or `viem` `WalletClient.`
+
+```typescript
+import { Web3SignatureProvider } from "@requestnetwork/web3-signature";
+
+const web3SignatureProvider = Web3SignatureProvider(provider);
+```
+
+Then, construct a `RequestNetwork`, passing in the:
+
+* Request Node URL. In this example, we use the Goerli Request Node Gateway.
+* `Web3SignatureProvider` constructed in the previous step.
+
+```typescript
+import { RequestNetwork } from "@requestnetwork/request-client.js"
+
+const requestClient = new RequestNetwork({
+  nodeConnectionConfig: { 
+    baseURL: "https://goerli.gateway.request.network/",
+  },
+  signatureProvider: web3SignatureProvider,
+});
+```
+
+Then, prepare the Request creation parameters:
 
 ```typescript
 import { Types, Utils } from "@requestnetwork/request-client.js";
@@ -96,9 +98,9 @@ const requestCreateParameters = {
       network: 'goerli',
     },
     
-    // The expected amount in parsed units, respecting `decimals`
+    // The expected amount as a string, in parsed units, respecting `decimals`
     // Consider using `parseUnits()` from ethers or viem
-    expectedAmount: '1234000000000000000000',
+    expectedAmount: '1000000000000000000',
     
     // The payee identity. Not necessarily the same as the payment recipient.
     payee: {
@@ -142,27 +144,39 @@ const requestCreateParameters = {
 };
 ```
 
-Then, call `createRequest()` to create the request and `waitForConfirmation()` to wait until the request is persisted in IPFS and the CID hash is stored on-chain.
+Then, call `createRequest()` to prepare a `Request` object.&#x20;
 
 ```typescript
 const request = await requestClient.createRequest(requestCreateParameters);
+```
+
+Finally, call `request.waitForConfirmation()` to wait until:
+
+* The request contents are persisted in IPFS
+* The Content-addressable ID (CID) is stored on-chain
+* The resulting on-chain event is indexed by the storage subgraph.
+
+```typescript
 const confirmedRequestData = await request.waitForConfirmation();
 ```
 
 ### CodeSandBox to create a request
 
-Altogether it looks like this:
-
 {% embed url="https://codesandbox.io/p/sandbox/create-a-request-shffng?file=/app/page.tsx:43,1" fullWidth="true" %}
 [https://codesandbox.io/p/sandbox/create-a-request-shffng?file=/app/page.tsx:43,1](https://codesandbox.io/p/sandbox/create-a-request-shffng?file=/app/page.tsx:43,1)
 {% endembed %}
 
-## Pay a request / Detect a payment
+## Pay a request
 
 First, construct a `RequestNetwork` object and connect it to a Request Node. In this example, we use the Goerli Request Node Gateway:
 
+{% hint style="info" %}
+Note that paying a request doesn't require a `SignatureProvider` be passed into the `RequestNetwork` object.
+{% endhint %}
+
 <pre class="language-typescript" data-full-width="false"><code class="lang-typescript">import { RequestNetwork, Types } from "@requestnetwork/request-client.js";
-<strong>const requestClient = new RequestNetwork({
+<strong>
+</strong><strong>const requestClient = new RequestNetwork({
 </strong>  nodeConnectionConfig: { 
     baseURL: "https://goerli.gateway.request.network/",
   }
@@ -324,7 +338,7 @@ Finally, pay the request using `payRequest()`
 </strong><strong>await paymentTx.wait(2);
 </strong></code></pre>
 
-Detect that the payment was successful by polling the request and waiting until the request balance is greater than or equal to the expected amount.
+You can detect that the payment was successful by polling the request and waiting until the request balance is greater than or equal to the expected amount.
 
 ```typescript
 const request = await requestClient.fromRequestId(requestData.requestId);
@@ -336,13 +350,13 @@ while (requestData.balance?.balance < requestData.expectedAmount) {
 }
 ```
 
-### CodeSandBox to create/pay a request and detect a payment
-
-Altogether it looks like this:
+### CodeSandBox to create and pay a request and detect a payment
 
 {% embed url="https://codesandbox.io/p/sandbox/pay-a-request-dn7kcf?file=/app/page.tsx:71,1" fullWidth="true" %}
 [https://codesandbox.io/p/sandbox/pay-a-request-dn7kcf?file=/app/page.tsx:71,1](https://codesandbox.io/p/sandbox/pay-a-request-dn7kcf?file=/app/page.tsx:71,1)
 {% endembed %}
+
+### Pay a request Video Demo
 
 {% embed url="https://www.loom.com/share/1839cf3e79784dc4a6e641903b4f10d2?sid=8caf4cdb-04fe-4753-ab99-b97926c36f20" fullWidth="true" %}
 
@@ -382,8 +396,6 @@ const requestData = request.getData();
 </code></pre>
 {% endtab %}
 {% endtabs %}
-
-Altogether it looks like this:
 
 ### CodeSandBox to retrieve a user's requests
 

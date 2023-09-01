@@ -20,10 +20,7 @@ All of the following examples can be found in this repository [https://github.co
 
 ## Create a request
 
-To create an unencrypted ERC-20 request, first construct a `RequestNetwork` object:
-
-* Connect it to a Request Node. In this example, we use the Goerli Request Node Gateway.
-* Pass in an `EthereumPrivateKeySignatureProvider` instance with a raw private key.
+To create an unencrypted ERC-20 request, first construct an `EthereumPrivateKeySignatureProvider` with a private key.
 
 ```javascript
 const {
@@ -34,6 +31,22 @@ const { Types } = require("@requestnetwork/request-client.js");
 const epkSignatureProvider = new EthereumPrivateKeySignatureProvider({
   method: Types.Signature.METHOD.ECDSA,
   privateKey: process.env.PAYEE_PRIVATE_KEY, // Must include 0x prefix
+});
+```
+
+Then, first construct a `RequestNetwork`, passing in the:
+
+* Request Node URL. In this example, we use the Goerli Request Node Gateway.
+* `EthereumPrivateKeySignatureProvider` constructed in the previous step.
+
+```javascript
+const { RequestNetwork } = require("@requestnetwork/request-client.js")
+
+const requestClient = new RequestNetwork({
+  nodeConnectionConfig: { 
+    baseURL: "https://goerli.gateway.request.network/",
+  },
+  signatureProvider: epkSignatureProvider,
 });
 ```
 
@@ -57,9 +70,9 @@ const requestCreateParameters = {
       network: 'goerli',
     },
     
-    // The expected amount in parsed units, respecting `decimals`
+    // The expected amount as a string, in parsed units, respecting `decimals`
     // Consider using `parseUnits()` from ethers or viem
-    expectedAmount: '1234000000000000000000',
+    expectedAmount: '1000000000000000000',
     
     // The payee identity. Not necessarily the same as the payment recipient.
     payee: {
@@ -125,7 +138,7 @@ Altogether it looks like this:
   } = require("@requestnetwork/epk-signature");
   const { config } = require("dotenv");
 
-  // Load environment variables from .env file (without overriding variables already set)
+  // Load environment variables from .env file
   config();
 
   const epkSignatureProvider = new EthereumPrivateKeySignatureProvider({
@@ -312,7 +325,7 @@ Altogether it looks like this:
   const { providers, Wallet } = require("ethers");
   const { config } = require("dotenv");
 
-  // Load environment variables from .env file (without overriding variables already set)
+  // Load environment variables from .env file
   config();
 
   const epkSignatureProvider = new EthereumPrivateKeySignatureProvider({
@@ -470,6 +483,7 @@ const requestData = request.getData();
 
 Altogether it looks like this:
 
+{% code fullWidth="false" %}
 ```javascript
 (async () => {
   const { RequestNetwork, Types } = require("@requestnetwork/request-client.js");
@@ -488,3 +502,4 @@ Altogether it looks like this:
   console.log(JSON.stringify(requestDatas));
 })();
 ```
+{% endcode %}

@@ -1,5 +1,9 @@
 # Contracts
 
+{% hint style="warning" %}
+This page is missing the RequestToken, DAIbasedREQBurner, lockForREQBurn, ChainlinkConversionPath, Erc20ConversionProxy, ERC20SwapToConversion, EthConversionProxy, and ERC20TransferableReceivable contracts
+{% endhint %}
+
 ## Contracts Overview
 
 Request Network smart contracts are available [here](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/smart-contracts/src/contracts).
@@ -11,8 +15,6 @@ There are three types of contracts
 * Request Storage
 * Payments
 * Conversion
-
-
 
 ### Request Storage
 
@@ -31,8 +33,6 @@ Manages the fees for the creation of a request.
 #### [RequestHashStorage](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/contracts/RequestHashStorage.sol)
 
 This contract is the entry point to retrieve all the hashes of the request network system.
-
-
 
 ### Payments
 
@@ -71,4 +71,3 @@ This contract makes multiple payments with references, in one transaction, witho
 #### [ERC20SwapToPay](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/contracts/ERC20SwapToPay.sol)
 
 This contract swaps ERC20 tokens before paying a request, thanks to a payment proxy.
-
