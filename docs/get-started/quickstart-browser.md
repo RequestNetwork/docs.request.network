@@ -59,7 +59,7 @@ Then, construct a `Web3SignatureProvider`, passing in the `ethers` `Provider` or
 ```typescript
 import { Web3SignatureProvider } from "@requestnetwork/web3-signature";
 
-const web3SignatureProvider = Web3SignatureProvider(provider);
+const web3SignatureProvider = new Web3SignatureProvider(provider);
 ```
 
 Then, construct a `RequestNetwork`, passing in the:
