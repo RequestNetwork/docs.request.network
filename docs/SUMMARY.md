@@ -7,7 +7,6 @@
 
 * [Quickstart - Browser](get-started/quickstart-browser.md)
 * [Quickstart - Node.js](get-started/quickstart-node.js.md)
-* [Installation](get-started/request-network-client-introduction.md)
 * [Protocol Overview](get-started/protocol-overview/README.md)
   * [Request Client and Request Node](get-started/protocol-overview/request-client-and-request-node.md)
   * [Payment Networks](get-started/protocol-overview/how-payment-networks-work.md)
