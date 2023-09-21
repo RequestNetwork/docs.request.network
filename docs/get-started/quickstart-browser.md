@@ -160,7 +160,7 @@ Finally, call `request.waitForConfirmation()` to wait until:
 const confirmedRequestData = await request.waitForConfirmation();
 ```
 
-### CodeSandBox to create a request
+### CodeSandBox: Create a request
 
 {% embed url="https://codesandbox.io/p/sandbox/create-a-request-shffng?file=/app/page.tsx:43,1" fullWidth="true" %}
 [https://codesandbox.io/p/sandbox/create-a-request-shffng?file=/app/page.tsx:43,1](https://codesandbox.io/p/sandbox/create-a-request-shffng?file=/app/page.tsx:43,1)
@@ -350,13 +350,13 @@ while (requestData.balance?.balance < requestData.expectedAmount) {
 }
 ```
 
-### CodeSandBox to create and pay a request and detect a payment
+### CodeSandBox: Create and pay a request and detect a payment
 
 {% embed url="https://codesandbox.io/p/sandbox/pay-a-request-dn7kcf?file=/app/page.tsx:71,1" fullWidth="true" %}
 [https://codesandbox.io/p/sandbox/pay-a-request-dn7kcf?file=/app/page.tsx:71,1](https://codesandbox.io/p/sandbox/pay-a-request-dn7kcf?file=/app/page.tsx:71,1)
 {% endembed %}
 
-### Pay a request Video Demo
+### Video: Create and pay a request and detect a payment
 
 {% embed url="https://www.loom.com/share/1839cf3e79784dc4a6e641903b4f10d2?sid=8caf4cdb-04fe-4753-ab99-b97926c36f20" fullWidth="true" %}
 
@@ -397,8 +397,12 @@ const requestData = request.getData();
 {% endtab %}
 {% endtabs %}
 
-### CodeSandBox to retrieve a user's requests
+### CodeSandBox: Retrieve a user's requests
 
 {% embed url="https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?file=/app/page.tsx:10,1" fullWidth="true" %}
 [https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?file=/app/page.tsx:10,1](https://codesandbox.io/p/sandbox/retrieve-a-users-requests-mqrjqy?file=/app/page.tsx:10,1)
 {% endembed %}
+
+### Video: Retrieve a user's requests
+
+{% embed url="https://www.loom.com/share/ea76747fd3c14b6b88f916d9edce7bb5?sid=68bfb08e-48c5-4817-95d3-8eb45688978b" fullWidth="true" %}
