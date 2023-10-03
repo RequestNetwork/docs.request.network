@@ -9,7 +9,7 @@
 * [Quickstart - Node.js](get-started/quickstart-node.js.md)
 * [Installation](get-started/installation.md)
 * [Protocol Overview](get-started/protocol-overview/README.md)
-  * [SDK & Request Node Overview](get-started/protocol-overview/request-client-and-request-node.md)
+  * [SDK and Request Node Overview](get-started/protocol-overview/request-client-and-request-node.md)
   * [Payment Networks](get-started/protocol-overview/how-payment-networks-work.md)
   * [Private Requests using Encryption](get-started/protocol-overview/private-requests-using-encryption.md)
 * [Request Node Gateways](get-started/request-node-gateways.md)

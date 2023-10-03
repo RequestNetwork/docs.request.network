@@ -1,8 +1,8 @@
-# SDK & Request Node Overview
+# SDK and Request Node Overview
 
 ## Request Network SDK
 
-The **Request Network SDK** is the set of software packages for interacting with the Request Network. The library can be installed via [npm](https://www.npmjs.com/package/@requestnetwork/request-client.js) and allows developers to:
+The **Request Network SDK** is the set of software packages for interacting with the Request Network. The [packages](../installation.md#external-packages) can be installed via npm and allow developers to:
 
 * Create new requests
 * Update requests
