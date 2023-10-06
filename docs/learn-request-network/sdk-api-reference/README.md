@@ -1,3 +1,2 @@
-# SDK API Reference
+# SDK Package Reference
 
-Coming soon...
