@@ -12,13 +12,13 @@ import { EthereumPrivateKeySignatureProvider } from "@requestnetwork/epk-signatu
 
 ## Constructor Paramters
 
-<table data-full-width="true"><thead><tr><th>Name</th><th>Type</th><th data-type="checkbox">Required?</th><th>Description</th></tr></thead><tbody><tr><td>signatureParameter</td><td><a href="broken-reference">ISignatureParameters</a></td><td>true</td><td>Signing method and private key</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th>Name</th><th>Type</th><th data-type="checkbox">Required?</th><th>Description</th></tr></thead><tbody><tr><td>signatureParameter</td><td><a href="ethereumprivatekeysignatureprovider.md#isignatureparameters">ISignatureParameters</a></td><td>true</td><td>Signing method and private key</td></tr></tbody></table>
 
 ## Types and Interfaces
 
 ### ISignatureParameters
 
-<table data-full-width="true"><thead><tr><th>Name</th><th>Type</th><th data-type="checkbox">Required?</th><th>Description</th></tr></thead><tbody><tr><td>method</td><td><a href="broken-reference">Types.Signature.METHOD</a></td><td>true</td><td>Signing method</td></tr><tr><td>privateKey</td><td>string</td><td>true</td><td>Private key</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th>Name</th><th>Type</th><th data-type="checkbox">Required?</th><th>Description</th></tr></thead><tbody><tr><td>method</td><td><a href="ethereumprivatekeysignatureprovider.md#types.signature.method">Types.Signature.METHOD</a></td><td>true</td><td>Signing method</td></tr><tr><td>privateKey</td><td>string</td><td>true</td><td>Private key</td></tr></tbody></table>
 
 ### Types.Signature.METHOD
 

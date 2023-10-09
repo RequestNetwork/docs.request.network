@@ -53,6 +53,7 @@
       * [accept()](learn-request-network/sdk-api-reference/request-client.js/request/accept.md)
       * [increaseExpectedAmountRequest()](learn-request-network/sdk-api-reference/request-client.js/request/increaseexpectedamountrequest.md)
       * [reduceExpectedAmountRequest()](learn-request-network/sdk-api-reference/request-client.js/request/reduceexpectedamountrequest.md)
+    * [IIdentity](learn-request-network/sdk-api-reference/request-client.js/iidentity.md)
     * [IRequestDataWithEvents](learn-request-network/sdk-api-reference/request-client.js/irequestdatawithevents.md)
     * [PaymentReferenceCalculator](learn-request-network/sdk-api-reference/request-client.js/paymentreferencecalculator.md)
   * [payment-processor](learn-request-network/sdk-api-reference/payment-processor/README.md)
