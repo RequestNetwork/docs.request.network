@@ -1,9 +1,20 @@
 # Escrow Request
 
-Feature exists. Docs coming soon...
+Feature exists. Better docs coming soon...
 
 ## Escrow
 
-One can pay a request in 2 steps to show his contractor that funds are available without making them available. In the first step, the`PayEscrow` method from the [payment-processor](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/payment-processor/src/payment/erc20-escrow-payment.ts) will lock funds until the payer approves the work done. The payer will then use the method `payRequestFromEscrow` to unlock funds.
+The Request Network Escrow isn't actually a separate payment network. Rather, it builds on top of the `ERC20_FEE_PROXY_CONTRACT` payment network.
 
-The escrow contract is deployed on all the chains supported by the Request Network Protocol and is available [here](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/lib/artifacts/ERC20EscrowToPay/index.ts). For now, it is only compatible with ERC20FeeProxy requests.
+## Typical Workflow
+
+1. Using the [`request-client.js`](../sdk-api-reference/request-client.js/) package, the `payer` creates a request with the `ERC20_FEE_PROXY_CONTRACT` payment network.
+2. Using the [`payment-processor`](../sdk-api-reference/payment-processor/) package, `payer`:
+   1. Approves the escrow contract using `approveErc20ForEscrow()`
+   2. Pays the escrow contract using `payEscrow()`
+   3. Waits until the work is complete
+   4. Pays the payee from the Escrow contract using `payRequestFromEscrow()`
+
+These steps are shown by our unit tests:
+
+[https://github.com/RequestNetwork/requestNetwork/blob/master/packages/payment-processor/test/payment/erc20-escrow-payment.test.ts#L200-L339](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/payment-processor/test/payment/erc20-escrow-payment.test.ts#L200-L339)
