@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-npm install @requestnetwork/payment-processor@next
+npm install @requestnetwork/payment-processor
 ```
 
 ## Exports

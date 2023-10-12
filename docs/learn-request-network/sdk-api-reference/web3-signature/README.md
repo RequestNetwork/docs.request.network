@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-npm install @requestnetwork/web3-signature@next
+npm install @requestnetwork/web3-signature
 ```
 
 ## Exports

@@ -3,5 +3,5 @@
 ## Install
 
 ```bash
-npm install @requestnetwork/epk-decryption@next
+npm install @requestnetwork/epk-decryption
 ```

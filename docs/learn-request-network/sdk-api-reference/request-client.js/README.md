@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-npm install @requestnetwork/request-client.js@next
+npm install @requestnetwork/request-client.js
 ```
 
 ## Exports

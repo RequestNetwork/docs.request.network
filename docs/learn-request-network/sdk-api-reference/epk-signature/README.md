@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-npm install @requestnetwork/epk-signature@next
+npm install @requestnetwork/epk-signature
 ```
 
 ## Exports

@@ -4,16 +4,6 @@ The best way to access Request Network is using the Request Network SDK with a R
 
 The Request Network SDK is split into multiple packages so that Builders can pick and choose the features they need.
 
-{% hint style="warning" %}
-For now, we recommend installing the Request Network SDK using the same `@next` version of each package. This is temporary and we are working on fixing our release process.
-
-```bash
-npm install @requestnetwork/request-client.js@next
-npm install @requestnetwork/web3-signature@next
-npm install @requestnetwork/payment-processor@next
-```
-{% endhint %}
-
 ## External Packages
 
 These are the packages that we think would be most commonly used by Builders to build applications.
