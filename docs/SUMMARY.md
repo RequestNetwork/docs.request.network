@@ -64,6 +64,8 @@
     * [EthereumPrivateKeySignatureProvider](learn-request-network/sdk-api-reference/epk-signature/ethereumprivatekeysignatureprovider.md)
   * [epk-decryption](learn-request-network/sdk-api-reference/epk-decryption/README.md)
     * [EthereumPrivateKeyDecryptionProvider](learn-request-network/sdk-api-reference/epk-decryption/ethereumprivatekeydecryptionprovider.md)
+* [Templates](learn-request-network/templates/README.md)
+  * [Add Stakeholder](learn-request-network/templates/add-stakeholder.md)
 * [Protocol Architecture](learn-request-network/introduction-to-the-request-protocol/README.md)
   * [Request Logic](learn-request-network/introduction-to-the-request-protocol/request-logic.md)
   * [Advanced Logic](learn-request-network/introduction-to-the-request-protocol/advanced-logic.md)
