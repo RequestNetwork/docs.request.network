@@ -14,29 +14,7 @@ npm install @requestnetwork/add-stakeholder
 
 ## Usage
 
-### Svelte
-
-As a native svelte component
-
-```javascript
-import { AddStakeholder } from '@requestnetwork/add-stakeholder'
-```
-
-```html
-<AddStakeholder builderKey="..." webhookUrl=".."/> 
-```
-
-As a web component
-
-```javascript
-import '@requestnetwork/add-stakeholder'
-```
-
-```html
-<add-stakeholder builderKey="..." webhookUrl="..."/>
-```
-
-### React
+### Web Component in React, Next.js, or Vue
 
 ```jsx
 import '@requestnetwork/add-stakeholder'
@@ -48,7 +26,27 @@ export default function App() {
 }
 ```
 
-### Browser
+### Native Svelte component
+
+```javascript
+import { AddStakeholder } from '@requestnetwork/add-stakeholder'
+```
+
+```html
+<AddStakeholder builderKey="..." webhookUrl=".."/> 
+```
+
+### Web Component in Svelte
+
+```javascript
+import '@requestnetwork/add-stakeholder'
+```
+
+```html
+<add-stakeholder builderKey="..." webhookUrl="..."/>
+```
+
+### Web Component in Browser
 
 ```html
 <script src="./node_modules/add-stakeholder/dist/web-component.umd.cjs" defer></script>
