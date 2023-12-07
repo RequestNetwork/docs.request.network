@@ -15,6 +15,7 @@
 * [Request Node Gateways](get-started/request-node-gateways.md)
 * [Supported Chains](get-started/supported-chains.md)
 * [Contracts](get-started/contracts.md)
+* [FAQ](get-started/faq.md)
 
 ## Learn Request Network
 

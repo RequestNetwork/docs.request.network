@@ -58,6 +58,19 @@ If you need the proxy smart contract addresses, we list the most relevant ones b
 
 For reference-based payment requests, the references for the main payment and the refund are different.
 
+#### paymentReference
+
+Payments are linked to requests via a `paymentReference` which is derived from the `requestId` which is derived from the request contents.
+
+The `paymentReference` consists of the last 8 bytes of a salted hash of the `requestId`: `last8Bytes(hash(lowercase(requestId + salt + info)))`:
+
+* `requestId` is the id of the request
+* `salt` is a random number with at least 8 bytes of randomness. It must be unique to each request
+* `info` is the JSON-stringified string of the `paymentInfo` for a payment, or `refundInfo` for a refund.
+* `lowercase()` transforms all characters to lowercase
+* `hash()` is a keccak256 hash function
+* `last8Bytes()` take the last 8 bytes
+
 #### Declarative
 
 For these payment networks, the request doesn't require any additional data. The request's stakeholders declare sending and receiving payments or refunds manually. Optionally, the request creator can specify the information to describe how the payment should occur, but this data will not be used to detect the payment. The payee declares the received payments, and the payer declares the received refunds. The balance of the request is the sum of declared payments minus the sum of declared refunds. The payee can also declare the sent refunds and the payer the sent payments. These declarations are used only for documentation purposes and aren't taken into consideration to compute the request balance.
