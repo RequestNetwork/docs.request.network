@@ -21,7 +21,7 @@ This command will launch the IPFS node with Request network configurations.
 To launch the Request node you can run:
 
 ```bash
-docker run -p 3000:3000 -e MNEMONIC="<your wallet mnemonic>" -e WEB3_PROVIDER_URL="<your web3 provider url>" -e ETHEREUM_NETWORK_ID="<ethereum network id>" -e IPFS_HOST="host.docker.internal"  requestnetwork/request-node
+docker run -p <your port>:3000 -e MNEMONIC="<your wallet mnemonic>" -e WEB3_PROVIDER_URL="<your web3 provider url>" -e ETHEREUM_NETWORK_ID="<ethereum network id>" -e IPFS_HOST="host.docker.internal"  requestnetwork/request-node
 ```
 
 The environment variables passed to the script are:
@@ -51,7 +51,7 @@ services:
       WEB3_PROVIDER_URL: https://goerli.infura.io/v3/<your API key>
       MNEMONIC: <your Mnemonic>
     ports:
-      - '3000:3000'
+      - '3000:3000'  # Published port (left-hand side) can be whatever port you prefer
     depends_on:
       - ipfs
 
