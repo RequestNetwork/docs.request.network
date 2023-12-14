@@ -12,19 +12,30 @@ If your question is not answered below, please consider posting it to the [Reque
 
 No. Request Network is not a blockchain, smart contract platform, or scaling solution. Rather, it's a protocol for storing payment requests and facilitating on-chain payments. It stores payment requests in [IPFS](https://www.ipfs.com/) with CID hashes stored on [Gnosis Chain](https://www.gnosis.io/). It uses [The Graph](https://thegraph.com/) for on-chain event indexing. It processes payments across a variety of [supported payment chains](https://docs.request.network/get-started/supported-chains).
 
-## Do I need to run a Request Node on \<Chain> to create a request for funds on \<Chain>?
+## Do I need a Request Node on \<Chain> to request funds on \<Chain>?
 
-No, you don't need to run a Request Node on \<Chain> to request funds on \<Chain>. Requests are created on Gnosis Chain (or on testnets like Goerli or Sepolia) regardless of where the payment(s) will occur. Payment(s) can occur on any of our [supported payment chains](https://docs.request.network/get-started/supported-chains#payments).
+No, you don't need a Request Node on \<Chain> to request funds on \<Chain>. Requests are created on Gnosis Chain (or on testnets like Goerli or Sepolia) regardless of where the payment(s) will occur. Payment(s) can occur on any of our [supported payment chains](https://docs.request.network/get-started/supported-chains#payments).
 
 To help builders get started quickly, the Request Network Foundation operates several [Request Node Gateways](https://docs.request.network/get-started/request-node-gateways) that are free for anyone to use. These gateways offer endpoints for creating and retrieving requests.
 
 Requests created on the Gnosis Chain are "real" and should exist forever. Requests created on Goerli or Sepolia are "test" requests and will exist only as long as the test net exists.
 
-## When I use a Request Node, is it possible for the Request Node to modify my request contents before persisting them to IPFS and on-chain?
+## Can a Request Node modify a request's contents before persisting it to IPFS and on-chain?
 
-In theory, yes, a Request Node could change a request's contents before persisting it in IPFS and on-chain. When using a Request Node, the platform and end-user must trust the Request Node operator. This is true even for encrypted requests. That said, the `@requestnetwork/request-node` package and the Request Node Gateways operated by the Request Network Foundation do _NOT_ modify requests before persisting them.
+No. A Request Node cannot successfully change a request's contents before persisting it to IPFS and on-chain because doing so would invalidate the signature. This is true for private, encrypted requests as well. The Request Node cannot forge the end-user's signature.
 
-If this trust assumption is not acceptable, then it is possible to persist a request in IPFS and on-chain directly from the SDK without using a Request Node.
+## Can I create a request without using a Request Node?
+
+No. Today, a Request Node is required to interact with the Request Network IPFS Network. That said, it is possible to make the end-user pay the protocol fee when creating a request instead of the Request Node. To do this, inject an `HttpMetaMaskDataAccess` into the frontend `RequestNetwork` instance.
+
+```typescript
+const requestNetwork = new RequestNetworkBase({
+  dataAccess: new HttpMetaMaskDataAccess({
+    ethereumProviderUrl: 'https://eth-mainnet.g.alchemy.com/v2/demo',
+  }),
+  ...
+}
+```
 
 ## Is the address that signs to create a request the same address that receives the payment?
 
