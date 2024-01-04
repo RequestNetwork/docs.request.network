@@ -4,9 +4,9 @@ description: Request Network is a protocol for storing payment requests.
 
 # What is Request Network?
 
-<div align="center" data-full-width="true">
+<div data-full-width="true">
 
-<figure><img src=".gitbook/assets/LinkedIn, Cover image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Gitbook - Request Network.png" alt=""><figcaption></figcaption></figure>
 
 </div>
 
