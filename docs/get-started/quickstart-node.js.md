@@ -66,7 +66,7 @@ const requestCreateParameters = {
     // The currency in which the request is denominated
     currency: {
       type: Types.RequestLogic.CURRENCY.ERC20,
-      value: '0xBA62BCfcAaFc6622853cca2BE6Ac7d845BC0f2Dc',
+      value: '0x370DE27fdb7D1Ff1e1BaA7D11c5820a324Cf623C',
       network: 'sepolia',
     },
     
