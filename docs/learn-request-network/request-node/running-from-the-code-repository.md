@@ -1,5 +1,9 @@
 # Running from the code repository
 
+{% hint style="warning" %}
+This page is stale and in need of a refresh.
+{% endhint %}
+
 If you can't use Docker or you want to run your node locally from the source code, you can follow the steps in this document. Running the Node this way is helpful for debugging and developing the Node itself.
 
 ## Running locally

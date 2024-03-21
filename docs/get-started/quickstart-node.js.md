@@ -36,7 +36,7 @@ const epkSignatureProvider = new EthereumPrivateKeySignatureProvider({
 
 Then, first construct a `RequestNetwork`, passing in the:
 
-* Request Node URL. In this example, we use the Goerli Request Node Gateway.
+* Request Node URL. In this example, we use the Sepolia Request Node Gateway.
 * `EthereumPrivateKeySignatureProvider` constructed in the previous step.
 
 ```javascript
@@ -44,7 +44,7 @@ const { RequestNetwork } = require("@requestnetwork/request-client.js")
 
 const requestClient = new RequestNetwork({
   nodeConnectionConfig: { 
-    baseURL: "https://goerli.gateway.request.network/",
+    baseURL: "https://sepolia.gateway.request.network/",
   },
   signatureProvider: epkSignatureProvider,
 });
@@ -67,7 +67,7 @@ const requestCreateParameters = {
     currency: {
       type: Types.RequestLogic.CURRENCY.ERC20,
       value: '0xBA62BCfcAaFc6622853cca2BE6Ac7d845BC0f2Dc',
-      network: 'goerli',
+      network: 'sepolia',
     },
     
     // The expected amount as a string, in parsed units, respecting `decimals`
@@ -94,7 +94,7 @@ const requestCreateParameters = {
   paymentNetwork: {
     id: Types.Extension.PAYMENT_NETWORK_ID.ERC20_FEE_PROXY_CONTRACT,
     parameters: {
-      paymentNetworkName: 'goerli',
+      paymentNetworkName: 'sepolia',
       paymentAddress: payeeIdentity,
       feeAddress: feeRecipient,  
       feeAmount: '0',
@@ -129,13 +129,13 @@ Altogether it looks like this:
 
 ## Pay a request / Detect a payment
 
-First, construct a `RequestNetwork` object and connect it to a Request Node. In this example, we use the Goerli Request Node Gateway:
+First, construct a `RequestNetwork` object and connect it to a Request Node. In this example, we use the Sepolia Request Node Gateway:
 
 <pre class="language-javascript" data-full-width="false"><code class="lang-javascript">const { RequestNetwork, Types } = require("@requestnetwork/request-client.js");
 <strong>
 </strong><strong>const requestClient = new RequestNetwork({
 </strong>  nodeConnectionConfig: { 
-    baseURL: "https://goerli.gateway.request.network/",
+    baseURL: "https://sepolia.gateway.request.network/",
   }
 });
 </code></pre>
@@ -188,7 +188,7 @@ const _hasSufficientFunds = await hasSufficientFunds(
 </strong><strong>);
 </strong></code></pre>
 
-Then, in the case of an ERC-20 request, check that the payer has granted sufficient approval using `hasErc20Approval()`. If not, submit an approval transaction using `approveErc20`. Wait for an appropriate number of block confirmations. On Goerli or Ethereum, 2 block confirmations should suffice. Other chains may require more.
+Then, in the case of an ERC-20 request, check that the payer has granted sufficient approval using `hasErc20Approval()`. If not, submit an approval transaction using `approveErc20`. Wait for an appropriate number of block confirmations. On Sepolia or Ethereum, 2 block confirmations should suffice. Other chains may require more.
 
 ```javascript
 const { 
@@ -233,12 +233,12 @@ Altogether it looks like this:
 
 ## Retrieve a user's requests
 
-First, construct a `RequestNetwork` object and connect it to a Request Node. In this example, we use the Goerli Request Node Gateway:
+First, construct a `RequestNetwork` object and connect it to a Request Node. In this example, we use the Sepolia Request Node Gateway:
 
 <pre class="language-javascript"><code class="lang-javascript">const { RequestNetwork, Types } = require("@requestnetwork/request-client.js");
 <strong>const requestClient = new RequestNetwork({
 </strong>  nodeConnectionConfig: { 
-    baseURL: "https://goerli.gateway.request.network/",
+    baseURL: "https://sepolia.gateway.request.network/",
   },
 });
 </code></pre>

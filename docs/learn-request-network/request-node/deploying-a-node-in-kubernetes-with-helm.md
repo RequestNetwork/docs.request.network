@@ -1,5 +1,9 @@
 # Deploying a node in Kubernetes with Helm
 
+{% hint style="warning" %}
+This page is stale and in need of a refresh.
+{% endhint %}
+
 Deploying a Request Node on Kubernetes is straightforward using our [helm](https://helm.sh/) chart.
 
 You can see our chart in our [git repository](https://github.com/RequestNetwork/request-helm-charts/tree/master/request-node).

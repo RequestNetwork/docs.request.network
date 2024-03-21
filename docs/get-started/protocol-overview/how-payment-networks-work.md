@@ -40,7 +40,7 @@ If you need the proxy smart contract addresses, we list the most relevant ones b
 "mainnet": {
 	"address": "0x370DE27fdb7D1Ff1e1BaA7D11c5820a324Cf623C",
 },
-"goerli": {
+"sepolia": {
 	"address": "0x399F5EE127ce7432E4921a61b8CF52b0af52cbfE",
 }
 ```
@@ -51,7 +51,7 @@ If you need the proxy smart contract addresses, we list the most relevant ones b
 "mainnet": {
 	"address": "0xfCFBcfc4f5A421089e3Df45455F7f4985FE2D6a8",
 },
-"goerli": {
+"sepolia": {
 	"address": "0xe11BF2fDA23bF0A98365e1A4c04A87C9339e8687",
 }
 ```

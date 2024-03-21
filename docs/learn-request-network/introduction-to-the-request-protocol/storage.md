@@ -29,10 +29,10 @@ For our solution, we use additional smart contracts for fee verification. Using 
 The RequestHashStorage smart contract address can be found on [GitHub](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/lib/artifacts/RequestHashStorage/index.ts)
 
 ```json
- "mainnet": {
-  "address": "0x24a66afda3666fb0202f439708ece45c8121a9bb"
+ "xdai": {
+  "address": "0x2256938E8225a998C498bf86B43c1768EE14b90B"
 },
-"goerli": {
-  "address": "0x132D0c7309Ca3286a644668469D3b09dFb81f757"
+"sepolia": {
+  "address": "0xd6c085A4D14e9e171f4aF58F7F48bd81173f167E"
 }
 ```

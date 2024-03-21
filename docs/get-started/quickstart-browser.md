@@ -64,7 +64,7 @@ const web3SignatureProvider = new Web3SignatureProvider(provider);
 
 Then, construct a `RequestNetwork`, passing in the:
 
-* Request Node URL. In this example, we use the Goerli Request Node Gateway.
+* Request Node URL. In this example, we use the Sepolia Request Node Gateway.
 * `Web3SignatureProvider` constructed in the previous step.
 
 ```typescript
@@ -72,7 +72,7 @@ import { RequestNetwork } from "@requestnetwork/request-client.js"
 
 const requestClient = new RequestNetwork({
   nodeConnectionConfig: { 
-    baseURL: "https://goerli.gateway.request.network/",
+    baseURL: "https://sepolia.gateway.request.network/",
   },
   signatureProvider: web3SignatureProvider,
 });
@@ -95,7 +95,7 @@ const requestCreateParameters = {
     currency: {
       type: Types.RequestLogic.CURRENCY.ERC20,
       value: '0xBA62BCfcAaFc6622853cca2BE6Ac7d845BC0f2Dc',
-      network: 'goerli',
+      network: 'sepolia',
     },
     
     // The expected amount as a string, in parsed units, respecting `decimals`
@@ -122,7 +122,7 @@ const requestCreateParameters = {
   paymentNetwork: {
     id: Types.Extension.PAYMENT_NETWORK_ID.ERC20_FEE_PROXY_CONTRACT,
     parameters: {
-      paymentNetworkName: 'goerli',
+      paymentNetworkName: 'sepolia',
       paymentAddress: payeeIdentity,
       feeAddress: feeRecipient,  
       feeAmount: '0',
@@ -144,7 +144,7 @@ const requestCreateParameters = {
 };
 ```
 
-Then, call `createRequest()` to prepare a `Request` object.&#x20;
+Then, call `createRequest()` to prepare a `Request` object.
 
 ```typescript
 const request = await requestClient.createRequest(requestCreateParameters);
@@ -168,17 +168,17 @@ const confirmedRequestData = await request.waitForConfirmation();
 
 ## Pay a request
 
-First, construct a `RequestNetwork` object and connect it to a Request Node. In this example, we use the Goerli Request Node Gateway:
+First, construct a `RequestNetwork` object and connect it to a Request Node. In this example, we use the Sepolia Request Node Gateway:
 
 {% hint style="info" %}
 Note that paying a request doesn't require a `SignatureProvider` be passed into the `RequestNetwork` object.
 {% endhint %}
 
 <pre class="language-typescript" data-full-width="false"><code class="lang-typescript">import { RequestNetwork, Types } from "@requestnetwork/request-client.js";
-<strong>
-</strong><strong>const requestClient = new RequestNetwork({
+
+<strong>const requestClient = new RequestNetwork({
 </strong>  nodeConnectionConfig: { 
-    baseURL: "https://goerli.gateway.request.network/",
+    baseURL: "https://sepolia.gateway.request.network/",
   }
 });
 </code></pre>
@@ -192,7 +192,7 @@ const request = await requestClient.fromRequestId(
 const requestData = request.getData();
 ```
 
-Then, construct an `ethers` v5 `Provider` and `Signer`. These allow you to read and write to the chain, respectively.&#x20;
+Then, construct an `ethers` v5 `Provider` and `Signer`. These allow you to read and write to the chain, respectively.
 
 {% hint style="warning" %}
 Unfortunately, the Request Network SDK does not yet support ethers v6.
@@ -314,7 +314,7 @@ const _hasSufficientFunds = await hasSufficientFunds(
 </strong><strong>);
 </strong></code></pre>
 
-Then, in the case of an ERC-20 request, check that the payer has granted sufficient approval using `hasErc20Approval()`. If not, submit an approval transaction using `approveErc20`. Wait for an appropriate number of block confirmations. On Goerli or Ethereum, 2 block confirmations should suffice. Other chains may require more.
+Then, in the case of an ERC-20 request, check that the payer has granted sufficient approval using `hasErc20Approval()`. If not, submit an approval transaction using `approveErc20`. Wait for an appropriate number of block confirmations. On Sepolia or Ethereum, 2 block confirmations should suffice. Other chains may require more.
 
 ```typescript
 import { approveErc20, hasErc20Approval } from "@requestnetwork/payment-processor";
@@ -333,8 +333,8 @@ if (!_hasErc20Approval) {
 Finally, pay the request using `payRequest()`
 
 <pre class="language-typescript"><code class="lang-typescript"><strong>import { payRequest } from "@requestnetwork/payment-processor";
-</strong><strong>
-</strong><strong>const paymentTx = await payRequest(requestData, signer);
+</strong>
+<strong>const paymentTx = await payRequest(requestData, signer);
 </strong><strong>await paymentTx.wait(2);
 </strong></code></pre>
 
@@ -362,12 +362,12 @@ while (requestData.balance?.balance < requestData.expectedAmount) {
 
 ## Retrieve a user's requests
 
-First, construct a `RequestNetwork` object and connect it to a Request Node. In this example, we use the Goerli Request Node Gateway:
+First, construct a `RequestNetwork` object and connect it to a Request Node. In this example, we use the Sepolia Request Node Gateway:
 
 <pre class="language-javascript"><code class="lang-javascript">import { RequestNetwork, Types } from "@requestnetwork/request-client.js";
 <strong>const requestClient = new RequestNetwork({
 </strong>  nodeConnectionConfig: { 
-    baseURL: "https://goerli.gateway.request.network/",
+    baseURL: "https://sepolia.gateway.request.network/",
   },
 });
 </code></pre>

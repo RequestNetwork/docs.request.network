@@ -1,5 +1,9 @@
 # Request Node Hosting
 
+{% hint style="warning" %}
+This page is stale and in need of a refresh.
+{% endhint %}
+
 Now you should be comfortable with features of the Request network.
 
 In this guide, we will explain the Request Node and help you run your own.

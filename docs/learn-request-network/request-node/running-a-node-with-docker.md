@@ -1,5 +1,9 @@
 # Running a node with Docker
 
+{% hint style="warning" %}
+This page is stale and in need of a refresh.
+{% endhint %}
+
 Running a Request Node with Docker is easy. There are only a few requirements:
 
 * Docker installed on your system;
@@ -20,9 +24,8 @@ This command will launch the IPFS node with Request network configurations.
 
 To launch the Request node you can run:
 
-```bash
-docker run -p <your port>:3000 -e MNEMONIC="<your wallet mnemonic>" -e WEB3_PROVIDER_URL="<your web3 provider url>" -e ETHEREUM_NETWORK_ID="<ethereum network id>" -e IPFS_HOST="host.docker.internal"  requestnetwork/request-node
-```
+<pre class="language-bash"><code class="lang-bash"><strong>docker run -p &#x3C;your port>:3000 -e MNEMONIC="&#x3C;your wallet mnemonic>" -e WEB3_PROVIDER_URL="&#x3C;your web3 provider url>" -e ETHEREUM_NETWORK_ID="&#x3C;ethereum network id>" -e IPFS_HOST="host.docker.internal"  requestnetwork/request-node
+</strong></code></pre>
 
 The environment variables passed to the script are:
 

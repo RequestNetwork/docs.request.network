@@ -14,15 +14,15 @@ No. Request Network is not a blockchain, smart contract platform, or scaling sol
 
 ## Do I need a Request Node on \<Chain> to request funds on \<Chain>?
 
-No, you don't need a Request Node on \<Chain> to request funds on \<Chain>. Requests are created on Gnosis Chain (or on testnets like Goerli or Sepolia) regardless of where the payment(s) will occur. Payment(s) can occur on any of our [supported payment chains](https://docs.request.network/get-started/supported-chains#payments).
+No, you don't need a Request Node on \<Chain> to request funds on \<Chain>. Requests are created on Gnosis Chain (or on a testnet like Sepolia) regardless of where the payment(s) will occur. Payment(s) can occur on any of our [supported payment chains](https://docs.request.network/get-started/supported-chains#payments).
 
 To help builders get started quickly, the Request Network Foundation operates several [Request Node Gateways](https://docs.request.network/get-started/request-node-gateways) that are free for anyone to use. These gateways offer endpoints for creating and retrieving requests.
 
-Requests created on the Gnosis Chain are "real" and should exist forever. Requests created on Goerli or Sepolia are "test" requests and will exist only as long as the test net exists.
+Requests created on the Gnosis Chain are "real" and should exist forever. Requests created on Sepolia are "test" requests and will exist only as long as the testnet exists.
 
 ## Can a Request Node modify a request's contents before persisting it to IPFS and on-chain?
 
-No. A Request Node cannot successfully change a request's contents before persisting it to IPFS and on-chain because doing so would invalidate the signature. This is true for private, encrypted requests as well. The Request Node cannot forge the end-user's signature.
+No. A Request Node cannot change a request's contents before persisting it to IPFS and on-chain because doing so would invalidate the signature. This is true for private, encrypted requests as well. The Request Node cannot forge the end-user's signature.
 
 ## Can I create a request without using a Request Node?
 
