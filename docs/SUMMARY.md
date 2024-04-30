@@ -12,9 +12,10 @@
   * [SDK and Request Node Overview](get-started/protocol-overview/request-client-and-request-node.md)
   * [Payment Networks](get-started/protocol-overview/how-payment-networks-work.md)
   * [Private Requests using Encryption](get-started/protocol-overview/private-requests-using-encryption.md)
+  * [Smart Contracts Overview](get-started/protocol-overview/contracts.md)
 * [Request Node Gateways](get-started/request-node-gateways.md)
 * [Supported Chains](get-started/supported-chains.md)
-* [Contracts](get-started/contracts.md)
+* [Smart Contract Addresses](get-started/smart-contract-addresses.md)
 * [FAQ](get-started/faq.md)
 
 ## Learn Request Network
