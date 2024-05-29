@@ -18,6 +18,14 @@
 * [Smart Contract Addresses](get-started/smart-contract-addresses.md)
 * [FAQ](get-started/faq.md)
 
+## Building Blocks
+
+* [Templates](building-blocks/templates.md)
+* [Components](building-blocks/components/README.md)
+  * [Create Invoice Form](building-blocks/components/create-invoice-form.md)
+  * [Invoice Dashboard](building-blocks/components/invoice-dashboard.md)
+  * [Add Stakeholder](building-blocks/components/add-stakeholder.md)
+
 ## Learn Request Network
 
 * [SDK Guides](learn-request-network/guides/README.md)
@@ -66,8 +74,6 @@
     * [EthereumPrivateKeySignatureProvider](learn-request-network/sdk-api-reference/epk-signature/ethereumprivatekeysignatureprovider.md)
   * [epk-decryption](learn-request-network/sdk-api-reference/epk-decryption/README.md)
     * [EthereumPrivateKeyDecryptionProvider](learn-request-network/sdk-api-reference/epk-decryption/ethereumprivatekeydecryptionprovider.md)
-* [Components](learn-request-network/components/README.md)
-  * [Add Stakeholder](learn-request-network/components/add-stakeholder.md)
 * [Protocol Architecture](learn-request-network/introduction-to-the-request-protocol/README.md)
   * [Request Logic](learn-request-network/introduction-to-the-request-protocol/request-logic.md)
   * [Advanced Logic](learn-request-network/introduction-to-the-request-protocol/advanced-logic.md)

@@ -16,7 +16,7 @@ For a list of internal SDK packages, see [Internal SDK Packages](request-network
 
 These packages offer pre-built components for quickly integrating certain Request Network features.
 
-<table data-full-width="true"><thead><tr><th>Package</th><th>Description</th></tr></thead><tbody><tr><td><a href="https://www.npmjs.com/package/@requestnetwork/add-stakeholder"><code>@requestnetwork/add-stakeholder</code></a></td><td>Component for requesting access to encrypted requests created via Request Finance</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th>Package</th><th>Description</th></tr></thead><tbody><tr><td><a href="https://www.npmjs.com/package/@requestnetwork/create-invoice-form"><code>@requestnetwork/create-invoice-form</code></a></td><td>A form for creating invoices in Request Network</td></tr><tr><td><a href="https://www.npmjs.com/package/@requestnetwork/invoice-dashboard"><code>@requestnetwork/invoice-dashboard</code></a></td><td>A dashboard for viewing and paying invoices in Request Network</td></tr><tr><td><a href="https://www.npmjs.com/package/@requestnetwork/add-stakeholder"><code>@requestnetwork/add-stakeholder</code></a></td><td>A dialog box for granting third-party access to an encrypted invoice created via Request Finance</td></tr></tbody></table>
 
 ## Import the packages
 

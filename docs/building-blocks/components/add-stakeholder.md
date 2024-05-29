@@ -1,3 +1,9 @@
+---
+description: >-
+  A dialog box for granting third-party access to an encrypted invoice created
+  via Request Finance
+---
+
 # Add Stakeholder
 
 The `add-stakeholder` component allows Builders to quickly integrate the [Request Finance Add Stakeholder](https://docs.request.finance/faq#i-am-integrating-the-request-network.-can-i-get-access-to-users-data-on-request-finance) widget into their applications.
