@@ -21,7 +21,7 @@ layout:
 
 </div>
 
-<table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f579">🕹️</span> <strong>Try it out</strong> </td><td></td><td><a href="https://invoicing.request.network">https://invoicing.request.network</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f4e6">📦</span> <strong>View on NPM</strong></td><td></td><td><a href="https://www.npmjs.com/package/@requestnetwork/invoice-dashboard">https://www.npmjs.com/package/@requestnetwork/invoice-dashboard</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="2139">ℹ️</span> <strong>View Source</strong></td><td></td><td><a href="https://github.com/RequestNetwork/web-components/tree/main/packages/invoice-dashboard">https://github.com/RequestNetwork/web-components/tree/main/packages/invoice-dashboard</a></td></tr></tbody></table>
+<table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f579">🕹️</span> <strong>Try it out</strong> </td><td></td><td><a href="https://invoicing.request.network">https://invoicing.request.network</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="25b6">▶️</span> <strong>Demo Video</strong></td><td></td><td><a href="../templates.md#request-invoicing-demo-video">#request-invoicing-demo-video</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f3d7">🏗️</span> <strong>Integration Video</strong></td><td></td><td><a href="../templates.md#request-invoicing-integration-video">#request-invoicing-integration-video</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f4e6">📦</span> <strong>View on NPM</strong></td><td></td><td><a href="https://www.npmjs.com/package/@requestnetwork/invoice-dashboard">https://www.npmjs.com/package/@requestnetwork/invoice-dashboard</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="2139">ℹ️</span> <strong>View Source</strong></td><td></td><td><a href="https://github.com/RequestNetwork/web-components/tree/main/packages/invoice-dashboard">https://github.com/RequestNetwork/web-components/tree/main/packages/invoice-dashboard</a></td></tr></tbody></table>
 
 The Invoice Dashboard component allows end-users to view and pay an invoice in Request Network. It is built using [Svelte](https://svelte.dev/) but compiled to a [Web Component](https://developer.mozilla.org/en-US/docs/Web/API/Web\_components), making it usable in any web environment, regardless of the framework.
 
@@ -52,7 +52,15 @@ npm install @requestnetwork/invoice-dashboard
 
 ## Usage
 
-### Usage in React
+{% hint style="warning" %}
+The Invoice Dashboard component is only compatible with [Web3 Onboard](https://onboard.blocknative.com/) because it takes a `WalletState` as a prop. Future iterations will allow for other wallet connectors. For status, see [invoicing-template #31](https://github.com/RequestNetwork/web-components/issues/31)
+{% endhint %}
+
+### Usage in React and Next.js
+
+Follow the instructions below to add the Invoice Dashboard to a React or Next.js app.&#x20;
+
+#### Disable swcMinify in next.config.mjs
 
 {% hint style="warning" %}
 To use the Invoice Dashboard in NextJS 14.x, you must set `swcMinify: false` in your `next.config.mjs` file. Without it, the Invoice Dashboard won't render.
@@ -60,24 +68,16 @@ To use the Invoice Dashboard in NextJS 14.x, you must set `swcMinify: false` in 
 
 {% @github-files/github-code-block url="https://github.com/RequestNetwork/invoicing-template/blob/main/next.config.mjs" %}
 
+#### **invoice-dashboard.tsx**
+
+Configure the invoice dashboard web component by creating a reference to it, setting its properties, and passing the reference as a prop.&#x20;
+
 {% hint style="warning" %}
 To use the Invoice Dashboard in a React application, you must _dynamically_ import `@requestnetwork/invoice-dashboard` and use the component in your JSX file.
 
 ```jsx
 import("@requestnetwork/invoice-dashboard");
 ```
-{% endhint %}
-
-{% hint style="warning" %}
-The Invoice Dashboard component is currently only compatible with [Web3 Onboard](https://onboard.blocknative.com/) because it takes a `WalletState` as a prop. Future iterations will allow for other wallet connectors.
-{% endhint %}
-
-#### **invoice-dashboard.tsx**
-
-Configure the invoice dashboard web component by creating a reference to it, setting its properties, and passing the reference as a prop.&#x20;
-
-{% hint style="info" %}
-Passing the props directly without creating a reference to the web component should be enabled in a future release. For more details, see [web-components Issue #34](https://github.com/RequestNetwork/web-components/issues/34).
 {% endhint %}
 
 {% @github-files/github-code-block url="https://github.com/RequestNetwork/invoicing-template/blob/main/pages/index.tsx" fullWidth="false" %}

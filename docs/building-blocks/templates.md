@@ -22,6 +22,18 @@ An Invoicing Template for creating, viewing, and paying requests in Request Netw
 
 <table data-full-width="false"><thead><tr><th>Framework</th><th>Deployment</th><th>Source</th></tr></thead><tbody><tr><td>Next.js</td><td><a href="https://invoicing.request.network">https://invoicing.request.network</a></td><td><a href="https://github.com/RequestNetwork/invoicing-template">https://github.com/RequestNetwork/invoicing-template</a></td></tr></tbody></table>
 
+### Request Invoicing Demo Video
+
+{% embed url="https://www.youtube.com/watch?v=FC6oJR5aKOQ" fullWidth="false" %}
+A video showing the Request Invoicing template where you can create, pay, and list all your requests.
+{% endembed %}
+
+### Request Invoicing Integration Video
+
+{% embed url="https://www.youtube.com/watch?v=CV4uiKM7r7s" fullWidth="false" %}
+A video showing how to integrate the Request Invoicing web components into a Next.js application.&#x20;
+{% endembed %}
+
 ## Request Checkout (Payment Gateway Template)&#x20;
 
 Coming soon...

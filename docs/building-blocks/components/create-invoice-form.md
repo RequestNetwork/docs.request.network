@@ -6,7 +6,9 @@ description: A form for creating invoices in Request Network
 
 <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Screenshot of @requestnetwork/create-invoice-form 0.2.0</p></figcaption></figure>
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f579">🕹️</span> <strong>Try it out</strong></td><td></td><td><a href="https://invoicing.request.network/create-invoice">https://invoicing.request.network/create-invoice</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f4e6">📦</span> <strong>View on NPM</strong></td><td></td><td><a href="https://www.npmjs.com/package/@requestnetwork/create-invoice-form">https://www.npmjs.com/package/@requestnetwork/create-invoice-form</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="2139">ℹ️</span> <strong>View Source</strong></td><td></td><td><a href="https://github.com/RequestNetwork/web-components/tree/main/packages/create-invoice-form">https://github.com/RequestNetwork/web-components/tree/main/packages/create-invoice-form</a></td></tr></tbody></table>
+
+
+<table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th><th data-hidden data-type="content-ref"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f579">🕹️</span> <strong>Try it out</strong></td><td></td><td><a href="https://invoicing.request.network/create-invoice">https://invoicing.request.network/create-invoice</a></td><td></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="25b6">▶️</span> <strong>Demo Video</strong></td><td></td><td><a href="https://www.youtube.com/watch?v=FC6oJR5aKOQ">https://www.youtube.com/watch?v=FC6oJR5aKOQ</a></td><td><a href="../templates.md#request-invoicing-demo-video">#request-invoicing-demo-video</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f3d7">🏗️</span> <strong>Integration Video</strong></td><td></td><td><a href="https://www.youtube.com/watch?v=CV4uiKM7r7s">https://www.youtube.com/watch?v=CV4uiKM7r7s</a></td><td><a href="../templates.md#request-invoicing-integration-video">#request-invoicing-integration-video</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f4e6">📦</span> <strong>View on NPM</strong></td><td></td><td><a href="https://www.npmjs.com/package/@requestnetwork/create-invoice-form">https://www.npmjs.com/package/@requestnetwork/create-invoice-form</a></td><td></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="2139">ℹ️</span> <strong>View Source</strong></td><td></td><td><a href="https://github.com/RequestNetwork/web-components/tree/main/packages/create-invoice-form">https://github.com/RequestNetwork/web-components/tree/main/packages/create-invoice-form</a></td><td></td></tr></tbody></table>
 
 The Create Invoice Form allows end-users to create an invoice using the Request Network. It is built using [Svelte](https://svelte.dev/) but compiled to a [Web Component](https://developer.mozilla.org/en-US/docs/Web/API/Web\_components), making it usable in any web environment, regardless of the framework.
 
@@ -37,7 +39,11 @@ npm install @requestnetwork/create-invoice-form
 
 ## Usage
 
-### Usage in React
+### Usage in React and Next.js
+
+Follow the instructions below to add the Create Invoice Form to a React or Next.js app. For a video explaining how to integrate, see the [#request-invoicing-integration-video](../templates.md#request-invoicing-integration-video "mention")
+
+#### Disable swcMinify in next.config.mjs
 
 {% hint style="warning" %}
 To use the Create Invoice Form in NextJS 14.x, you must set `swcMinify: false` in your `next.config.mjs` file. Without it, the Create Invoice Form won't render.
@@ -45,8 +51,12 @@ To use the Create Invoice Form in NextJS 14.x, you must set `swcMinify: false` i
 
 {% @github-files/github-code-block url="https://github.com/RequestNetwork/invoicing-template/blob/main/next.config.mjs" %}
 
+#### **create-invoice.tsx**
+
+Configure the Create Invoice Form web component by creating a reference to it, setting its properties, and passing the reference as a prop.&#x20;
+
 {% hint style="warning" %}
-To use the Create Invoice Form in a React application, you must _dynamically_ import `@requestnetwork/create-invoice-form` and use the component in your JSX file.
+To use the Create Invoice Form in a React or Next.js application, you must _dynamically_ import `@requestnetwork/create-invoice-form` and use the component in your JSX file.
 
 ```jsx
 import("@requestnetwork/create-invoice-form");
@@ -54,15 +64,7 @@ import("@requestnetwork/create-invoice-form");
 {% endhint %}
 
 {% hint style="info" %}
-The following example uses [Web3 Onboard](https://onboard.blocknative.com/) to connect a wallet but you can use any wallet connection method you prefer.
-{% endhint %}
-
-#### **create-invoice.tsx**
-
-Configure the Create Invoice Form web component by creating a reference to it, setting its properties, and passing the reference as a prop.&#x20;
-
-{% hint style="info" %}
-Passing the props directly without creating a reference to the web component should be enabled in a future release. For more details, see [web-components Issue #34](https://github.com/RequestNetwork/web-components/issues/34).
+This example uses [Web3 Onboard](https://onboard.blocknative.com/) to connect a wallet but you can use any wallet connection method you prefer.
 {% endhint %}
 
 {% @github-files/github-code-block url="https://github.com/RequestNetwork/invoicing-template/blob/main/pages/create-invoice.tsx" %}
