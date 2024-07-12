@@ -14,7 +14,7 @@ This layer has three responsibilities:
 
 Actions are the essential elements that compose a request. From this layer's point of view, a request is simply a list of different actions.
 
-&#x20;_Example of a request in Request Logic represented by a list of actions_
+<figure><img src="../../.gitbook/assets/2-RequestPresentation.jpg" alt=""><figcaption><p> <em>Example of a request in Request Logic represented by a list of actions</em></p></figcaption></figure>
 
 * The payee creates the request requesting 1 ETH to the payer
 * The payer accepts the request
@@ -22,8 +22,7 @@ Actions are the essential elements that compose a request. From this layer's poi
 
 Given the list of these actions, we can interpret the state of the request. The example above describes a request that has been accepted by the payer where he will have to pay 2 ETH to the payee.
 
-Note that the hash of the \
-&#x20;action determines the request Id. Therefore, this action doesn't specify the request Id since it doesn't exist yet. The update actions (`accept` and `increaseExpectedAmount`) specify the request Id in their data.
+Note that the hash of the action determines the request Id. Therefore, this action doesn't specify the request Id since it doesn't exist yet. The update actions (`accept` and `increaseExpectedAmount`) specify the request Id in their data.
 
 There are two kinds of action:
 
