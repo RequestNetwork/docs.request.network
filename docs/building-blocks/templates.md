@@ -30,7 +30,7 @@ A video showing the Request Invoicing template where you can create, pay, and li
 
 ### Request Invoicing Integration Video
 
-{% embed url="https://www.youtube.com/watch?v=CV4uiKM7r7s" fullWidth="false" %}
+{% embed url="https://www.youtube.com/watch?v=lUX8FB7urJM" %}
 A video showing how to integrate the Request Invoicing web components into a Next.js application.&#x20;
 {% endembed %}
 
