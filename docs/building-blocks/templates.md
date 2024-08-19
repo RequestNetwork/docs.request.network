@@ -34,9 +34,21 @@ A video showing the Request Invoicing template where you can create, pay, and li
 A video showing how to integrate the Request Invoicing web components into a Next.js application.&#x20;
 {% endembed %}
 
-## Request Checkout (Payment Gateway Template)&#x20;
+## Request Checkout Playground&#x20;
 
-Coming soon...
+The playground for adding crypto payments in any website, build using [Payment Widget](components/payment-widget.md)
 
+<table data-full-width="false"><thead><tr><th>Framework</th><th>Deployment</th><th>Source</th></tr></thead><tbody><tr><td>Next.js</td><td><a href="https://checkout.request.network">https://checkout.request.network</a></td><td><a href="https://github.com/RequestNetwork/rn-checkout">https://github.com/RequestNetwork/rn-checkout</a></td></tr></tbody></table>
 
+### Payment Widget Demo Video
+
+{% embed url="https://youtu.be/kLEUgSH8MuQ" %}
+A video showing the Request Checkout Payment Widget .
+{% endembed %}
+
+### Payment Widget Integration Video
+
+{% embed url="https://youtu.be/nr_RoXvElkU" %}
+A video showing how to integrate the Request Checkout Payment Widget web components into a Next.js application.&#x20;
+{% endembed %}
 

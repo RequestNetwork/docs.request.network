@@ -24,6 +24,7 @@
 * [Components](building-blocks/components/README.md)
   * [Create Invoice Form](building-blocks/components/create-invoice-form.md)
   * [Invoice Dashboard](building-blocks/components/invoice-dashboard.md)
+  * [Payment Widget](building-blocks/components/payment-widget.md)
   * [Add Stakeholder](building-blocks/components/add-stakeholder.md)
 
 ## Learn Request Network
