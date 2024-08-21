@@ -48,7 +48,7 @@ A video showing the Request Checkout Payment Widget .
 
 ### Payment Widget Integration Video
 
-{% embed url="https://youtu.be/nr_RoXvElkU" %}
-A video showing how to integrate the Request Checkout Payment Widget web components into a Next.js application.&#x20;
+{% embed url="https://www.youtube.com/watch?v=voeZY4lodQw" %}
+A video showing the Request Checkout Payment Widget integration.
 {% endembed %}
 
