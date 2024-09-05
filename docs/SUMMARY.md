@@ -26,6 +26,7 @@
   * [Invoice Dashboard](building-blocks/components/invoice-dashboard.md)
   * [Payment Widget](building-blocks/components/payment-widget.md)
   * [Add Stakeholder](building-blocks/components/add-stakeholder.md)
+* [Request Scan (Explorer)](https://scan.request.network)
 
 ## Learn Request Network
 
