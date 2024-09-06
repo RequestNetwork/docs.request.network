@@ -29,18 +29,28 @@ The Invoice Dashboard component allows end-users to view and pay an invoice in R
 
 | Feature                                                                                                                                | Status |
 | -------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| ERC20 Payment                                                                                                                          | ✅      |
+| ERC20 Request                                                                                                                          | ✅      |
 | [rnf\_invoice format](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/data-format/src/format/rnf\_invoice) 0.3.0 | ✅      |
 | Configure Logo and Colors                                                                                                              | ✅      |
 | Minimal Chains and Currencies                                                                                                          | ✅      |
+| Custom currency list                                                                                                                   | ✅      |
 
 ## Chains and Currencies
 
-| Chain    | Currencies             |
-| -------- | ---------------------- |
-| Ethereum | USDC, USDT, DAI        |
-| Polygon  | USDC, USDT, DAI, USDCe |
-| Sepolia  | USDC, FAU              |
+| Chain           | Currencies                                                                                  |
+| --------------- | ------------------------------------------------------------------------------------------- |
+| Ethereum        | USDC, USDT, DAI, AXS, AUDIO, RAI, SYLO, LDO, UST, MNT, MIR, INJ, OCEAN, ANKR, RLY, REQ, ETH |
+| Polygon         | USDC, USDT, DAI, MATIC                                                                      |
+| Sepolia         | FAU, ETH, USDT, USDC                                                                        |
+| BNB Smart Chain | DAI, BUSD                                                                                   |
+| Gnosis          | USDC                                                                                        |
+| Avalanche       | USDC, USDT, AVAX                                                                            |
+| Optimism        | USDC, USDT, DAI, ETH                                                                        |
+| Moonbeam        | USDC (multichain), USDC (wormhole)                                                          |
+| Fantom          | FTM                                                                                         |
+| Mantle          | MNT                                                                                         |
+| zkSync Era      | ETH                                                                                         |
+| Base            | ETH                                                                                         |
 
 ## Installation
 
@@ -60,25 +70,9 @@ The Invoice Dashboard component is only compatible with [Web3 Onboard](https://o
 
 Follow the instructions below to add the Invoice Dashboard to a React or Next.js app.&#x20;
 
-#### Disable swcMinify in next.config.mjs
-
-{% hint style="warning" %}
-To use the Invoice Dashboard in NextJS 14.x, you must set `swcMinify: false` in your `next.config.mjs` file. Without it, the Invoice Dashboard won't render.
-{% endhint %}
-
-{% @github-files/github-code-block url="https://github.com/RequestNetwork/invoicing-template/blob/main/next.config.mjs" %}
-
 #### **invoice-dashboard.tsx**
 
 Configure the invoice dashboard web component by creating a reference to it, setting its properties, and passing the reference as a prop.&#x20;
-
-{% hint style="warning" %}
-To use the Invoice Dashboard in a React application, you must _dynamically_ import `@requestnetwork/invoice-dashboard` and use the component in your JSX file.
-
-```jsx
-import("@requestnetwork/invoice-dashboard");
-```
-{% endhint %}
 
 {% @github-files/github-code-block url="https://github.com/RequestNetwork/invoicing-template/blob/main/pages/index.tsx" fullWidth="false" %}
 
@@ -94,6 +88,9 @@ import("@requestnetwork/invoice-dashboard");
 
 * [context.tsx](https://github.com/RequestNetwork/invoicing-template/blob/main/utils/context.tsx) - Use a context provider to reinitialize the Request Network instance when the wallet changes.
 * [types.d.ts](https://github.com/RequestNetwork/invoicing-template/blob/main/types.d.ts) - Specify types to avoid TypeScript errors.
+* [currencies.ts](https://github.com/RequestNetwork/invoicing-template/blob/68677d8823c29c1d00eb93f5285e9aa90540023a/utils/currencies.ts) - A list of custom currencies to etend the default currency list.
+
+{% @github-files/github-code-block url="https://github.com/RequestNetwork/invoicing-template/blob/68677d8823c29c1d00eb93f5285e9aa90540023a/utils/currencies.ts" %}
 
 ## Props
 
@@ -107,4 +104,5 @@ import("@requestnetwork/invoice-dashboard");
 | config.colors.secondary | string                                                                                            | Color used for borders and accents                      |
 | requestNetwork          | [RequestNetwork](../../learn-request-network/sdk-api-reference/request-client.js/requestnetwork/) | The RequestNetwork instance                             |
 | wallet                  | WalletState                                                                                       | Web3Onboard WalletState                                 |
+| currencies              | Currency\[]                                                                                       | A list of custom currencies                             |
 

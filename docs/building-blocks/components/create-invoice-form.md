@@ -20,14 +20,24 @@ The Create Invoice Form allows end-users to create an invoice using the Request 
 | [rnf\_invoice format](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/data-format/src/format/rnf\_invoice) 0.3.0 | ✅      |
 | Configure Logo and Colors                                                                                                              | ✅      |
 | Minimal Chains and Currencies                                                                                                          | ✅      |
+| Custom currency list                                                                                                                   | ✅      |
 
 ## Chains and Currencies
 
-| Chain    | Currencies             |
-| -------- | ---------------------- |
-| Ethereum | USDC, USDT, DAI        |
-| Polygon  | USDC, USDT, DAI, USDCe |
-| Sepolia  | USDC, FAU              |
+| Chain           | Currencies                                                                                  |
+| --------------- | ------------------------------------------------------------------------------------------- |
+| Ethereum        | USDC, USDT, DAI, AXS, AUDIO, RAI, SYLO, LDO, UST, MNT, MIR, INJ, OCEAN, ANKR, RLY, REQ, ETH |
+| Polygon         | USDC, USDT, DAI, MATIC                                                                      |
+| Sepolia         | FAU, ETH, USDT, USDC                                                                        |
+| BNB Smart Chain | DAI, BUSD                                                                                   |
+| Gnosis          | USDC                                                                                        |
+| Avalanche       | USDC, USDT, AVAX                                                                            |
+| Optimism        | USDC, USDT, DAI, ETH                                                                        |
+| Moonbeam        | USDC (multichain), USDC (wormhole)                                                          |
+| Fantom          | FTM                                                                                         |
+| Mantle          | MNT                                                                                         |
+| zkSync Era      | ETH                                                                                         |
+| Base            | ETH                                                                                         |
 
 ## Installation
 
@@ -43,25 +53,9 @@ npm install @requestnetwork/create-invoice-form
 
 Follow the instructions below to add the Create Invoice Form to a React or Next.js app. For a video explaining how to integrate, see the [#request-invoicing-integration-video](../templates.md#request-invoicing-integration-video "mention")
 
-#### Disable swcMinify in next.config.mjs
-
-{% hint style="warning" %}
-To use the Create Invoice Form in NextJS 14.x, you must set `swcMinify: false` in your `next.config.mjs` file. Without it, the Create Invoice Form won't render.
-{% endhint %}
-
-{% @github-files/github-code-block url="https://github.com/RequestNetwork/invoicing-template/blob/main/next.config.mjs" %}
-
 #### **create-invoice.tsx**
 
 Configure the Create Invoice Form web component by creating a reference to it, setting its properties, and passing the reference as a prop.&#x20;
-
-{% hint style="warning" %}
-To use the Create Invoice Form in a React or Next.js application, you must _dynamically_ import `@requestnetwork/create-invoice-form` and use the component in your JSX file.
-
-```jsx
-import("@requestnetwork/create-invoice-form");
-```
-{% endhint %}
 
 {% hint style="info" %}
 This example uses [Web3 Onboard](https://onboard.blocknative.com/) to connect a wallet but you can use any wallet connection method you prefer.
@@ -81,6 +75,9 @@ This example uses [Web3 Onboard](https://onboard.blocknative.com/) to connect a 
 
 * [context.tsx](https://github.com/RequestNetwork/invoicing-template/blob/main/utils/context.tsx) - Use a context provider to reinitialize the Request Network instance when the wallet changes.
 * [types.d.ts](https://github.com/RequestNetwork/invoicing-template/blob/main/types.d.ts) - Specify types to avoid TypeScript errors.
+* [currencies.ts](https://github.com/RequestNetwork/invoicing-template/blob/68677d8823c29c1d00eb93f5285e9aa90540023a/utils/currencies.ts) - A list of custom currencies to etend the default currency list.
+
+{% @github-files/github-code-block url="https://github.com/RequestNetwork/invoicing-template/blob/68677d8823c29c1d00eb93f5285e9aa90540023a/utils/currencies.ts" %}
 
 ## Props
 
@@ -94,3 +91,4 @@ This example uses [Web3 Onboard](https://onboard.blocknative.com/) to connect a 
 | config.colors.secondary | string                                                                                            | Hex color code for for borders and accents              |
 | requestNetwork          | [RequestNetwork](../../learn-request-network/sdk-api-reference/request-client.js/requestnetwork/) | The RequestNetwork instance                             |
 | signer                  | string                                                                                            | The address that signs to create the invoices           |
+| currencies              | Currency\[]                                                                                       | A list of custom currencies                             |
