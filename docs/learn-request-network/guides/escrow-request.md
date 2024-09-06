@@ -1,10 +1,8 @@
-# Escrow Request
-
-Feature exists. Better docs coming soon...
+# Escrow Payment
 
 ## Escrow
 
-The Request Network Escrow isn't actually a separate payment network. Rather, it builds on top of the `ERC20_FEE_PROXY_CONTRACT` payment network.
+The Request Network Escrow isn't a separate payment network. Rather, it builds on top of the `ERC20_FEE_PROXY_CONTRACT` payment network.
 
 ## Typical Workflow
 

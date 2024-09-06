@@ -1,132 +1,56 @@
+---
+description: Rules for how a payment should be processed and detected
+---
+
 # Payment Networks
 
-{% hint style="info" %}
-This page is in need of a refresh. We recommend Builders use reference-based payment networks for most payment types. For unsupported chains, we recommend Builders use Declarative requests.
-{% endhint %}
+A payment network is a set of rules defining how a payment should be processed and detected for a Request. It specifies:
 
-When a user creates and sends a request, he expects to receive the correct amount of money. But how does he keep track of the payments due and received? Request is a ledger that documents requests for payment and how to agree on completion.
+1. Information required at request creation to enable payment detection
+2. The payment method
+3. The process for determining the balance (amount paid)
 
-Different methods are available for the payee and payer to agree on the payment status, which is when payment networks come into play. **A payment network is a predefined set of rules on how to agree on the payment status of a specific request.**
+## Reference-based Payment Networks (Recommended)
 
-A payment network is defined by:
+Reference-based payment networks use a [payment reference](../../learn-request-network/guides/payment-reference.md) to link payments to the corresponding Request. They process payments via payment proxy smart contracts deployed across a wide variety of supported chains. These contracts serve two key functions:
 
-* The information, defined at the request creation, is necessary to be able to detect payments
-* A payment method, the method used to perform a detectable payment
-* A payment detection method, the process of determining the amount paid by the payer through the payment method
+1. They forward the payment to the payment recipient's address.
+2. They emit an event containing the payment amount and the payment reference.
 
-### Types of payment detection
+The payment reference is a unique identifier derived from the Request ID and payment recipient address. This derivation happens off-chain, not in the smart contract itself.
 
-There are three ways to get a consensus on a payment status.
+It's important to note that the payment recipient's address can be different from the payee's identity address that typically signs to create the request.
 
-#### Address based
+The payment proxy smart contracts do not perform error checking. It is the responsibility of the application using the Request Network to craft the payment transaction with the correct amount and payment reference.
 
-For these payment networks, a request contains a payment address that is unique to the request. The balance of the request is computed by reading all the inbound transfers to the payment address. The payer performs a regular transfer to the payment address to pay the request. Outbound transfers are not taken into consideration to compute the request's balance. The address must be created exclusively for the request since every inbound transfer to the addresses is considered a payment. For example, if a Bitcoin request is created with a payment address that has already received 1 BTC, the request balance will be 1 BTC even though the payee hasn't received any funds from the payer.
+A payment subgraph indexes events from the payment proxy smart contracts, enabling efficient payment detection and balance calculation for each request.
 
-For address-based payment requests, the refund address also has to be exclusive to this payment refund.
+Please note that Reference-based payment networks inherit from the declarative payment network. This means that all reference-based requests can also be paid using declarative payments, providing flexibility in payment methods.
 
-#### Reference-based
+### ERC20 Fee Proxy Contract
 
-For these payment networks, a request contains one payment address. This address doesn't have to be exclusive to the request. The balance is computed by reading transfers to the payment address containing a specific payment reference, defined by the request ID and payment address.
+This payment network is used for direct ERC20 token payments.
 
-For ETH, we can tag and detect the payment reference directly in the transaction using the `input data` field of the transaction.
-
-When we cannot use `input data` or equivalent; typically, for ERC20, we use a _smart proxy contract_ to document the payment reference. The smart contract forwards a currency transfer and stores a reference.
-
-If you need the proxy smart contract addresses, we list the most relevant ones below.
-
-[Proxy smart contracts for ERC20](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/lib/artifacts/ERC20FeeProxy/index.ts):
-
-```json
-"mainnet": {
-	"address": "0x370DE27fdb7D1Ff1e1BaA7D11c5820a324Cf623C",
-},
-"sepolia": {
-	"address": "0x399F5EE127ce7432E4921a61b8CF52b0af52cbfE",
-}
-```
-
-[Proxy smart contracts for ETH when input data cannot be used](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/lib/artifacts/EthereumFeeProxy/index.ts):
-
-```json
-"mainnet": {
-	"address": "0xfCFBcfc4f5A421089e3Df45455F7f4985FE2D6a8",
-},
-"sepolia": {
-	"address": "0xe11BF2fDA23bF0A98365e1A4c04A87C9339e8687",
-}
-```
-
-For reference-based payment requests, the references for the main payment and the refund are different.
-
-#### paymentReference
-
-Payments are linked to requests via a `paymentReference` which is derived from the `requestId` which is derived from the request contents.
-
-The `paymentReference` consists of the last 8 bytes of a salted hash of the `requestId`: `last8Bytes(hash(lowercase(requestId + salt + info)))`:
-
-* `requestId` is the id of the request
-* `salt` is a random number with at least 8 bytes of randomness. It must be unique to each request
-* `info` is the JSON-stringified string of the `paymentInfo` for a payment, or `refundInfo` for a refund.
-* `lowercase()` transforms all characters to lowercase
-* `hash()` is a keccak256 hash function
-* `last8Bytes()` take the last 8 bytes
-
-#### Declarative
-
-For these payment networks, the request doesn't require any additional data. The request's stakeholders declare sending and receiving payments or refunds manually. Optionally, the request creator can specify the information to describe how the payment should occur, but this data will not be used to detect the payment. The payee declares the received payments, and the payer declares the received refunds. The balance of the request is the sum of declared payments minus the sum of declared refunds. The payee can also declare the sent refunds and the payer the sent payments. These declarations are used only for documentation purposes and aren't taken into consideration to compute the request balance.
-
-This type of payment network can be used with every currency.
-
-### Currencies
-
-The currencies that are supported for automated payment detection are
-
-* Bitcoin
-* Ether
-* ERC20
-
-#### Bitcoin
-
-A Bitcoin request requires an address-based payment network. This payment network is sufficient for Bitcoin requests because generating a new address for every inbound BTC transfer is already part of Bitcoin's good practices.
-
-#### Ether
-
-Because one Ethereum address is generally used many times to receive and send transactions, we need a way to identify payments for a specific request without creating a new address. Therefore, we use a reference-based payment network for ether requests. _Input data_ and _proxy contract_ methods can reference the ether transfer.
-
-#### ERC20
-
-Request is compatible with every ERC20 currency, but some have to be detailed manually. We use Metamask's package [`eth-contract-metadata`](https://github.com/MetaMask/eth-contract-metadata) to automatically fetch smart contracts and currency codes of main currencies.
-
-**Listed ERC-20:**
-
-For listed ERC20 currencies, you can use the code directly.
+Example of creating a request with an ERC20 Fee Proxy Contract payment network:
 
 ```typescript
-// New request for most common currencies, such as DAI or BAT:
-const request = await requestNetwork.createRequest({
-  paymentNetwork,
-  requestInfo: {
-    currency: 'DAI',
-    expectedAmount: '1000000000000000000',
-    payee: payeeIdentity,
-    payer: payerIdentity,
+const erc20Request = await requestNetwork.createRequest({
+  paymentNetwork: {
+    id: Types.Extension.PAYMENT_NETWORK_ID.ERC20_FEE_PROXY_CONTRACT,
+    parameters: {
+      paymentNetworkName: 'sepolia',
+      paymentAddress: paymentRecipientAddress,
+      feeAddress: feeRecipient,  
+      feeAmount: '0',
+    },
   },
-  signer: payeeIdentity,
-});
-```
-
-For additional ERC20 tokens, or specific neworks, you have to mention the contract address and network identifier.
-
-```typescript
-const request = await requestNetwork.createRequest({
-  paymentNetwork,
   requestInfo: {
     currency: {
-      network: 'mainnet',
       type: RequestLogicTypes.CURRENCY.ERC20,
-      value: '0xdac17f958d2ee523a2206206994597c13d831ec7', // USDT
+      value: '0xdAC17F958D2ee523a2206206994597C13D831ec7', // USDT on Ethereum
+      network: 'mainnet'
     },
-    expectedAmount: '1000',
+    expectedAmount: '1000000', // 1 USDT (6 decimals)
     payee: payeeIdentity,
     payer: payerIdentity,
   },
@@ -134,22 +58,314 @@ const request = await requestNetwork.createRequest({
 });
 ```
 
-The most convenient way to implement ERC20 requests is with a _proxy contract_ payment network. Note that the smart contract deployed for ERC20 tokens differs from the one deployed for ether.
+For details on how to use the ERC20 Fee Proxy, see the [quickstart-browser.md](../quickstart-browser.md "mention") or [quickstart-node.js.md](../quickstart-node.js.md "mention")
 
-ERC20 requests payment detection can also be address based, but the proxy contract payment network is the most convenient.
+### ETH Fee Proxy Contract ("Native Payment")
 
-#### Other currencies
+This payment network is used for direct ETH (or native token) payments on Ethereum and EVM-compatible chains.
 
-If you would like to create a request with a currency that does not live on a compatible network (EVM and Near), you have two options:
+Example of creating a request with an ETH Fee Proxy Contract payment network:
 
-Option 1: Create a declarative request (typically, for fiat-based requests)
+```typescript
+const nativeRequest = await requestNetwork.createRequest({
+  paymentNetwork: {
+    id: Types.Extension.PAYMENT_NETWORK_ID.ETH_FEE_PROXY_CONTRACT,
+    parameters: {
+      paymentNetworkName: 'mainnet',
+      paymentAddress: paymentRecipientAddress,
+      feeAddress: feeRecipient,
+      feeAmount: '1000000000000000', // 0.001 ETH fee
+    },
+  },
+  requestInfo: {
+    currency: {
+      type: RequestLogicTypes.CURRENCY.ETH,
+      value: 'ETH',
+      network: 'mainnet'
+    },
+    expectedAmount: '1000000000000000000', // 1 ETH (18 decimals)
+    payee: payeeIdentity,
+    payer: payerIdentity,
+  },
+  signer: payeeIdentity,
+});
+```
 
-Option 2: Contribute to the protocol by creating a dedicated payment network for this chain by:
+This payment network allows for native token payments with an optional fee mechanism. It's suitable for ETH payments on Ethereum mainnet, or native token payments on other EVM-compatible chains like Polygon's MATIC or Binance Smart Chain's BNB.
 
-* Writing the specification (following the [advanced logic specification](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/advanced-logic/specs/advanced-logic-specs-0.1.0.md) and getting inspired by the [others payment networks](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/advanced-logic/specs))
-* Developing the new payment network in the [advanced-logic package](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/advanced-logic/src/extensions/payment-network).
-* Developing the payment detection in the payment [payment-detection package](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/payment-detection).
-* (OPTIONAL) Developing the payment proxy contract, either in the [smart-contracts package](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/smart-contracts) or in a dedicated repository
-* (OPTIONAL) Developing the payment processing in the [payment-processor package](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/payment-processor)
+For details on how to use the ETH Fee Proxy, see [native-payment.md](../../learn-request-network/guides/native-payment.md "mention")
 
-Contact us for your currency requirements: [**Join our Discord here**](https://request.network/discord)
+### Any-to-ERC20 Proxy Contract "ERC20 Conversion Payments"
+
+This payment network allows for "ERC20 Conversion Payments", where the payment currency is an ERC20 token that is different from the request currency. This is most commonly used to denominate the request in fiat like USD but settle the payment in ERC20 tokens like USDC or USDT. This is useful for accounting because most people use fiat currency as their unit of account.
+
+Key features:
+
+* Supports payments in any ERC20 token for requests created in various currencies
+* Uses on-chain oracles for real-time currency conversion
+* Includes a fee mechanism similar to the ERC20 Fee Proxy Contract
+
+Example of creating a request with an Any-to-ERC20 Proxy Contract payment network:
+
+```typescript
+const erc20ConversionRequest = await requestNetwork.createRequest({
+  paymentNetwork: {
+    id: Types.Extension.PAYMENT_NETWORK_ID.ANY_TO_ERC20_PROXY,
+    parameters: {
+      paymentNetworkName: 'mainnet',
+      paymentAddress: paymentRecipientAddress,
+      feeAddress: feeRecipient,
+      feeAmount: '100', // Fee in request currency
+      acceptedTokens: ['0x6B175474E89094C44Da98b954EedeAC495271d0F'], // DAI address
+      maxRateTimespan: 1800, // 30 minutes
+    },
+  },
+  requestInfo: {
+    currency: {
+      type: RequestLogicTypes.CURRENCY.ISO4217,
+      value: 'USD'
+    },
+    expectedAmount: '1000000', // 1000.00 USD (2 decimals)
+    payee: payeeIdentity,
+    payer: payerIdentity,
+  },
+  signer: payeeIdentity,
+});
+```
+
+In this example, the request is created in USD, but can be paid using DAI (or any other specified ERC20 token). The conversion rate is determined at the time of payment using on-chain oracles.
+
+{% hint style="warning" %}
+**Conversion is different from Swap-to-Pay.** For details see [#difference-between-conversion-swap-to-pay-and-swap-to-conversion](how-payment-networks-work.md#difference-between-conversion-swap-to-pay-and-swap-to-conversion "mention")
+{% endhint %}
+
+For details on how to use the Any-to-ERC20 Conversion Proxy Contract, see [conversion-request.md](../../learn-request-network/guides/conversion-request.md "mention")
+
+### Any-to-ETH Proxy Contract "Native Conversion Payments"
+
+This payment network allows for "Native Conversion Payments", where the payment currency is ETH (or native token) for requests denominated in other currencies, usually fiat. This is most commonly used to denominate the request in fiat like USD but settle the payment in native tokens like ETH on Ethereum or POL on Polygon PoS. This is useful for accounting because most people use fiat currency as their unit of account.
+
+Key features:
+
+* Supports payments in ETH (or native token) for requests created in various currencies
+* Uses on-chain oracles for real-time currency conversion
+* Includes a fee mechanism similar to the ETH Fee Proxy Contract
+
+Example of creating a request with an Any-to-ETH Proxy Contract payment network:
+
+```typescript
+const nativeConversionRequest = await requestNetwork.createRequest({
+  paymentNetwork: {
+    id: Types.Extension.PAYMENT_NETWORK_ID.ANY_TO_ETH_PROXY,
+    parameters: {
+      paymentNetworkName: 'mainnet',
+      paymentAddress: paymentRecipientAddress,
+      feeAddress: feeRecipient,
+      feeAmount: '100', // Fee in request currency
+      maxRateTimespan: 1800, // 30 minutes
+    },
+  },
+  requestInfo: {
+    currency: {
+      type: RequestLogicTypes.CURRENCY.ISO4217,
+      value: 'USD'
+    },
+    expectedAmount: '1000000', // 1000.00 USD (2 decimals)
+    payee: payeeIdentity,
+    payer: payerIdentity,
+  },
+  signer: payeeIdentity,
+});
+```
+
+In this example, the request is created in USD but can be paid using ETH. The conversion rate is determined at the time of payment using on-chain oracles.
+
+{% hint style="warning" %}
+**Conversion is different from Swap-to-Pay.** For details see [#difference-between-conversion-swap-to-pay-and-swap-to-conversion](how-payment-networks-work.md#difference-between-conversion-swap-to-pay-and-swap-to-conversion "mention")
+{% endhint %}
+
+For details on how to use the Any-to-ETH Proxy Contract, see [conversion-request.md](../../learn-request-network/guides/conversion-request.md "mention")
+
+### ERC20 Transferable Receivable
+
+ERC20 Transferable Receivable allows requests to be minted as NFTs that can be transferred or sold. When the payment is processed, the owner of the NFT receives the payment.&#x20;
+
+Example of creating an ERC20 Transferable Receivable request:
+
+```typescript
+const transferableRequest = await requestNetwork.createRequest({
+  paymentNetwork: {
+    id: Types.Extension.PAYMENT_NETWORK_ID.ERC20_TRANSFERABLE_RECEIVABLE,
+    parameters: {
+      paymentAddress: paymentRecipientAddress,
+      feeAddress: feeRecipient,
+      feeAmount: '0',
+      network: 'mainnet',
+    },
+  },
+  requestInfo: {
+    currency: {
+      type: RequestLogicTypes.CURRENCY.ERC20,
+      value: erc20TokenAddress,
+      network: 'mainnet'
+    },
+    expectedAmount: '1000000000000000000', // 1 token with 18 decimals
+    payee: payeeIdentity,
+    payer: payerIdentity,
+  },
+  signer: payeeIdentity,
+});
+```
+
+For details on how to use ERC20 Transferable Receivables, see [transferable-receivable-payment.md](../../learn-request-network/guides/transferable-receivable-payment.md "mention")
+
+## Declarative Payment Network
+
+The declarative payment network allows for manual declaration of payments and refunds. It's particularly useful for currencies or payment methods not directly supported by Request Network like traditional finance payment rails, unsupported web3 payment protocols, and unsupported chains like Solana or Tron.
+
+Example of creating a request with a declarative payment network:
+
+```typescript
+const request = await requestNetwork.createRequest({
+  paymentNetwork: {
+    id: Types.Extension.PAYMENT_NETWORK_ID.DECLARATIVE,
+    parameters: {
+      paymentInfo: {
+        IBAN: 'FR7630006000011234567890189',
+        BIC: 'BNPAFRPP'
+      },
+    },
+  },
+  requestInfo: {
+    currency: {
+      type: RequestLogicTypes.CURRENCY.ISO4217,
+      value: 'EUR'
+    },
+    expectedAmount: '100000', // 1000.00 EUR (2 decimals)
+    payee: payeeIdentity,
+    payer: payerIdentity,
+  },
+  signer: payeeIdentity,
+});
+```
+
+For details on how to use Declarative Payments, See [declarative-request.md](../../learn-request-network/guides/declarative-request.md "mention")
+
+### Meta Payment Network
+
+The Meta Payment Network allows you to specify multiple potential payment networks for a single request. The payment can be settled by any one of the sub-payment networks.
+
+For details on how to use Meta Payment Network, see [meta-payments.md](../../learn-request-network/guides/meta-payments.md "mention")
+
+### ERC777 Stream Payment Network "Streaming Payment"
+
+ERC777 Streaming Payment routes payments through the ERC20 Fee Proxy payment network, allowing for continuous, streaming payments.
+
+Example of creating an ERC777 Streaming Payment request:
+
+```typescript
+const streamingRequest = await requestNetwork.createRequest({
+  paymentNetwork: {
+    id: Types.Extension.PAYMENT_NETWORK_ID.ERC777_STREAM,
+    parameters: {
+      paymentAddress: paymentRecipientAddress,
+      feeAddress: feeRecipient,
+      feeAmount: '0',
+      network: 'mainnet',
+      tokenAddress: erc777TokenAddress,
+    },
+  },
+  requestInfo: {
+    currency: {
+      type: RequestLogicTypes.CURRENCY.ERC777,
+      value: erc777TokenAddress,
+      network: 'mainnet'
+    },
+    expectedAmount: '1000000000000000000', // 1 token with 18 decimals
+    payee: payeeIdentity,
+    payer: payerIdentity,
+  },
+  signer: payeeIdentity,
+});
+```
+
+For details on how to use the ERC777 Stream Payment Network, see [streaming-request.md](../../learn-request-network/guides/streaming-request.md "mention")
+
+## Other Payment Networks
+
+### Address-based Payment Networks (Not Recommended)
+
+These networks require a unique payment recipient address for each request. The balance is computed from all inbound transfers to this address. This method is not recommended due to its limitations and potential for errors.
+
+### ETH Input Data Payment Network (Deprecated)
+
+This network used the `call data` field of Ethereum transactions to tag and detect payments. It has been deprecated in favor of the other reference-based payment networks that use payment proxy smart contracts.
+
+### ERC20 Proxy and Ethereum Proxy (Superseded)
+
+These payment networks have been superseded by the ERC20 Fee Proxy and ETH Fee Proxy networks respectively. The only difference is that the ERC20 Proxy and Ethereum Proxy don't include the service fee mechanism. For most use cases, it's recommended to use the Fee Proxy versions with the fee set to 0 if no fee is required.
+
+## Advanced Payment Types
+
+Advanced payment types are built on top of payment networks and provide additional functionality or flexibility.&#x20;
+
+The Advanced Payment Types are \*not\* Payment Networks. You cannot create a request with one of these payment types in the `paymentNetwork` property.&#x20;
+
+Here are some of the advanced payment types available:
+
+### Batch Payments
+
+Batch payments allow you to pay multiple requests in the same transaction. This is supported for the following payment networks:
+
+* ERC20 Fee Proxy
+* ETH Fee Proxy
+* Any-to-ERC20 Proxy "ERC20 Conversion Payments"
+* Any-to-ETH Proxy "ETH Conversion Payments"
+* ERC20 Proxy networks
+
+See [batch-payment.md](../../learn-request-network/guides/batch-payment.md "mention") for additional details.
+
+### ERC20 Swap-to-Pay Payments
+
+Swap-to-Pay payments execute a swap immediately before routing the payment through the ERC20 Fee Proxy payment network.
+
+{% hint style="info" %}
+**Swap-to-Pay is different from Conversion.** For details see [#difference-between-conversion-swap-to-pay-and-swap-to-conversion](how-payment-networks-work.md#difference-between-conversion-swap-to-pay-and-swap-to-conversion "mention")
+{% endhint %}
+
+See [swap-to-pay-request.md](../../learn-request-network/guides/swap-to-pay-request.md "mention") for additional details
+
+### ERC20 Swap-to-Conversion
+
+Swap-to-Conversion is the combination of Conversion and Swap-to-Pay.
+
+Swap-to-Conversion executes a swap in Uniswap V2 immediately before routing the payment through the Any-to-ERC20 Payment Network.
+
+See [swap-to-conversion-request.md](../../learn-request-network/guides/swap-to-conversion-request.md "mention") for additional details.
+
+{% hint style="info" %}
+**Swap-to-Pay is different from Conversion.** For details see [#difference-between-conversion-swap-to-pay-and-swap-to-conversion](how-payment-networks-work.md#difference-between-conversion-swap-to-pay-and-swap-to-conversion "mention")
+{% endhint %}
+
+### ERC20 Escrow Payment
+
+ERC20 Escrow Payment allows for escrow functionality in payments.&#x20;
+
+{% hint style="warning" %}
+The Request Network Escrow lacks arbitration and is susceptible to deadlock in the case of a dispute.
+{% endhint %}
+
+See [escrow-request.md](../../learn-request-network/guides/escrow-request.md "mention") for additional details.
+
+### Difference between Conversion, Swap-to-Pay, and Swap-to-Conversion
+
+Conversion is different from Swap-to-pay.&#x20;
+
+* In a conversion payment, the request is denominated in currency A, the payer sends currency B and the payee receives currency B.
+* In a Swap-to-pay payment, the request is denominated in currency A, the payer sends currency B and the payee receives currency A.
+
+They can be combined into Swap-to-Conversion.&#x20;
+
+* In a swap-to-conversion payment, the request is denominated in currency A, the payer sends currency B and the payee receives currency C.
+
+For more detailed information on specific payment networks or to contribute new implementations, please refer to our [GitHub repository](https://github.com/RequestNetwork/requestNetwork) or join our [Discord community](https://request.network/discord).
