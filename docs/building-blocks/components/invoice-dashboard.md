@@ -88,7 +88,7 @@ Configure the invoice dashboard web component by creating a reference to it, set
 
 * [context.tsx](https://github.com/RequestNetwork/invoicing-template/blob/main/utils/context.tsx) - Use a context provider to reinitialize the Request Network instance when the wallet changes.
 * [types.d.ts](https://github.com/RequestNetwork/invoicing-template/blob/main/types.d.ts) - Specify types to avoid TypeScript errors.
-* [currencies.ts](https://github.com/RequestNetwork/invoicing-template/blob/68677d8823c29c1d00eb93f5285e9aa90540023a/utils/currencies.ts) - A list of custom currencies to etend the default currency list.
+* [currencies.ts](https://github.com/RequestNetwork/invoicing-template/blob/68677d8823c29c1d00eb93f5285e9aa90540023a/utils/currencies.ts) - A list of custom currencies to extend the default currency list.
 
 {% @github-files/github-code-block url="https://github.com/RequestNetwork/invoicing-template/blob/68677d8823c29c1d00eb93f5285e9aa90540023a/utils/currencies.ts" %}
 
