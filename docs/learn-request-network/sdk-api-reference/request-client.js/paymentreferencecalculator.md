@@ -26,5 +26,7 @@ import { PaymentReferenceCalculator } from "@requestnetwork/request-client.js";
 
 string
 
-###
+### Implementation
+
+{% @github-files/github-code-block url="https://github.com/RequestNetwork/requestNetwork/blob/master/packages/payment-detection/src/payment-reference-calculator.ts" %}
 
