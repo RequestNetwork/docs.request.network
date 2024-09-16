@@ -5,7 +5,7 @@
 Compute the payment reference, the last 8 bytes of a salted hash of the request ID.
 
 ```typescript
-`last8Bytes(hash(requestId + salt + address))`
+last8Bytes(hash(lowercase(requestId + salt + address)))
 ```
 
 The payment reference is the parameter that ties the request to events emitted by on-chain payments via Request Network payment smart contracts.
