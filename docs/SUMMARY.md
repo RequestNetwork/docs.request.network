@@ -30,6 +30,7 @@
 ## TOOLS
 
 * [Request Scan](tools/request-scan.md)
+* [Request Injector](tools/request-injector.md)
 
 ## Learn Request Network
 
