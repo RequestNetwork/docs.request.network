@@ -39,7 +39,7 @@ export default function PaymentPage() {
       }}
       amountInUSD={1.5}
       sellerAddress="0x1234567890123456789012345678901234567890"
-      supportedCurrencies={["ETH_MAINNET", "USDC_MAINNET", "USDC_MATIC"]}
+      supportedCurrencies={["REQ-mainnet","ETH-sepolia-sepolia","USDC-mainnet"]}
       persistRequest={true}
       onPaymentSuccess={(request) => {
         console.log(request);
