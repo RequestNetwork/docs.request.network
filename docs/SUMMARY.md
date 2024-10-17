@@ -20,7 +20,8 @@
 
 ## Building Blocks
 
-* [Templates](building-blocks/templates.md)
+* [Templates](building-blocks/templates/README.md)
+  * [Pay from Safe Multisig](building-blocks/templates/pay-from-safe-multisig.md)
 * [Components](building-blocks/components/README.md)
   * [Create Invoice Form](building-blocks/components/create-invoice-form.md)
   * [Invoice Dashboard](building-blocks/components/invoice-dashboard.md)

@@ -28,6 +28,6 @@ Shown below is a diagram that depicts how the SDK and Node interact with the pro
 
 <div data-full-width="true">
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Interacting with Request Network via a Request Node</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>Interacting with Request Network via a Request Node</p></figcaption></figure>
 
 </div>
