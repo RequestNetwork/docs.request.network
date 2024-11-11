@@ -7,6 +7,10 @@ The payment proxy smart contracts enable the various payment types.
 The most widely deployed payment proxy is the ERC20FeeProxy. The most frequently used payment proxy is the ERC20ConversionProxy.
 
 {% hint style="info" %}
+For an explanation of what each smart contract does, see [contracts.md](protocol-overview/contracts.md "mention")&#x20;
+{% endhint %}
+
+{% hint style="info" %}
 Make sure to scroll horizontally to see all the payment proxy types! :wink:
 {% endhint %}
 
