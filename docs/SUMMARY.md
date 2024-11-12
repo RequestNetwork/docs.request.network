@@ -21,6 +21,8 @@
 ## Building Blocks
 
 * [Templates](building-blocks/templates/README.md)
+  * [Request Invoicing](building-blocks/templates/request-invoicing.md)
+  * [Request Checkout Playground](building-blocks/templates/request-checkout-playground.md)
   * [Pay from Safe Multisig](building-blocks/templates/pay-from-safe-multisig.md)
 * [Components](building-blocks/components/README.md)
   * [Create Invoice Form](building-blocks/components/create-invoice-form.md)
