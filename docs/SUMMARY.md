@@ -48,7 +48,7 @@
   * [Payment Reference](learn-request-network/guides/payment-reference.md)
   * [Native Payment](learn-request-network/guides/native-payment.md)
   * [Conversion Payment](learn-request-network/guides/conversion-request.md)
-  * [Single Request Proxy](learn-request-network/guides/single-request-proxy.md)
+  * [Single Request Forwarder](learn-request-network/guides/single-request-forwarder.md)
   * [Declarative Payment](learn-request-network/guides/declarative-request.md)
   * [Batch Payment](learn-request-network/guides/batch-payment.md)
   * [Swap-to-Pay Payment](learn-request-network/guides/swap-to-pay-request.md)
