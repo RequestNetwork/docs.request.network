@@ -1,6 +1,6 @@
-# Request Checkout Playground
+# Request Checkout
 
-The playground for adding crypto payments in any website, build using [payment-widget.md](../components/payment-widget.md "mention").
+The playground for adding crypto payments to any website, build using [payment-widget.md](../components/payment-widget.md "mention").
 
 <table data-full-width="false"><thead><tr><th>Framework</th><th>Deployment</th><th>Source</th></tr></thead><tbody><tr><td>Next.js</td><td><a href="https://checkout.request.network">https://checkout.request.network</a></td><td><a href="https://github.com/RequestNetwork/rn-checkout">https://github.com/RequestNetwork/rn-checkout</a></td></tr></tbody></table>
 
@@ -14,6 +14,8 @@ A video showing the Request Checkout Payment Widget .
 
 | Feature                                                                                                                                | Status               |
 | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| Demo Page                                                                                                                              | :white\_check\_mark: |
+| Playground Page                                                                                                                        | :white\_check\_mark: |
 | ERC20 Payments                                                                                                                         | :white\_check\_mark: |
 | Native Token Payments                                                                                                                  | :white\_check\_mark: |
 | Fiat Price Conversion in the UI                                                                                                        | :white\_check\_mark: |
