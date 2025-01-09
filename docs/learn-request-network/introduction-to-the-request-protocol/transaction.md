@@ -23,6 +23,6 @@ The channel key is encrypted with each stakeholder's public key. This way, every
 
 This design using both symmetric and asymmetric encryption allows the transaction data _once_ and only the channel key needs to be duplicated, once for each stakeholder.
 
-See the details of encrypted request creation in [handling-encryption-with-the-js-library.md](../guides/handling-encryption-with-the-js-library.md "mention")
+See the details of encrypted request creation in [handling-encryption-with-the-js-library.md](../../sdk-guides/encryption-and-decryption/handling-encryption-with-the-js-library.md "mention")
 
 <figure><img src="../../.gitbook/assets/2-Encryption.jpg" alt=""><figcaption><p>The different steps to encrypt the transaction</p></figcaption></figure>

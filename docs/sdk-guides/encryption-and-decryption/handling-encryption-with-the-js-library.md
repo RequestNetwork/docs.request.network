@@ -1,34 +1,39 @@
-# Handling encryption with the JS library
+# Encrypt with an Ethereum private key
 
 {% hint style="warning" %}
 Manipulating private keys must be done with care. Losing them can lead to a loss of data, privacy or non-repudiation safety!
 {% endhint %}
 
-A request can be encrypted in order to make its details private to selected stakeholders. In this guide, we won't explain how encryption is managed under the hood. We will mention encryption or decryption of requests with payers and payees keys. Although in practice, we will use an intermediate symmetric key. See more details on [github](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/transaction-manager/specs/encryption.md).
+{% hint style="info" %}
+For an introduction to Encryption and Decryption in Request Network, see [private-requests-using-encryption.md](../../get-started/protocol-overview/private-requests-using-encryption.md "mention")
+{% endhint %}
 
-The transaction layer manages the encryption, [see more details on the Request Protocol section](../introduction-to-the-request-protocol/transaction.md).
+A request can be encrypted to make its details private to selected stakeholders. In this guide, we won't explain how encryption is managed under the hood. We will mention encryption or decryption of requests with payers and payees keys. Although in practice, we will use an intermediate symmetric key. See more details on [github](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/transaction-manager/specs/encryption.md).
 
-To manipulate encrypted requests you need a Decryption Provider, e.g.:
+The transaction layer manages the encryption, [see more details on the Request Protocol section](../../learn-request-network/introduction-to-the-request-protocol/transaction.md).
 
-* Ethereum Private Key Decryption Provider (provided by Request for illustration), using the private keys directly. _This provider manipulates private keys clearly, which is not entirely secure. Please consider creating your own; see below._
+To manipulate encrypted requests you need a CipherProvider (recommended) or DecryptionProvider (deprecated). Both of them require direct access to the private key. They're best suited for backends.
 
-You can also create your decryption provider following the [specification](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/transaction-manager/specs/decryption-provider.md). Feel free to contact us for any help or any idea about it: [**Join our Discord here**](https://request.network/discord)
+* **EthereumPrivateKeyCipherProvider:** Provides both encryption and decryption utilities.
+* **EthereumPrivateKeyDecryptionProvider** (deprecated) provides only decryption utilities.&#x20;
 
 ### Create an encrypted request
 
-Ethereum Private Key Decryption Provider (see on [github](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/epk-decryption))
+#### EthereumPrivateKeyCipherProvider&#x20;
+
+See on [Github](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/epk-cipher).
 
 ```typescript
-import EPKDecryptionProvider from '@requestnetwork/epk-decryption';
+import { EthereumPrivateKeyCipherProvider } from '@requestnetwork/epk-cipher';
 
-const decryptionProvider = new EPKDecryptionProvider({
+const cipherProvider = new EthereumPrivateKeyCipherProvider({
   # Warning: private keys should never be stored in clear, this is a basic tutorial
   key: '0x4025da5692759add08f98f4b056c41c71916a671cedc7584a80d73adc7fb43c0',
   method: RequestNetwork.Types.Encryption.METHOD.ECIES,
 });
 
 const requestNetwork = new RequestNetwork({
-  decryptionProvider,
+  cipherProvider,
   signatureProvider,
   useMockStorage: true,
 });
@@ -57,6 +62,12 @@ const invoice = await requestNetwork._createEncryptedRequest(
 ```
 
 Note: You must give at least one encryption key you can decrypt with the decryption provider. Otherwise, an error will be triggered after the creation.
+
+#### EthereumPrivateKeyDecryptionProvider
+
+{% hint style="warning" %}
+[EthereumPrivateKeyDecryptionProvider](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/epk-decryption) is deprecated in favor of [#ethereumprivatekeycipherprovider](handling-encryption-with-the-js-library.md#ethereumprivatekeycipherprovider "mention")
+{% endhint %}
 
 ### Get invoice information from its request ID
 
@@ -106,3 +117,29 @@ await request.decreaseExpectedAmountRequest(amount, payeeIdentity);
 //Decrease the expected amount
 await request.increaseExpectedAmountRequest(amount, payerIdentity);
 ```
+
+### Enabling/Disabling Decryption
+
+```typescript
+// Disable decryption
+cipherProvider.enableDecryption(false);
+// Check if decryption is enabled
+const isEnabled = cipherProvider.isDecryptionEnabled();
+// Re-enable decryption
+cipherProvider.enableDecryption(true);
+```
+
+### Checking Capabilities
+
+```typescript
+// Check if encryption is available
+const canEncrypt = cipherProvider.isEncryptionAvailable();
+// Check if decryption is available
+const canDecrypt = cipherProvider.isDecryptionAvailable();
+// Check if an identity is registered
+const isRegistered = await cipherProvider.isIdentityRegistered({
+type: 'ethereum_address',
+value: '0x123...'
+});// Some code
+```
+

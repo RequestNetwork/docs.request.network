@@ -12,7 +12,7 @@ A payment network is a set of rules defining how a payment should be processed a
 
 ## Reference-based Payment Networks (Recommended)
 
-Reference-based payment networks use a [payment reference](../../learn-request-network/guides/payment-reference.md) to link payments to the corresponding Request. They process payments via payment proxy smart contracts deployed across a wide variety of supported chains. These contracts serve two key functions:
+Reference-based payment networks use a [payment reference](../../sdk-guides/request-client/payment-reference.md) to link payments to the corresponding Request. They process payments via payment proxy smart contracts deployed across a wide variety of supported chains. These contracts serve two key functions:
 
 1. They forward the payment to the payment recipient's address.
 2. They emit an event containing the payment amount and the payment reference.
@@ -93,7 +93,7 @@ const nativeRequest = await requestNetwork.createRequest({
 
 This payment network allows for native token payments with an optional fee mechanism. It's suitable for ETH payments on Ethereum mainnet, or native token payments on other EVM-compatible chains like Polygon's MATIC or Binance Smart Chain's BNB.
 
-For details on how to use the ETH Fee Proxy, see [native-payment.md](../../learn-request-network/guides/native-payment.md "mention")
+For details on how to use the ETH Fee Proxy, see [native-payment.md](../../sdk-guides/payment/native-payment.md "mention")
 
 ### Any-to-ERC20 Proxy Contract "ERC20 Conversion Payments"
 
@@ -139,7 +139,7 @@ In this example, the request is created in USD, but can be paid using DAI (or an
 **Conversion is different from Swap-to-Pay.** For details see [#difference-between-conversion-swap-to-pay-and-swap-to-conversion](how-payment-networks-work.md#difference-between-conversion-swap-to-pay-and-swap-to-conversion "mention")
 {% endhint %}
 
-For details on how to use the Any-to-ERC20 Conversion Proxy Contract, see [conversion-request.md](../../learn-request-network/guides/conversion-request.md "mention")
+For details on how to use the Any-to-ERC20 Conversion Proxy Contract, see [conversion-request.md](../../sdk-guides/payment/conversion-request.md "mention")
 
 ### Any-to-ETH Proxy Contract "Native Conversion Payments"
 
@@ -184,7 +184,7 @@ In this example, the request is created in USD but can be paid using ETH. The co
 **Conversion is different from Swap-to-Pay.** For details see [#difference-between-conversion-swap-to-pay-and-swap-to-conversion](how-payment-networks-work.md#difference-between-conversion-swap-to-pay-and-swap-to-conversion "mention")
 {% endhint %}
 
-For details on how to use the Any-to-ETH Proxy Contract, see [conversion-request.md](../../learn-request-network/guides/conversion-request.md "mention")
+For details on how to use the Any-to-ETH Proxy Contract, see [conversion-request.md](../../sdk-guides/payment/conversion-request.md "mention")
 
 ### ERC20 Transferable Receivable
 
@@ -217,7 +217,7 @@ const transferableRequest = await requestNetwork.createRequest({
 });
 ```
 
-For details on how to use ERC20 Transferable Receivables, see [transferable-receivable-payment.md](../../learn-request-network/guides/transferable-receivable-payment.md "mention")
+For details on how to use ERC20 Transferable Receivables, see [transferable-receivable-payment.md](../../sdk-guides/payment/transferable-receivable-payment.md "mention")
 
 ## Declarative Payment Network
 
@@ -249,13 +249,13 @@ const request = await requestNetwork.createRequest({
 });
 ```
 
-For details on how to use Declarative Payments, See [declarative-request.md](../../learn-request-network/guides/declarative-request.md "mention")
+For details on how to use Declarative Payments, See [declarative-request.md](../../sdk-guides/payment/declarative-request.md "mention")
 
 ### Meta Payment Network
 
 The Meta Payment Network allows you to specify multiple potential payment networks for a single request. The payment can be settled by any one of the sub-payment networks.
 
-For details on how to use Meta Payment Network, see [meta-payments.md](../../learn-request-network/guides/meta-payments.md "mention")
+For details on how to use Meta Payment Network, see [meta-payments.md](../../sdk-guides/payment/meta-payments.md "mention")
 
 ### ERC777 Stream Payment Network "Streaming Payment"
 
@@ -289,7 +289,7 @@ const streamingRequest = await requestNetwork.createRequest({
 });
 ```
 
-For details on how to use the ERC777 Stream Payment Network, see [streaming-request.md](../../learn-request-network/guides/streaming-request.md "mention")
+For details on how to use the ERC777 Stream Payment Network, see [streaming-request.md](../../sdk-guides/payment/streaming-request.md "mention")
 
 ## Other Payment Networks
 
@@ -323,7 +323,7 @@ Batch payments allow you to pay multiple requests in the same transaction. This 
 * Any-to-ETH Proxy "ETH Conversion Payments"
 * ERC20 Proxy networks
 
-See [batch-payment.md](../../learn-request-network/guides/batch-payment.md "mention") for additional details.
+See [batch-payment.md](../../sdk-guides/payment/batch-payment.md "mention") for additional details.
 
 ### ERC20 Swap-to-Pay Payments
 
@@ -333,7 +333,7 @@ Swap-to-Pay payments execute a swap immediately before routing the payment throu
 **Swap-to-Pay is different from Conversion.** For details see [#difference-between-conversion-swap-to-pay-and-swap-to-conversion](how-payment-networks-work.md#difference-between-conversion-swap-to-pay-and-swap-to-conversion "mention")
 {% endhint %}
 
-See [swap-to-pay-request.md](../../learn-request-network/guides/swap-to-pay-request.md "mention") for additional details
+See [swap-to-pay-request.md](../../sdk-guides/payment/swap-to-pay-request.md "mention") for additional details
 
 ### ERC20 Swap-to-Conversion
 
@@ -341,7 +341,7 @@ Swap-to-Conversion is the combination of Conversion and Swap-to-Pay.
 
 Swap-to-Conversion executes a swap in Uniswap V2 immediately before routing the payment through the Any-to-ERC20 Payment Network.
 
-See [swap-to-conversion-request.md](../../learn-request-network/guides/swap-to-conversion-request.md "mention") for additional details.
+See [swap-to-conversion-request.md](../../sdk-guides/payment/swap-to-conversion-request.md "mention") for additional details.
 
 {% hint style="info" %}
 **Swap-to-Pay is different from Conversion.** For details see [#difference-between-conversion-swap-to-pay-and-swap-to-conversion](how-payment-networks-work.md#difference-between-conversion-swap-to-pay-and-swap-to-conversion "mention")
@@ -355,7 +355,7 @@ ERC20 Escrow Payment allows for escrow functionality in payments.&#x20;
 The Request Network Escrow lacks arbitration and is susceptible to deadlock in the case of a dispute.
 {% endhint %}
 
-See [escrow-request.md](../../learn-request-network/guides/escrow-request.md "mention") for additional details.
+See [escrow-request.md](../../sdk-guides/payment/escrow-request.md "mention") for additional details.
 
 ### Difference between Conversion, Swap-to-Pay, and Swap-to-Conversion
 

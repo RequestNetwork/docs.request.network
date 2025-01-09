@@ -6,8 +6,8 @@ The Request Network Escrow isn't a separate payment network. Rather, it builds o
 
 ## Typical Workflow
 
-1. Using the [`request-client.js`](../sdk-api-reference/request-client.js/) package, the `payer` creates a request with the `ERC20_FEE_PROXY_CONTRACT` payment network.
-2. Using the [`payment-processor`](../sdk-api-reference/payment-processor/) package, `payer`:
+1. Using the [`request-client.js`](../../learn-request-network/sdk-api-reference/request-client.js/) package, the `payer` creates a request with the `ERC20_FEE_PROXY_CONTRACT` payment network.
+2. Using the [`payment-processor`](../../learn-request-network/sdk-api-reference/payment-processor/) package, `payer`:
    1. Approves the escrow contract using `approveErc20ForEscrow()`
    2. Pays the escrow contract using `payEscrow()`
    3. Waits until the work is complete

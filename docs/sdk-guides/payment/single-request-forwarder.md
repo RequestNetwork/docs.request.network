@@ -75,7 +75,7 @@ To pay a request through a Single Request **Forwarder** using the Request Networ
 
 * **`singleRequestForwarderAddress`:** the address of the SRP deployed in the previous step.
 * **`signer`:** A wallet signer who is making the transfer of funds.
-* **`amount`:** Amount of funds that need to be transferred**.**
+* **`amount`:** Amount of funds that need to be transferre&#x64;**.**
 
 ```typescript
 import { payRequestWithSingleRequestForwarder } from "@requestnetwork/payment-processor"

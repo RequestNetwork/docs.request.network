@@ -15,4 +15,4 @@ last8Bytes(hash(lowercase(requestId + salt + address)))
 * `hash()` is a keccak256 hash function
 * `last8Bytes()` take the last 8 bytes
 
-Use the [paymentreferencecalculator.md](../sdk-api-reference/request-client.js/paymentreferencecalculator.md "mention") to calculate the payment reference.
+Use the [paymentreferencecalculator.md](../../learn-request-network/sdk-api-reference/request-client.js/paymentreferencecalculator.md "mention") to calculate the payment reference.

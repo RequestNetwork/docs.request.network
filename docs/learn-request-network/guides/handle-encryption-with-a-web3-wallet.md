@@ -1,3 +1,0 @@
-# Handle encryption with a Web3 wallet
-
-Feature not yet implemented. Coming soon...

@@ -17,6 +17,7 @@
 * [Supported Chains](get-started/supported-chains.md)
 * [Smart Contract Addresses](get-started/smart-contract-addresses.md)
 * [FAQ](get-started/faq.md)
+* [Glossary](get-started/glossary.md)
 
 ## Building Blocks
 
@@ -37,34 +38,39 @@
 
 ## Mobile Integration
 
-* [Expo](mobile-integration/expo.md)
+* [Mobile using Expo](mobile-integration/mobile-using-expo.md)
+
+## SDK Guides
+
+* [Request Client](sdk-guides/request-client/README.md)
+  * [Configure the Request Client](sdk-guides/request-client/configure-the-request-client.md)
+  * [Updating a Request](sdk-guides/request-client/updating-a-request.md)
+  * [Payment Reference](sdk-guides/request-client/payment-reference.md)
+  * [Compute a Request ID without creating the request](sdk-guides/request-client/retrieve-a-request.md)
+  * [Use your own signature mechanism](sdk-guides/request-client/use-your-own-signature-mechanism.md)
+  * [Support a new currency](sdk-guides/request-client/support-a-new-currency.md)
+* [Encryption and Decryption](sdk-guides/encryption-and-decryption/README.md)
+  * [Encrypt with a wallet signature using Lit Protocol](sdk-guides/encryption-and-decryption/handle-encryption-with-a-web3-wallet.md)
+  * [Encrypt with an Ethereum private key](sdk-guides/encryption-and-decryption/handling-encryption-with-the-js-library.md)
+  * [Share an encrypted request](sdk-guides/encryption-and-decryption/share-an-encrypted-request.md)
+* [Payment](sdk-guides/payment/README.md)
+  * [Detect a payment](sdk-guides/payment/detect-a-payment.md)
+  * [Native Payment](sdk-guides/payment/native-payment.md)
+  * [Conversion Payment](sdk-guides/payment/conversion-request.md)
+  * [Declarative Payment](sdk-guides/payment/declarative-request.md)
+  * [Configuring Payment Fees](sdk-guides/payment/configuring-payment-fees.md)
+  * [Single Request Forwarder](sdk-guides/payment/single-request-forwarder.md)
+  * [Batch Payment](sdk-guides/payment/batch-payment.md)
+  * [Swap-to-Pay Payment](sdk-guides/payment/swap-to-pay-request.md)
+  * [Swap-to-Conversion Payment](sdk-guides/payment/swap-to-conversion-request.md)
+  * [Transferable Receivable Payment](sdk-guides/payment/transferable-receivable-payment.md)
+  * [Meta Payments](sdk-guides/payment/meta-payments.md)
+  * [Escrow Payment](sdk-guides/payment/escrow-request.md)
+  * [Streaming Payment](sdk-guides/payment/streaming-request.md)
+  * [Pay through a proxy-contract with a multisig](sdk-guides/payment/pay-through-a-proxy-contract-with-a-multisig.md)
 
 ## Learn Request Network
 
-* [SDK Guides](learn-request-network/guides/README.md)
-  * [Configure the Request Client](learn-request-network/guides/configure-the-request-client.md)
-  * [Updating a Request](learn-request-network/guides/updating-a-request.md)
-  * [Configuring Payment Fees](learn-request-network/guides/configuring-payment-fees.md)
-  * [Payment Reference](learn-request-network/guides/payment-reference.md)
-  * [Native Payment](learn-request-network/guides/native-payment.md)
-  * [Conversion Payment](learn-request-network/guides/conversion-request.md)
-  * [Single Request Forwarder](learn-request-network/guides/single-request-forwarder.md)
-  * [Declarative Payment](learn-request-network/guides/declarative-request.md)
-  * [Batch Payment](learn-request-network/guides/batch-payment.md)
-  * [Swap-to-Pay Payment](learn-request-network/guides/swap-to-pay-request.md)
-  * [Swap-to-Conversion Payment](learn-request-network/guides/swap-to-conversion-request.md)
-  * [Transferable Receivable Payment](learn-request-network/guides/transferable-receivable-payment.md)
-  * [Meta Payments](learn-request-network/guides/meta-payments.md)
-  * [Escrow Payment](learn-request-network/guides/escrow-request.md)
-  * [Streaming Payment](learn-request-network/guides/streaming-request.md)
-  * [Compute a Request ID without creating the request](learn-request-network/guides/retrieve-a-request.md)
-  * [Pay through a proxy-contract with a multisig](learn-request-network/guides/pay-through-a-proxy-contract-with-a-multisig.md)
-  * [Use your own signature mechanism](learn-request-network/guides/use-your-own-signature-mechanism.md)
-  * [Handle encryption with an Ethereum private key](learn-request-network/guides/handling-encryption-with-the-js-library.md)
-  * [Handle encryption with a Web3 wallet](learn-request-network/guides/handle-encryption-with-a-web3-wallet.md)
-  * [Share an encrypted request](learn-request-network/guides/share-an-encrypted-request.md)
-  * [Detect a payment](learn-request-network/guides/detect-a-payment.md)
-  * [Support a new currency](learn-request-network/guides/support-a-new-currency.md)
 * [SDK Package Reference](learn-request-network/sdk-api-reference/README.md)
   * [request-client.js](learn-request-network/sdk-api-reference/request-client.js/README.md)
     * [RequestNetwork](learn-request-network/sdk-api-reference/request-client.js/requestnetwork/README.md)
@@ -105,7 +111,6 @@
   * [Running a node with Docker](learn-request-network/request-node/running-a-node-with-docker.md)
   * [Running from the code repository](learn-request-network/request-node/running-from-the-code-repository.md)
   * [Deploying a node in Kubernetes with Helm](learn-request-network/request-node/deploying-a-node-in-kubernetes-with-helm.md)
-* [Glossary](learn-request-network/glossary.md)
 
 ***
 
