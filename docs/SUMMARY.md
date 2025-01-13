@@ -30,6 +30,7 @@
   * [Invoice Dashboard](building-blocks/components/invoice-dashboard.md)
   * [Payment Widget](building-blocks/components/payment-widget.md)
   * [Add Stakeholder](building-blocks/components/add-stakeholder.md)
+* [Token List](building-blocks/token-list.md)
 
 ## TOOLS
 
