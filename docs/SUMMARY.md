@@ -69,6 +69,7 @@
   * [Escrow Payment](sdk-guides/payment/escrow-request.md)
   * [Streaming Payment](sdk-guides/payment/streaming-request.md)
   * [Pay through a proxy-contract with a multisig](sdk-guides/payment/pay-through-a-proxy-contract-with-a-multisig.md)
+  * [Hinkal Private Payments](sdk-guides/payment/hinkal-private-payments.md)
 
 ## Learn Request Network
 
