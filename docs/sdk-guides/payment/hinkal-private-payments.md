@@ -18,6 +18,10 @@ Paying a request where the payment recipient address is a Hinkal shielded addres
 * **Privacy**: Obfuscates payer address when paying a request.
 * **Compliance**: Ensures transactions adhere to regulatory requirements. See [Hinkal Compliance](https://hinkal-team.gitbook.io/hinkal/hinkal-wallet/compliance) for details
 
+## Supported Chains
+
+See [Hinkal Supported Chains](https://hinkal-team.gitbook.io/hinkal/ecosystem/supported-chains) for a list of chains on which Hinkal Private Payments are supported.
+
 ## Installation
 
 To use Hinkal Private Payments, install the necessary package:
