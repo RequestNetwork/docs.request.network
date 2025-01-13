@@ -20,32 +20,36 @@ Paying a request where the payment recipient address is a Hinkal shielded addres
 
 ## Installation
 
-To use the Hinkal Private Payments feature, install the necessary package:
+To use Hinkal Private Payments, install the necessary package:
 
 ```bash
 npm install @requestnetwork/payment-processor
-npm install @requestnetwork/request-client.js
 ```
 
 ## Usage
 
 ### **Pay a request from a Hinkal shielded address**
 
-To pay a request from a Hinkal shielded address to a public address, where only the payment sender's address is obfuscated, use the \``` payErc20FeeProxyRequestFromHinkalShieldedAddress()` `` function. Ensure the payment sender's Hinkal shielded address has a positive balance.
+To pay a request from a Hinkal shielded address to a public address, where only the payment sender's address is obfuscated, use the \``` payErc20FeeProxyRequestFromHinkalShieldedAddress()` `` function. Ensure the payment sender's Hinkal shielded address has a positive balance using[#deposit-to-a-hinkal-shielded-address](hinkal-private-payments.md#deposit-to-a-hinkal-shielded-address "mention")
 
 {% hint style="warning" %}
-Strongly consider using [encryption-and-decryption](../encryption-and-decryption/ "mention")to keep the request contents private, including the payer and payee identity addresses, when paying requests from a Hinkal shielded address!
+Strongly consider using [encryption-and-decryption](../encryption-and-decryption/ "mention") to keep the request contents private, including the payer and payee identity addresses, when paying requests from a Hinkal shielded address. Revealing the payer and payee identity addresses increases the likelihood of un-shielding the payment sender's address via on-chain analysis.
 {% endhint %}
 
 ```typescript
-import { payErc20FeeProxyRequestFromHinkalShieldedAddress } from '@requestnetwork/payment-processor';
+import { 
+  payErc20FeeProxyRequestFromHinkalShieldedAddress,
+} from '@requestnetwork/payment-processor';
 
 // Instantiation of `RequestNetwork` and `Signer` omitted for brevity
 
 const request = await requestClient.fromRequestId('insert request id');
 const requestData = request.getData();
 
-const paymentResult = await payErc20FeeProxyRequestFromHinkalShieldedAddress(requestData, signer);
+const relayerTx = await payErc20FeeProxyRequestFromHinkalShieldedAddress(
+  requestData,
+  signer,
+);
 ```
 
 {% hint style="info" %}
@@ -56,7 +60,7 @@ See [quickstart-browser.md](../../get-started/quickstart-browser.md "mention") f
 
 To deposit funds to a Hinkal shielded address from a public address, where only the payment recipient's address is obfuscated, use the `sendToHinkalShieldedAddressFromPublic()` function. &#x20;
 
-* Deposit to own Hinkal shielded address: omit the `recipientInfo`argument
+* Deposit to own Hinkal shielded address: omit the `recipientInfo` argument
 * Deposit to someone else's Hinkal shielded address: set `recipientInfo` to the shielded address of the payment recipient.
 
 {% hint style="info" %}
@@ -65,12 +69,14 @@ Hinkal shielded addresses must be shared out-of-band. This SDK doesn't offer fun
 
 {% code overflow="wrap" %}
 ```typescript
-import { sendToHinkalShieldedAddressFromPublic } from '@requestnetwork/payment-processor';
+import { 
+  sendToHinkalShieldedAddressFromPublic,
+} from '@requestnetwork/payment-processor';
 
 // Instantiation of `Signer` omitted for brevity
 
 const recipientShieldedAddress = '142590100039484718476239190022599206250779986428210948946438848754146776167,0x096d6d5d8b2292aa52e57123a58fc4d5f3d66171acd895f22ce1a5b16ac51b9e,0xc025ccc6ef46399da52763a866a3a10d2eade509af27eb8411c5d251eb8cd34d'
-await sendToHinkalShieldedAddressFromPublic({
+const tx = await sendToHinkalShieldedAddressFromPublic({
     signerOrProvider: paymentSender,
     tokenAddress: '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913', // USDC on Base
     amount: '1000000', // 1 USDC
