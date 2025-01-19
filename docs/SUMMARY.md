@@ -50,6 +50,7 @@
   * [Compute a Request ID without creating the request](sdk-guides/request-client/retrieve-a-request.md)
   * [Use your own signature mechanism](sdk-guides/request-client/use-your-own-signature-mechanism.md)
   * [Support a new currency](sdk-guides/request-client/support-a-new-currency.md)
+  * [In-Memory Requests](sdk-guides/request-client/in-memory-requests.md)
 * [Encryption and Decryption](sdk-guides/encryption-and-decryption/README.md)
   * [Encrypt with a wallet signature using Lit Protocol](sdk-guides/encryption-and-decryption/handle-encryption-with-a-web3-wallet.md)
   * [Encrypt with an Ethereum private key](sdk-guides/encryption-and-decryption/handling-encryption-with-the-js-library.md)
