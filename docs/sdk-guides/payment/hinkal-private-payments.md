@@ -1,16 +1,16 @@
 # Hinkal Private Payments
 
-The Request Network SDK supports Hinkal Private Payments using ERC-20 tokens.  Hinkal is a middleware and suite of smart contracts on EVM-compatible chains that leverage zero-knowledge proofs and shielded addresses to facilitate compliant and private transactions.&#x20;
+The Request Network SDK supports Hinkal Private Payments using ERC-20 tokens.  Hinkal is a middleware and suite of smart contracts on EVM-compatible chains that leverage zero-knowledge proofs and private addresses to facilitate compliant and private transactions.&#x20;
 
-Each public address has exactly one Hinkal shielded address.
+Each public address has exactly one Hinkal private address.
 
 The `@requestnetwork/payment-processor` package provides functions to:
 
-* **Pay a request from a Hinkal shielded address to a public address:** such that the payment sender's public address never appears on-chain.
-* **Deposit to a Hinkal shielded address from a public address**: such that the payment recipient's public address never appears on-chain. Callers can choose to deposit to their own shielded address or someone else's shielded address.
+* **Pay a request from a Hinkal private address to a public address:** such that the payment sender's public address never appears on-chain.
+* **Deposit to a Hinkal private address from a public address**: such that the payment recipient's public address never appears on-chain. Callers can choose to deposit to their own private address or someone else's private address.
 
 {% hint style="info" %}
-Paying a request where the payment recipient address is a Hinkal shielded address is not supported because the Request Network payment proxy smart contracts can only send funds to public addresses. Consider using [declarative-request.md](declarative-request.md "mention") instead.
+Paying a request where the payment recipient address is a Hinkal private address is not supported because the Request Network payment proxy smart contracts can only send funds to public addresses. Consider using [declarative-request.md](declarative-request.md "mention") instead.
 {% endhint %}
 
 ## Benefits
@@ -32,12 +32,12 @@ npm install @requestnetwork/payment-processor
 
 ## Usage
 
-### **Pay a request from a Hinkal shielded address**
+### **Pay a request from a Hinkal private address**
 
-To pay a request from a Hinkal shielded address to a public address, where only the payment sender's address is obfuscated, use the \``` payErc20FeeProxyRequestFromHinkalShieldedAddress()` `` function. Ensure the payment sender's Hinkal shielded address has a positive balance using[#deposit-to-a-hinkal-shielded-address](hinkal-private-payments.md#deposit-to-a-hinkal-shielded-address "mention")
+To pay a request from a Hinkal private address to a public address, where only the payment sender's address is obfuscated, use the \``` payErc20FeeProxyRequestFromHinkalShieldedAddress()` `` function. Ensure the payment sender's Hinkal private address has a positive balance using [#deposit-to-a-hinkal-private-address](hinkal-private-payments.md#deposit-to-a-hinkal-private-address "mention")
 
 {% hint style="warning" %}
-Strongly consider using [encryption-and-decryption](../encryption-and-decryption/ "mention") to keep the request contents private, including the payer and payee identity addresses, when paying requests from a Hinkal shielded address. Revealing the payer and payee identity addresses increases the likelihood of un-shielding the payment sender's address via on-chain analysis.
+Strongly consider using [encryption-and-decryption](../encryption-and-decryption/ "mention") to keep the request contents private, including the payer and payee identity addresses, when paying requests from a Hinkal private address. Revealing the payer and payee identity addresses increases the likelihood of un-shielding the payment sender's address via on-chain analysis.
 {% endhint %}
 
 ```typescript
@@ -60,15 +60,15 @@ const relayerTx = await payErc20FeeProxyRequestFromHinkalShieldedAddress(
 See [quickstart-browser.md](../../get-started/quickstart-browser.md "mention") for how to instantiate a `RequestNetwork` and `Signer`
 {% endhint %}
 
-### Deposit to a Hinkal shielded address
+### Deposit to a Hinkal private address
 
-To deposit funds to a Hinkal shielded address from a public address, where only the payment recipient's address is obfuscated, use the `sendToHinkalShieldedAddressFromPublic()` function. &#x20;
+To deposit funds to a Hinkal private address from a public address, where only the payment recipient's address is obfuscated, use the `sendToHinkalShieldedAddressFromPublic()` function. &#x20;
 
 * Deposit to own Hinkal shielded address: omit the `recipientInfo` argument
 * Deposit to someone else's Hinkal shielded address: set `recipientInfo` to the shielded address of the payment recipient.
 
 {% hint style="info" %}
-Hinkal shielded addresses must be shared out-of-band. This SDK doesn't offer functions for sharing Hinkal shielded addresses.
+Hinkal private addresses must be shared out-of-band. This SDK doesn't offer functions for sharing Hinkal private addresses.
 {% endhint %}
 
 {% code overflow="wrap" %}
