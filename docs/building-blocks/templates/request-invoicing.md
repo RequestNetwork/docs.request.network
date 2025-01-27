@@ -12,31 +12,41 @@ A video showing the Request Invoicing template where you can create, pay, and li
 
 ## Features
 
-| Feature                                                                                                                                | Status               |
-| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| ERC20 Payments                                                                                                                         | :white\_check\_mark: |
-| Native Token Payments                                                                                                                  | :white\_check\_mark: |
-| Conversion Payments                                                                                                                    | :construction:       |
-| [rnf\_invoice format](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/data-format/src/format/rnf\_invoice) 0.3.0 | :white\_check\_mark: |
-| Configure Logo and Colors                                                                                                              | :white\_check\_mark: |
-| Inject your own custom currency list                                                                                                   | :white\_check\_mark: |
-| Download Invoice as PDF                                                                                                                | :white\_check\_mark: |
+| Feature                                                                                                                               | Status               |
+| ------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| ERC20 Payments                                                                                                                        | :white\_check\_mark: |
+| Native Token Payments                                                                                                                 | :white\_check\_mark: |
+| Conversion Payments                                                                                                                   | :white\_check\_mark: |
+| [rnf\_invoice format](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/data-format/src/format/rnf_invoice) 0.3.0 | :white\_check\_mark: |
+| Configure Logo and Colors                                                                                                             | :white\_check\_mark: |
+| Inject your own custom currency list                                                                                                  | :white\_check\_mark: |
+| Download Invoice as PDF                                                                                                               | :white\_check\_mark: |
 
 ## Chains and Currencies
 
-| Chain           | Currencies                                                                                  |
-| --------------- | ------------------------------------------------------------------------------------------- |
-| Ethereum        | USDC, USDT, DAI, AXS, AUDIO, RAI, SYLO, LDO, UST, MNT, MIR, INJ, OCEAN, ANKR, RLY, REQ, ETH |
-| Polygon         | USDC, USDT, DAI, MATIC                                                                      |
-| Sepolia         | FAU, ETH, USDT, USDC                                                                        |
-| BNB Smart Chain | DAI, BUSD                                                                                   |
-| Gnosis          | USDC                                                                                        |
-| Avalanche       | USDC, USDT, AVAX                                                                            |
-| Optimism        | USDC, USDT, DAI, ETH                                                                        |
-| Moonbeam        | USDC (multichain), USDC (wormhole)                                                          |
-| Fantom          | FTM                                                                                         |
-| zkSync Era      | ETH                                                                                         |
-| Base            | ETH                                                                                         |
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Currency Selectors from the Request Invoicing app</p></figcaption></figure>
+
+### Payment Currencies
+
+| Chain     | Currencies                |
+| --------- | ------------------------- |
+| Ethereum  | ETH, USDC, USDT, DAI, REQ |
+| Polygon   | MATIC, USDC, USDT, DAI    |
+| BNB Chain | DAI, BUSD                 |
+| Gnosis    | USDC                      |
+| Optimism  | ETH, USDC, USDT, DAI      |
+| Base      | ETH, USDC                 |
+| Sepolia   | ETH, USDC, USDT, FAU      |
+
+### Invoice Currencies
+
+Invoices can be denominated in the following fiat currencies, in addition to the [#payment-currencies](request-invoicing.md#payment-currencies "mention")listed above.
+
+* USD
+* EUR
+* CNY
+* GBP
+* JPY
 
 ### Request Invoicing Integration Video
 
