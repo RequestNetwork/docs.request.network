@@ -1,20 +1,42 @@
-# Create and Pay Requests
+---
+description: >-
+  The Request Network API provides an interface for creating and paying requests
+  within your application.
+---
 
-The Request Network API provides an interface for managing payment requests within your application. It simplifies creating, tracking, and paying requests. This includes generating requests with specific details, securely facilitating payments through blockchain transactions, and providing real-time notifications via webhooks to keep your application synchronized with payment statuses.
+# Create and Pay Requests
 
 **Core Functionality:**
 
 At its core, the Request Network API empowers you to:
 
-* **Create Requests:** Define payment requests with essential information such as payee, payer (optional), amount, and currency details.
-* **Facilitate Payments:** Guide users through the payment process, leveraging blockchain transactions for secure and transparent value transfer.
+* **Create Requests:** Define payment requests with information such as payee, payer (optional), amount, and currency details.
+* **Facilitate Payments:** Return transaction calldata, ready to be signed by end-users and sent to the blockchain for secure and transparent value transfer.
 * **Deliver Webhook Notifications:** Receive instant updates on payment status changes, enabling your application to react dynamically to completed transactions.
 
-**Workflow Overview:**
+{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/request" method="post" %}
+[https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
+{% endswagger %}
+
+{% hint style="warning" %}
+The `invoiceCurrency`and `paymentCurrency` strings must each be the `id` of a token listed in the [request-network-token-list.md](../general/request-network-token-list.md "mention")
+{% endhint %}
+
+{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/request/{paymentReference}" method="get" %}
+[https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
+{% endswagger %}
+
+{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/request/{paymentReference}/pay" method="get" %}
+[https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
+{% endswagger %}
+
+For detailed information on all available endpoints and their parameters, please refer to the full [Request Network API Reference](https://api.request.network/open-api)
+
+## Create and Pay Request Workflow
 
 The following diagram illustrates the typical flow for creating and paying requests using the Request Network API:
 
-```mermaid fullWidth="true"
+```mermaid fullWidth="false"
 sequenceDiagram
     actor User
     participant App
@@ -44,21 +66,3 @@ sequenceDiagram
     Request Network API->>App: POST <webhook url> {"payment.confirmed", requestId, paymentReference, request scan link, timestamp}
     App-->>User: Payment Complete
 ```
-
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/request" method="post" %}
-[https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
-
-{% hint style="warning" %}
-The `invoiceCurrency`and `paymentCurrency` strings must each be the `id` of a token listed in the [request-network-token-list.md](../general/request-network-token-list.md "mention")
-{% endhint %}
-
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/request/{paymentReference}" method="get" %}
-[https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
-
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/request/{paymentReference}/pay" method="get" %}
-[https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
-
-For detailed information on all available endpoints and their parameters, please refer to the full [Request Network API Reference](https://api.request.network/open-api)

@@ -30,20 +30,6 @@ An EVM address that has been granted view access to an encrypted request.
 
 An EVM address that has been granted authorization to declare payments sent and payments received on behalf of either the Payee Identity or Payer Identity of a given request.&#x20;
 
-## Ecosystem
-
-### Request Client
-
-The Request Client is a Javascript library that interacts directly with the Request Protocol. The Request Client connects to a Request Node.
-
-### Request Node
-
-Request Nodes are HTTP servers exposing an API that allows Request Client to communicate with the Request Protocol. These servers abstract the complexity of IPFS and Ethereum used by the Request Protocol.
-
-### Request Protocol
-
-The Request Protocol is the underlying protocol that powers Request. It defines how requests are stored on a distributed ledger and how to interpret actions performed on them.
-
 ## Request Protocol
 
 ### Action
@@ -62,7 +48,11 @@ Request relies on other blockchain technologies to ensure data immutability. Mos
 
 As long as the action hasn't persisted and is not confirmed, the action is marked as "pending". The "pending" state helps have a fast response and a good user experience. Until the request is Confirmed, it should not be relied upon.
 
-### Decryption provider
+### Signature Provider
+
+A signature provider is an abstraction of identity management and action signatures. Depending on use cases, it allows you to give your user complete control or handle some parts for them.
+
+### Decryption Provider
 
 A decryption provider is an abstraction of the mechanism that handles the decryption of a request. Depending on use cases, it allows you to give your user complete control or handle some parts for them.
 
@@ -76,27 +66,13 @@ An extension is a set of actions that extends the feature of a request. A reques
 
 The identity defines a stakeholder of a request that allows signing or encrypting the request actions. The identity is the public data that identifies the stakeholder.
 
-### Payment Detection
+### Request ID
 
-Payment detection is a method defined by the payment network to determine the current balance of a request.
+The request ID is the number that uniquely identifies a request. This number is computed from the hash of the request creation action.
 
-### Payment Network (aka Payment Extension)
-
-A payment network is a predefined set of rules to agree on the balance of a request. The payment network is defined during the creation of the request.
-
-A payment network is generally related to one currency, but it's not always the case (the Declarative payment network is currency agnostic).
-
-### Request Data
+### Request Data (aka. Request Contents)
 
 The request data is the current state of a request, the data of the request after having applied all the confirmed actions on it.
-
-### Request Id
-
-The request Id is the number that uniquely identifies a request. This number is computed from the hash of the request creation action.
-
-### Signature Provider
-
-A signature provider is an abstraction of identity management and action signatures. Depending on use cases, it allows you to give your user complete control or handle some parts for them.
 
 ### Stakeholder
 
@@ -107,6 +83,48 @@ A request stakeholder is a party involved with the request. Stakeholders are gen
 A topic is a string that is used to index a request. This topic is used for request retrieval. Several requests can share the same topic.
 
 Every request has its request id and payee identity as topics (and the payer identity if it is defined). Any custom topic can be appended to a request.
+
+## Payments
+
+### Payment Detection
+
+Payment detection is a method defined by the payment network to determine the current balance of a request.
+
+### Payment Network (aka Payment Extension)
+
+A payment network is a predefined set of rules to agree on the balance of a request. The payment network is defined during the creation of the request.
+
+A payment network is generally related to one currency, but it's not always the case (the Declarative payment network is currency agnostic).
+
+### Payment Reference
+
+In the Reference-based Payment Networks, Payments are linked to Requests via a `paymentReference` which is derived from the `requestId` and payment recipient address. For details see [payment-reference.md](advanced/request-network-sdk/sdk-guides/request-client/payment-reference.md "mention")
+
+### Conversion Payment
+
+A "conversion" request is denominated in one currency but paid in another currency. This is facilitated by on-chain price feeds provided by oracles. The typical use case is to denominate a request in fiat like USD and pay the request in stablecoins like USDC or DAI. For details see [conversion-request.md](advanced/request-network-sdk/sdk-guides/payment/conversion-request.md "mention")
+
+### Swap-to-pay Payment
+
+A "swap-to-pay" payment is where the payment sender sends one currency but the payment recipient receives a different currency. For details see [swap-to-pay-request.md](advanced/request-network-sdk/sdk-guides/payment/swap-to-pay-request.md "mention")
+
+### Swap-to-Conversion Payment
+
+A "swap-to-conversion" payment is where the request is denominated in currency A, the payer sends currency B and the payee receives currency C. For details see [swap-to-conversion-request.md](advanced/request-network-sdk/sdk-guides/payment/swap-to-conversion-request.md "mention")
+
+## Ecosystem
+
+### Request Client
+
+The Request Client is a Javascript library that interacts directly with the Request Protocol. The Request Client connects to a Request Node.
+
+### Request Node
+
+Request Nodes are HTTP servers exposing an API that allows the Request Client to communicate with the Request Protocol. These servers abstract the complexity of IPFS and Ethereum used by the Request Protocol.
+
+### Request Protocol
+
+The Request Protocol is the underlying protocol that powers Request. It defines how requests are stored on a distributed ledger and how to interpret actions performed on them.
 
 ## Blockchain, Cryptography
 
