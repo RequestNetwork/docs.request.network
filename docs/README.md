@@ -20,13 +20,13 @@ layout:
 {% hint style="info" %}
 **Talk to an expert**
 
-[Contact us](https://calendly.com/mariana-rn/reqeust-network-demo-docs) to talk to an expert about integrating Request Network with your applications.
+Learn how Request Network can streamline Web3 invoicing and payments for your app - [book](https://calendly.com/mariana-rn/reqeust-network-demo-docs)[ a call](https://calendly.com/mariana-rn/request-network-demo-docs) with us.
 {% endhint %}
 
 ## What you can do with Request Network
 
 * Easily add invoicing features to your app
-* Easily add crypto payments to your app
+* Enable crypto payments in just a few clicks
 * Reconcile invoices and payments with 100% accuracy
 
 ## Start Building with Request Network

@@ -6,7 +6,13 @@ description: >-
 
 # Create and Pay Requests
 
-**Core Functionality:**
+{% hint style="info" %}
+**Talk to an expert**
+
+Discover how Request Network API can enhance your app's features - [book a call](https://calendly.com/mariana-rn/request-network-demo-docs) with us.
+{% endhint %}
+
+## **Core Functionality**
 
 At its core, the Request Network API empowers you to:
 
