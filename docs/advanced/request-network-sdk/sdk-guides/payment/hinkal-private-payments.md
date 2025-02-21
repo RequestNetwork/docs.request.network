@@ -93,6 +93,14 @@ const tx = await sendToHinkalShieldedAddressFromPublic({
 See [quickstart-browser.md](../../get-started/quickstart-browser.md "mention") for how to instantiate a `Signer`
 {% endhint %}
 
+## **Content Security Policy**
+
+The Hinkal SDK depends on [snarkjs](https://www.npmjs.com/package/snarkjs), a powerful library that enables local zero-knowledge proving in browser and Node.js environments. Snarkjs leverages [WebAssembly](https://webassembly.org/) to perform complex cryptographic computations efficiently.
+
+As a result, any client-side application integrating the Hinkal SDK must adjust its **Content-Security-Policy** to allow the `wasm-unsafe-eval` directive under the `script-src` setting. This configuration ensures that the cryptographic processes can execute properly.
+
+See [Hinkal SDK Integration](https://hinkal-team.gitbook.io/hinkal/developers/sdk-integration) for more details.
+
 ## Details
 
-For more details, refer to the [Pull Request #1482](https://github.com/RequestNetwork/requestNetwork/pull/1482) on GitHub.
+For more details about Hinkal Private Payments, refer to [Pull Request #1482](https://github.com/RequestNetwork/requestNetwork/pull/1482) on GitHub.
