@@ -66,8 +66,6 @@ This contract makes multiple conversion payments with a payment references, in o
 
 This contract makes multiple payments with payment references, in one transaction.
 
-#### [BatchPayments](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/contracts/BatchPayments.sol)
-
 This contract makes multiple payments with references, in one transaction, without conversion.
 
 #### [ERC20SwapToPay](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/contracts/ERC20SwapToPay.sol)
