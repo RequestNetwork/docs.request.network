@@ -16,25 +16,33 @@ Discover how Request Network API can enhance your app's features - [book a call]
 
 At its core, the Request Network API empowers you to:
 
-* **Create Requests:** Define payment requests with information such as payee, payer (optional), amount, and currency details.
+* **Create Requests:** Define payment requests with information such as payee, payer (optional), amount, currency, and recurrence (optional).
 * **Facilitate Payments:** Return transaction calldata, ready to be signed by end-users and sent to the blockchain for secure and transparent value transfer.
 * **Deliver Webhook Notifications:** Receive instant updates on payment status changes, enabling your application to react dynamically to completed transactions.
 
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/request" method="post" %}
+{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/request" method="post" %}
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
+{% endopenapi %}
 
-{% hint style="warning" %}
-The `invoiceCurrency`and `paymentCurrency` strings must each be the `id` of a token listed in the [request-network-token-list.md](../general/request-network-token-list.md "mention")
-{% endhint %}
-
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/request/{paymentReference}" method="get" %}
+{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/request/{paymentReference}" method="get" %}
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/request/{paymentReference}/pay" method="get" %}
+{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/request/{paymentReference}/stop-recurrence" method="patch" %}
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
+{% endopenapi %}
+
+
+
+{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/request/{paymentReference}/pay" method="get" %}
+[https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
+{% endopenapi %}
+
+{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/pay" method="post" %}
+[https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
+{% endopenapi %}
+
+
 
 For detailed information on all available endpoints and their parameters, please refer to the full [Request Network API Reference](https://api.request.network/open-api)
 
