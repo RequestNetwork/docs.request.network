@@ -18,7 +18,7 @@ Discover how your app can have its own EasyInvoice features - [book a call](http
 
 * **Google Login**: Securely log in to your account using Google OAuth.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>EasyInvioce Login Page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>EasyInvioce Login Page</p></figcaption></figure>
 
 ### **Invoice Creation**
 
@@ -45,13 +45,13 @@ Discover how your app can have its own EasyInvoice features - [book a call](http
 
 <figure><img src="../.gitbook/assets/Screenshot from 2025-02-14 01-01-00.png" alt=""><figcaption><p>EasyInvoice Invoice Payment Page</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>EasyInvoice supports 50+ wallets via Reown AppKit</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>EasyInvoice supports 50+ wallets via Reown AppKit</p></figcaption></figure>
 
 ### Direct Payment
 
 * **Direct Payment**: Send a payment without having to create a request first.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>EasyInvoice Direct Payment page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption><p>EasyInvoice Direct Payment page</p></figcaption></figure>
 
 <table data-card-size="large" data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f579">🕹️</span> <strong>Try it out</strong></td><td></td><td><a href="https://easyinvoice.request.network">https://easyinvoice.request.network</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="2139">ℹ️</span> <strong>View Source</strong></td><td></td><td><a href="https://github.com/RequestNetwork/easy-invoice">https://github.com/RequestNetwork/easy-invoice</a></td></tr></tbody></table>
 
