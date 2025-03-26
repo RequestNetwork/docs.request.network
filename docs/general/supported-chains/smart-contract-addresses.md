@@ -1,7 +1,7 @@
 # Smart Contract Addresses
 
 {% hint style="info" %}
-For an explanation of what each smart contract does, see [contracts.md](../../advanced/protocol-overview/contracts.md "mention")
+For an explanation about what each smart contract does, see [contracts.md](../../advanced/protocol-overview/contracts.md "mention")
 {% endhint %}
 
 ## Payment
