@@ -15,7 +15,7 @@ Discover how Request Network API can enhance your app's features - [book a call]
 **Warning:** Crosschain payments are currently only available in our staging environment at [https://api.stage.request.network](https://api.stage.request.network) and are not ready for production use. Use with caution.
 {% endhint %}
 
-Crosschain payments allow users to pay a request using a stablecoin from a different blockchain network than the one specified on the request. For example, a payer can pay an request for USDC on Base using USDT from their Polygon wallet.
+Crosschain payments allow users to pay a request using a stablecoin from a different blockchain network than the one specified on the request. For example, a payer can pay a request for USDC on Base using USDT from their Polygon wallet.
 
 ## Benefits
 
@@ -54,8 +54,6 @@ To enable crosschain payments, the request must be created with the following pa
 
 * `paymentCurrency`  included in the [#supported-stablecoins](crosschain-payments.md#supported-stablecoins "mention") and [#supported-networks](crosschain-payments.md#supported-networks "mention").&#x20;
 * `amount` greater than 2 - _executing_ crosschain payments under 2 stablecoins is not allowed, even though _creating_ requests has no restrictions on `amount` .
-
-&#x20;even though _creating_ requests for under 2 stablecoins is a
 
 For more details about creating requests, please see the [#v1-request](create-and-pay-requests.md#v1-request "mention") endpoint.
 
