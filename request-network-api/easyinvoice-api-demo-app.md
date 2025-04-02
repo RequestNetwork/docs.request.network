@@ -50,7 +50,7 @@ Discover how your app can have its own EasyInvoice features - [book a call](http
 ### Invoice Crosschain Payment
 
 {% hint style="warning" %}
-**Warning:** Crosschain payments are currently only available in our staging environment at https://easyinvoice.stage.request.network and are not ready for production use. Use with caution.
+**Warning:** Crosschain payments are currently only available in our staging environment at [https://easyinvoice.stage.request.network](https://easyinvoice.stage.request.network) and are not ready for production use. Use with caution.
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/Screenshot 2025-04-01 at 4.07.30 PM.png" alt=""><figcaption></figcaption></figure>

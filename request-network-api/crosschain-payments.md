@@ -70,7 +70,7 @@ The API automatically ranks available payment routes based on the following fact
 * Transaction fees
 * Processing speed
 
-Routes that offer the best combination of lower fees and faster processing times are ranked higher in the results.
+Routes that offer a _balanced_ combination of lower fees and faster processing times are ranked higher in the results.
 
 #### Samechain routes
 
@@ -176,4 +176,4 @@ Finally, the signed payment intent (and possibly the signed approval permit) are
 
 ## Custom fee configuration
 
-It will be possible in the future to add additional custom fee to the payment, this is currently under development.
+It will be possible in the future to add a custom fee to the payment, this is currently under development.
