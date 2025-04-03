@@ -47,6 +47,14 @@ Discover how your app can have its own EasyInvoice features - [book a call](http
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>EasyInvoice supports 50+ wallets via Reown AppKit</p></figcaption></figure>
 
+### Recurring Invoices
+
+* **Recurring Invoice**: Automatically create new invoices based on the selected start date and frequency
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-04-02 at 4.03.45 PM.png" alt=""><figcaption><p>Create New Invoice page - Recurring Invoice Enabled</p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-04-02 at 4.08.57 PM.png" alt=""><figcaption><p>Invoice Dashboard - Recurring Invoice</p></figcaption></figure>
+
 ### Invoice Crosschain Payment
 
 {% hint style="warning" %}
