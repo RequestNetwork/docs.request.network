@@ -61,6 +61,14 @@ Discover how your app can have its own EasyInvoice features - [book a call](http
 
 <figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption><p>EasyInvoice Direct Payment page</p></figcaption></figure>
 
+### InvoiceMe Link
+
+* **InvoiceMe Link**: Prompt clients to send you an invoice prefilled with your name and email address.
+
+<figure><img src="../.gitbook/assets/image9.png" alt=""><figcaption><p>Create InvoiceMe Link page</p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image7.png" alt=""><figcaption><p>Create Invoice via InvoiceMe Link</p></figcaption></figure>
+
 <table data-card-size="large" data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f579">🕹️</span> <strong>Try it out</strong></td><td></td><td><a href="https://easyinvoice.request.network">https://easyinvoice.request.network</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="2139">ℹ️</span> <strong>View Source</strong></td><td></td><td><a href="https://github.com/RequestNetwork/easy-invoice">https://github.com/RequestNetwork/easy-invoice</a></td></tr></tbody></table>
 
 ## Usage
