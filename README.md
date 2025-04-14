@@ -20,7 +20,7 @@ layout:
 {% hint style="info" %}
 **Talk to an expert**
 
-Learn how Request Network can streamline Web3 invoicing and payments for your app - [book](https://calendly.com/mariana-rn/reqeust-network-demo-docs)[ a call](https://calendly.com/mariana-rn/request-network-demo-docs) with us.
+Learn how Request Network can streamline Web3 invoicing and payments for your app - [book a call](https://calendly.com/mariana-rn/request-network-demo-docs) with us.
 {% endhint %}
 
 ## What you can do with Request Network
