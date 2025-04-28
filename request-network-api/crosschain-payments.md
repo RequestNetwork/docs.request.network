@@ -11,11 +11,7 @@ description: >-
 Discover how Request Network API can enhance your app's features - [book a call](https://calendly.com/mariana-rn/request-network-demo-docs) with us.
 {% endhint %}
 
-{% hint style="warning" %}
-**Warning:** Crosschain payments are currently only available in our staging environment at [https://api.stage.request.network](https://api.stage.request.network) and are not ready for production use. Use with caution.
-{% endhint %}
-
-Crosschain payments allow users to pay a request using a stablecoin from a different blockchain network than the one specified on the request. For example, a payer can pay a request for USDC on Base using USDT from their Polygon wallet.
+Crosschain payments allow users to pay a request using a stablecoin from a different blockchain network than the one specified on the request. For example, a payer can pay a request for USDC on Base using USDT from their Optimism wallet.
 
 ## Benefits
 
@@ -28,7 +24,6 @@ Crosschain payments allow users to pay a request using a stablecoin from a diffe
 
 Crosschain payments are supported on the following blockchain networks:
 
-* Polygon
 * Base
 * Optimism
 * Arbitrum
@@ -53,7 +48,7 @@ The following stablecoins are supported for crosschain payments on both the send
 To enable crosschain payments, the request must be created with the following parameters:
 
 * `paymentCurrency`  included in the [#supported-stablecoins](crosschain-payments.md#supported-stablecoins "mention") and [#supported-networks](crosschain-payments.md#supported-networks "mention").&#x20;
-* `amount` greater than 2 - _executing_ crosschain payments under 2 stablecoins is not allowed, even though _creating_ requests has no restrictions on `amount` .
+* `amount` greater than 1 - _executing_ crosschain payments under 1 stablecoins is not allowed, even though _creating_ requests has no restrictions on `amount` .
 
 For more details about creating requests, please see the [#v1-request](create-and-pay-requests.md#v1-request "mention") endpoint.
 
@@ -74,9 +69,9 @@ Routes that offer a _balanced_ combination of lower fees and faster processing t
 
 The API may return samechain routes if the payer address has supported currencies on the same chain as the `paymentCurrency` .
 
-* Example: `paymentCurrency` is USDC on Polygon, and the payer has USDT on Polygon
+* Example: `paymentCurrency` is USDC on Base, and the payer has USDT on Base
 * Gassless transactions - the transaction fees are added on top of the request amount
-* No native token (ETH, POL, etc..) needed for gas
+* No native token (ETH, etc..) needed for gas
 
 {% openapi src="https://api.stage.request.network/open-api/openapi.json" path="/v1/request/{paymentReference}/routes" method="get" %}
 [https://api.stage.request.network/open-api/openapi.json](https://api.stage.request.network/open-api/openapi.json)
