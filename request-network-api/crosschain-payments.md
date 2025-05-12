@@ -65,6 +65,31 @@ The API automatically ranks available payment routes based on the following fact
 
 Routes that offer a _balanced_ combination of lower fees and faster processing times are ranked higher in the results.
 
+#### Fee breakdown
+
+When fetching payment routes, each route displays the total estimated fees in the payment currency. This fee represents the combined costs associated with processing the transactio&#x6E;**,** including:
+
+1.  **Gas Fees:**
+
+    The total fee includes all gas costs incurred by the payment processor wallet for processing the transaction. this covers:
+
+    &#x20;      \- Transferring tokens from the payer's wallet.
+
+    &#x20;      \- Approving the payment execution smart contract.
+
+    &#x20;      \- Executing the crosschain payment transaction.
+
+    **For tokens supporting EIP-2612:**
+
+    &#x20;     \- The payment processor wallet also covers for the onchain permit transaction.
+
+    **For tokens that do not support EIP-2612:**
+
+    &#x20;     \- The payer must perform an onchain approval transaction and pay for the gas fee directly. This fee is **not** included in the total fee shown for the route.
+2.  **Service Fees:**
+
+    The total fees also include any service fees charged by the crosschain infrastructure for facilitating transfers or swaps between different blockchains.
+
 #### Samechain routes
 
 The API may return samechain routes if the payer address has supported currencies on the same chain as the `paymentCurrency` .
