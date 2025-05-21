@@ -1,8 +1,8 @@
 # Encrypt with a wallet signature using Lit Protocol
 
-This document outlines how to encrypt and decrypt requests using Lit Protocol. Encryption and decryption are performed using the end-user's wallet signatures, ensuring only they can access the data. Neither Request Network nor Lit Protocol can access the data without consent from the user.&#x20;
+This document outlines how to encrypt and decrypt requests using Lit Protocol. Encryption and decryption are performed using the end-user's wallet signatures, ensuring only they can access the data. Neither Request Network nor Lit Protocol can access the data without consent from the user.
 
-This allows the end-user to own their data without requiring them to know about or manage their public key, as is the case when they [handling-encryption-with-the-js-library.md](handling-encryption-with-the-js-library.md "mention").&#x20;
+This allows the end-user to own their data without requiring them to know about or manage their public key, as is the case when they [handling-encryption-with-the-js-library.md](handling-encryption-with-the-js-library.md "mention").
 
 Encryption with Lit Protocol supports the Add Stakeholder feature for adding view access to a 3rd party other than the payee or payer.
 
@@ -33,7 +33,7 @@ The system consists of three main components:
 * Lit Protocol: Provides a decentralized key management network and encryption capabilities.
 * Wallet Addresses: Used as the primary identifiers for access control in Lit Protocol.
 
-<figure><img src="../../../../.gitbook/assets/diagram-export-11-12-2024-4_31_56-PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/diagram-export-11-12-2024-4_31_56-PM (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Workflow
 

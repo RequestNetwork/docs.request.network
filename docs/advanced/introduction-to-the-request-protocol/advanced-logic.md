@@ -6,6 +6,6 @@ Advanced Logic is a package that allows the user to define extensions that can b
 
 Similar to Request Logic, a specific extension can define different actions related to it. There is the Create action of the extension and, eventually different update actions. The extension is initialized at the same time as the request, and any action of the Request Logic can add extension data. There is a specific action, `AddExtensionData`, in Request Logic, only intended to add extension data to the request with no other side-effect.
 
-<figure><img src="../../.gitbook/assets/2-AdvancedRequestPresentation.jpg" alt=""><figcaption><p><em>Example of a request with extension data: the payee creates a request with content data and declarative payment information, the payer accepts the request and declares a sent payment in the same time, and finally, the payee declares the received payment</em></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2-AdvancedRequestPresentation (1).jpg" alt=""><figcaption><p><em>Example of a request with extension data: the payee creates a request with content data and declarative payment information, the payer accepts the request and declares a sent payment in the same time, and finally, the payee declares the received payment</em></p></figcaption></figure>
 
 The specification for each extension can be found at this link: [https://github.com/RequestNetwork/requestNetwork/tree/master/packages/advanced-logic/specs](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/advanced-logic/specs)

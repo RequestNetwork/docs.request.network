@@ -14,14 +14,14 @@ In-memory requests allow for creating and managing requests without immediately 
 The flow of creating and paying an in-memory request is similar to a regular request with the following key differences:
 
 * Create an in-memory request by passing the argument `skipPeristence: true` when instantiating the `RequestNetwork` instance.
-* An in-memory request is _not_ persisted immediately like normal requests.  Instead, it is stored in memory on the device where it was created. It can be persisted at a later time using the `persistTransaction()`function.
-* An in-memory request has the `inMemoryInfo`  property.
+* An in-memory request is _not_ persisted immediately like normal requests. Instead, it is stored in memory on the device where it was created. It can be persisted at a later time using the `persistTransaction()`function.
+* An in-memory request has the `inMemoryInfo` property.
 * Avoid calling `getData()` on an in-memory request because it will fail silently by returning an empty `EventEmitter` object.
 * Retrieving an in-memory request with `requestClient.fromRequestId()` will fail because the request has not been persisted yet so it is not possible to read it from the Request Node.
 
 {% stepper %}
 {% step %}
-### Install necessary dependencies
+#### Install necessary dependencies
 
 To create in-memory requests, it is necessary to install the following package:
 
@@ -37,7 +37,7 @@ npm install @requestnetwork/payment-processor
 {% endstep %}
 
 {% step %}
-### Create an in-memory request
+#### Create an in-memory request
 
 Create an in-memory request by passing the argument `skipPeristence: true` when instantiating the `RequestNetwork` instance.
 
@@ -64,7 +64,7 @@ const web3SignatureProvider = new Web3SignatureProvider(
 {% endstep %}
 
 {% step %}
-### Pay an in-memory request
+#### Pay an in-memory request
 
 To pay an in-memory request, pass the `inMemoryInfo.requestData` property to the payment function.
 
@@ -84,7 +84,7 @@ await paymentTx.wait(confirmationBlocks);
 {% endstep %}
 
 {% step %}
-### Persist in-memory request
+#### Persist in-memory request
 
 In-memory requests need to be persisted using a new `RequestNetwork` client that does not use the `skipPersistence` property.
 
@@ -101,4 +101,3 @@ await persistingRequestNetwork.persistRequest(inMemoryRequest);
 {% endstepper %}
 
 [^1]: Configure the RequestNetwork instance to produce in-memory requests
-

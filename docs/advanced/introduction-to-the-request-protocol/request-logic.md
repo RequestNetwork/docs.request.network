@@ -14,7 +14,7 @@ This layer has three responsibilities:
 
 Actions are the essential elements that compose a request. From this layer's point of view, a request is simply a list of different actions.
 
-<figure><img src="../../.gitbook/assets/2-RequestPresentation.jpg" alt=""><figcaption><p> <em>Example of a request in Request Logic represented by a list of actions</em></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2-RequestPresentation (1).jpg" alt=""><figcaption><p><em>Example of a request in Request Logic represented by a list of actions</em></p></figcaption></figure>
 
 * The payee creates the request requesting 1 ETH to the payer
 * The payer accepts the request
@@ -40,6 +40,6 @@ The protocol repository currently contains two signature provider packages:
 * [epk-signature](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/epk-signature)
 * [web3-signature](https://github.com/RequestNetwork/requestNetwork/tree/master/packages/web3-signature)
 
-Both packages use the Elliptic Curve Digital Signature Algorithm (ECDSA) used in Ethereum. web3-signature will connect to Metamask to ask users to sign requests.  epk-signature uses private keys that are stored in the clear and managed manually.
+Both packages use the Elliptic Curve Digital Signature Algorithm (ECDSA) used in Ethereum. web3-signature will connect to Metamask to ask users to sign requests. epk-signature uses private keys that are stored in the clear and managed manually.
 
 The `web3-signature` provider should be used to create a fully-decentralized solution where the users manage their own private keys. The `epk-signature` provider is used to manage the private keys on behalf of the users. It's never a good idea to let users handle plain private keys.

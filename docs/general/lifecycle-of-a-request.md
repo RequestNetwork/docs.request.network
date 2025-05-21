@@ -2,13 +2,13 @@
 
 The typical lifecycle of a request is as follows:
 
-<div data-full-width="true"><figure><img src="../.gitbook/assets/Lifecycle of a Request.jpg" alt=""><figcaption><p>Typical Lifecycle of a Request</p></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="../.gitbook/assets/Lifecycle of a Request (1).jpg" alt=""><figcaption><p>Typical Lifecycle of a Request</p></figcaption></figure></div>
 
 ## Create a request
 
 * The payer or payee signs the request which contains the payee, payer, currency, amount, payment details, and arbitrary content data.
 * The request can be optionally encrypted such that only the payee, payer, and approved 3rd parties can view the request contents.
-* The request is persisted in IPFS.&#x20;
+* The request is persisted in IPFS.
 * The IPFS Content-addressable ID (CID) is stored in a smart contract on Gnosis chain
 
 {% hint style="info" %}
@@ -28,7 +28,7 @@ Requests are _created_ by storing their CIDs on Gnosis, but this doesn't mean _p
 * An event is emitted containing the token address, to address, amount, and paymentReference.
 
 {% hint style="info" %}
-Most requests are "reference-based" meaning that a paymentReference derived from the request contents is logged on-chain via a smart contract that emits an event. Nothing gets written back to IPFS when paying a "reference-based" request.&#x20;
+Most requests are "reference-based" meaning that a paymentReference derived from the request contents is logged on-chain via a smart contract that emits an event. Nothing gets written back to IPFS when paying a "reference-based" request.
 
 The exception is when paying a "declarative" request, in which case, data _is_ written back to IPFS. This includes when the payer declares that the payment was sent and the payee declares that the payment was received.
 {% endhint %}

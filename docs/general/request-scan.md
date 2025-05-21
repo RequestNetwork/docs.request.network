@@ -6,7 +6,7 @@ description: >-
 
 # Request Scan
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-09-05 at 15.23.45.png" alt=""><figcaption><p>Request Scan Landing Page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2024-09-05 at 15.23.45 (1).png" alt=""><figcaption><p>Request Scan Landing Page</p></figcaption></figure>
 
 <table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f579">🕹️</span> <strong>Try it out</strong></td><td></td><td><a href="https://scan.request.network">https://scan.request.network</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="25b6">▶️</span> <strong>Demo Video</strong></td><td></td><td><a href="request-scan.md#demo-video">#demo-video</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="2139">ℹ️</span> <strong>View Source</strong></td><td></td><td><a href="https://github.com/RequestNetwork/request-scan">https://github.com/RequestNetwork/request-scan</a></td></tr></tbody></table>
 
@@ -43,4 +43,3 @@ Request Scan caters to a broad audience:
 {% embed url="https://www.youtube.com/watch?v=lHjeVCvMoU0" %}
 Request Scan Demo Video
 {% endembed %}
-

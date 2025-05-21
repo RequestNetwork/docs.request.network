@@ -24,7 +24,7 @@ A video showing the Request Invoicing template where you can create, pay, and li
 
 ## Chains and Currencies
 
-<figure><img src="../../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Currency Selectors from the Request Invoicing app</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>Currency Selectors from the Request Invoicing app</p></figcaption></figure>
 
 ### Payment Currencies
 

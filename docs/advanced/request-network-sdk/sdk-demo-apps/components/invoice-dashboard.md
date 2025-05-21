@@ -15,9 +15,9 @@ layout:
 
 # Invoice Dashboard
 
-<div data-full-width="false"><figure><img src="../../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>Screenshot of @requestnetwork/invoice-dashboard 0.3.0</p></figcaption></figure></div>
+<div data-full-width="false"><figure><img src="../../../../.gitbook/assets/image (6) (2).png" alt=""><figcaption><p>Screenshot of @requestnetwork/invoice-dashboard 0.3.0</p></figcaption></figure></div>
 
-<table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f579">🕹️</span> <strong>Try it out</strong> </td><td></td><td><a href="https://invoicing.request.network">https://invoicing.request.network</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="25b6">▶️</span> <strong>Demo Video</strong></td><td></td><td><a href="../#request-invoicing-demo-video">#request-invoicing-demo-video</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f3d7">🏗️</span> <strong>Integration Video</strong></td><td></td><td><a href="../#request-invoicing-integration-video">#request-invoicing-integration-video</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f4e6">📦</span> <strong>View on NPM</strong></td><td></td><td><a href="https://www.npmjs.com/package/@requestnetwork/invoice-dashboard">https://www.npmjs.com/package/@requestnetwork/invoice-dashboard</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="2139">ℹ️</span> <strong>View Source</strong></td><td></td><td><a href="https://github.com/RequestNetwork/web-components/tree/main/packages/invoice-dashboard">https://github.com/RequestNetwork/web-components/tree/main/packages/invoice-dashboard</a></td></tr></tbody></table>
+<table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f579">🕹️</span> <strong>Try it out</strong></td><td></td><td><a href="https://invoicing.request.network">https://invoicing.request.network</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="25b6">▶️</span> <strong>Demo Video</strong></td><td></td><td><a href="../#request-invoicing-demo-video">#request-invoicing-demo-video</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f3d7">🏗️</span> <strong>Integration Video</strong></td><td></td><td><a href="../#request-invoicing-integration-video">#request-invoicing-integration-video</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f4e6">📦</span> <strong>View on NPM</strong></td><td></td><td><a href="https://www.npmjs.com/package/@requestnetwork/invoice-dashboard">https://www.npmjs.com/package/@requestnetwork/invoice-dashboard</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="2139">ℹ️</span> <strong>View Source</strong></td><td></td><td><a href="https://github.com/RequestNetwork/web-components/tree/main/packages/invoice-dashboard">https://github.com/RequestNetwork/web-components/tree/main/packages/invoice-dashboard</a></td></tr></tbody></table>
 
 The Invoice Dashboard component allows end-users to view and pay an invoice in Request Network. It is built using [Svelte](https://svelte.dev/) but compiled to a [Web Component](https://developer.mozilla.org/en-US/docs/Web/API/Web_components), making it usable in any web environment, regardless of the framework.
 
@@ -33,11 +33,11 @@ npm install @requestnetwork/invoice-dashboard
 
 ### Usage in React and Next.js
 
-Follow the instructions below to add the Invoice Dashboard to a React or Next.js app.&#x20;
+Follow the instructions below to add the Invoice Dashboard to a React or Next.js app.
 
 #### [**invoice-dashboard.tsx**](https://github.com/RequestNetwork/invoicing-template/blob/01e44755b274d17c0718ca03f077d68a9fe8baec/pages/index.tsx)
 
-Configure the invoice dashboard web component by creating a reference to it, setting its properties, and passing the reference as a prop.&#x20;
+Configure the invoice dashboard web component by creating a reference to it, setting its properties, and passing the reference as a prop.
 
 {% @github-files/github-code-block url="https://github.com/RequestNetwork/invoicing-template/blob/01e44755b274d17c0718ca03f077d68a9fe8baec/pages/index.tsx" %}
 
@@ -90,4 +90,3 @@ Specify types to avoid TypeScript errors.
 | requestNetwork          | [RequestNetwork](../../sdk-api-reference/request-client.js/requestnetwork/) | The RequestNetwork instance                             |
 | wagmiConfig             | WagmiConfig                                                                 | Wallet connector config                                 |
 | currencies              | Currency\[]                                                                 | A list of custom currencies                             |
-

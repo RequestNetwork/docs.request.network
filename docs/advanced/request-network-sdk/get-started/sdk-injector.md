@@ -4,7 +4,7 @@ description: A CLI tool to help inject Request Network functionality into projec
 
 # SDK Injector
 
-<figure><img src="../../../.gitbook/assets/CleanShot 2024-09-23 at 15.30.49.png" alt="" width="563"><figcaption><p>Request Injector in Terminal</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/CleanShot 2024-09-23 at 15.30.49 (1).png" alt="" width="563"><figcaption><p>Request Injector in Terminal</p></figcaption></figure>
 
 <table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f4e6">📦</span> <strong>View on NPM</strong></td><td></td><td><a href="https://www.npmjs.com/package/request-injector">https://www.npmjs.com/package/request-injector</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="25b6">▶️</span> <strong>Demo Video</strong></td><td></td><td><a href="https://www.youtube.com/watch?v=8MJzP1bBvaU">https://www.youtube.com/watch?v=8MJzP1bBvaU</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="2139">ℹ️</span> <strong>View Source</strong></td><td></td><td><a href="https://github.com/RequestNetwork/request-cli">https://github.com/RequestNetwork/request-cli</a></td></tr></tbody></table>
 
