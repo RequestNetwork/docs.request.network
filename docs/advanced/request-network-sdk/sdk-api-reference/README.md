@@ -1,2 +1,2 @@
-# SDK Package Reference
+# SDK Reference
 

@@ -11,7 +11,7 @@ The following command creates a new Request Client instance and configures it to
 const web3SignatureProvider = new Web3SignatureProvider(provider);
 const requestClient = new RequestNetwork({
   nodeConnectionConfig: { 
-    baseURL: 'https://gnosis.gateway.request.network/' 
+    baseURL: 'https://xdai.gateway.request.network/' 
   },
   signatureProvider: web3SignatureProvider,
 });

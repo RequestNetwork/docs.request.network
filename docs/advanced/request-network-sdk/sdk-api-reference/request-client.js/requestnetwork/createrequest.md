@@ -48,7 +48,7 @@ Escrow payments use the ERC20\_FEE\_PROXY\_CONTRACT payment network.
 
 ## ICreationParameters
 
-```mermaid  fullWidth="true"
+```mermaid fullWidth="true"
 graph TD
   PnAnyDeclarative.ICreationParameters --> PnAddressBased.ICreationParameters
   PnAddressBased.ICreationParameters --> PnReferenceBased.ICreationParameters

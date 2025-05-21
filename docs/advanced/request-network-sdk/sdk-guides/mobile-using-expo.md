@@ -1,4 +1,4 @@
-# Expo
+# Mobile using Expo
 
 ## Introduction
 

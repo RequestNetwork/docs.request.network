@@ -402,7 +402,7 @@ For an explanation about what each smart contract does, see [contracts.md](../..
 | [**SingleRequestProxyFactory**](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/lib/artifacts/SingleRequestProxyFactory/index.ts) | N/A                    |
 | [**ChainlinkConversionPath**](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/smart-contracts/src/lib/artifacts/ChainlinkConversionPath/index.ts)     | N/A                    |
 
-## &#x20;Storage
+## Storage
 
 ### Gnosis
 
@@ -427,7 +427,7 @@ For an explanation about what each smart contract does, see [contracts.md](../..
 
 ## REQ Token and Burn Mechanism <a href="#req-token-and-burn-mechanism" id="req-token-and-burn-mechanism"></a>
 
-### Ethereum&#x20;
+### Ethereum
 
 | Contract Name       | Address                                    |
 | ------------------- | ------------------------------------------ |
