@@ -10,7 +10,7 @@ The request contents. Returned by [waitForConfirmation()](request/waitforconfirm
 
 ## Inherited Properties
 
-```mermaid  fullWidth="true"
+```mermaid fullWidth="true"
 graph TD
   IRequest --> IRequestData
   IRequestData --> IRequestDataWithEvents

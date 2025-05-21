@@ -13,52 +13,52 @@ Most of the endpoints described in this section require an active `session_token
 
 ## Authentication
 
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/auth/register" method="post" %}
+{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/auth/register" method="post" %}
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/auth/login" method="post" %}
+{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/auth/login" method="post" %}
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/auth/logout" method="post" %}
+{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/auth/logout" method="post" %}
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
+{% endopenapi %}
 
 ## Manage API Keys
 
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/key" method="post" %}
+{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/key" method="post" %}
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/key" method="get" %}
+{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/key" method="get" %}
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/key/{id}" method="put" %}
+{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/key/{id}" method="put" %}
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/key/{id}" method="delete" %}
+{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/key/{id}" method="delete" %}
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
+{% endopenapi %}
 
 ## Manage Webhooks
 
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/webhook" method="post" %}
+{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/webhook" method="post" %}
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/webhook" method="get" %}
+{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/webhook" method="get" %}
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/webhook/{webhookId}" method="put" %}
+{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/webhook/{webhookId}" method="put" %}
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://api.request.network/open-api/openapi.json" path="/v1/webhook/{webhookId}" method="delete" %}
+{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/webhook/{webhookId}" method="delete" %}
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endswagger %}
+{% endopenapi %}
 
 For detailed information on all available endpoints and their parameters, please refer to the full [Request Network API Reference](https://api.request.network/open-api)

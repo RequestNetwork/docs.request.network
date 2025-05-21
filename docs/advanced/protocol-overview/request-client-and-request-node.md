@@ -26,4 +26,4 @@ The Request Network Foundation operates several [Request Nodes](https://docs.req
 
 Shown below is a diagram that depicts how the SDK and Node interact with the protocol.
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (3) (2).png" alt=""><figcaption><p>Interacting with Request Network via a Request Node</p></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Interacting with Request Network via a Request Node</p></figcaption></figure></div>

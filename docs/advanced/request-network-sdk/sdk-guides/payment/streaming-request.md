@@ -2,7 +2,7 @@
 description: Pay a series of requests with a stream of ERC777 Super Tokens from Superfluid.
 ---
 
-# Streaming Request
+# Streaming Payment
 
 The first request of a series is very similar to [payment-network-erc20-fee-proxy](https://github.com/RequestNetwork/requestNetwork/blob/7be84246d3012959739a99db6463062374f6cd91/packages/advanced-logic/specs/payment-network-erc20-fee-proxy-contract-0.1.0.md), it defines the `salt`, `paymentAddress` and `requestId` to compute the `paymentReference` used for the whole series.
 

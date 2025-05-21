@@ -14,4 +14,4 @@ The Request Network Components are built using Svelte but compiled to [Web Compo
 
 The Request Network Templates are distributed as "Template Repositories" in Github. The Github Docs explain how to [Create a new repository from a template repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
