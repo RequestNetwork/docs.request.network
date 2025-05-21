@@ -18,23 +18,23 @@ Discover how your app can have its own EasyInvoice features - [book a call](http
 
 * **Google Login**: Securely log in to your account using Google OAuth.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>EasyInvioce Login Page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption><p>EasyInvioce Login Page</p></figcaption></figure>
 
 ### **Invoice Creation**
 
 * **Invoice Creation**: A simple form to create invoices.
   * Client name and email fields.
   * Items, amounts, and notes fields.
-  * Invoice currency and payment currency options, supporting currency conversion via the Request Network API.&#x20;
+  * Invoice currency and payment currency options, supporting currency conversion via the Request Network API.
 * **Currency Conversion**: uses on-chain price feeds to calculate the exact payment currency amount based on the invoice currency at the moment of payment so you always receive the correct amount.
 
-<figure><img src="../.gitbook/assets/Screenshot from 2025-02-13 14-48-47.png" alt=""><figcaption><p>EasyInvoice Create Invoice Page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot from 2025-02-13 14-48-47 (1).png" alt=""><figcaption><p>EasyInvoice Create Invoice Page</p></figcaption></figure>
 
 ### **Dashboard**
 
 * **Dashboard**: View key metrics and a table of your invoices.
 
-<figure><img src="../.gitbook/assets/Screenshot from 2025-02-14 01-00-51.png" alt=""><figcaption><p>EasyInvoice Dashboard</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot from 2025-02-14 01-00-51 (1).png" alt=""><figcaption><p>EasyInvoice Dashboard</p></figcaption></figure>
 
 ### Invoice Payment
 
@@ -43,15 +43,15 @@ Discover how your app can have its own EasyInvoice features - [book a call](http
   * Compatible with 50+ different crypto wallets.
 * **Real-time Updates**: The app receives webhooks from the Request Network API to update the invoice status in real-time.
 
-<figure><img src="../.gitbook/assets/Screenshot from 2025-02-14 01-01-00.png" alt=""><figcaption><p>EasyInvoice Invoice Payment Page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot from 2025-02-14 01-01-00 (1).png" alt=""><figcaption><p>EasyInvoice Invoice Payment Page</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>EasyInvoice supports 50+ wallets via Reown AppKit</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (2).png" alt=""><figcaption><p>EasyInvoice supports 50+ wallets via Reown AppKit</p></figcaption></figure>
 
 ### Direct Payment
 
 * **Direct Payment**: Send a payment without having to create a request first.
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption><p>EasyInvoice Direct Payment page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>EasyInvoice Direct Payment page</p></figcaption></figure>
 
 <table data-card-size="large" data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f579">🕹️</span> <strong>Try it out</strong></td><td></td><td><a href="https://easyinvoice.request.network">https://easyinvoice.request.network</a></td></tr><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="2139">ℹ️</span> <strong>View Source</strong></td><td></td><td><a href="https://github.com/RequestNetwork/easy-invoice">https://github.com/RequestNetwork/easy-invoice</a></td></tr></tbody></table>
 
