@@ -1,4 +1,4 @@
-# Protocol Architecture
+# Internal SDK Architecture
 
 Request is an open database for any type of payment request - from business invoices to reimbursements between friends. It aims to support products at any scale from startups to large organizations, from the private to the public sector.
 
@@ -19,7 +19,7 @@ The protocol is composed of four layers:
 * Data Access
 * Storage
 
-<figure><img src="../../.gitbook/assets/1-LayersPresentation.jpg" alt=""><figcaption><p><em>Layers of the Request Protocol, each layer is described in the next section.</em></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1-LayersPresentation (1).jpg" alt=""><figcaption><p><em>Layers of the Request Protocol, each layer is described in the next section.</em></p></figcaption></figure>
 
 This layered architecture allows package reusability and makes the protocol more upgradeable. For example, our current implementation uses Ethereum and IPFS. Still, suppose Arweave turns out to be a better solution for storing data in a decentralized database than IPFS. In that case, we can create a new storage layer that uses Arweave and make the data-access layer using this new package instead.
 

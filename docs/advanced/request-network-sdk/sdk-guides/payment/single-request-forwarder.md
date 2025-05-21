@@ -4,7 +4,7 @@
 
 The Single Request Forwarder is a smart contract solution that enables integration with Request Network's payment system without modifying existing smart contracts.
 
-<figure><img src="../../../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Single Request Forwarder Payment Flow</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Single Request Forwarder Payment Flow</p></figcaption></figure>
 
 {% hint style="info" %}
 The Single Request Forwarder Factory contact addresses can be found : [smart-contract-addresses.md](../../../../general/supported-chains/smart-contract-addresses.md "mention")
@@ -44,7 +44,7 @@ const requestData = request.getData()
 
 ### Deploy Single Request Forwarder
 
-To deploy a Single Request Forwarder, call `deploySingleRequestForwarder()`  which takes in the following arguments:
+To deploy a Single Request Forwarder, call `deploySingleRequestForwarder()` which takes in the following arguments:
 
 * **`requestData`:** the data of the created request
 * **`signer`:** An Ethers v5 Signer to sign the deployment transaction
