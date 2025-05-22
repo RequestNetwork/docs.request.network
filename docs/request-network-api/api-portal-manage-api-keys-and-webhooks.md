@@ -4,7 +4,7 @@ description: An app for managing Request Network API keys and webhooks.
 
 # API Portal: Manage API Keys and Webhooks
 
-<figure><img src="../../.gitbook/assets/Screenshot from 2025-02-13 16-25-12 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot from 2025-02-13 16-25-12 (1).png" alt=""><figcaption></figcaption></figure>
 
 <table data-card-size="large" data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><span data-gb-custom-inline data-tag="emoji" data-code="1f579">🕹️</span> <strong>Try it out</strong></td><td></td><td><a href="https://portal.request.network">https://portal.request.network</a></td></tr></tbody></table>
 

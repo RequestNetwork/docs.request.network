@@ -7,8 +7,7 @@
 * [Create and Pay Requests](request-network-api/create-and-pay-requests.md)
 * [Crosschain Payments](request-network-api/crosschain-payments.md)
 * [EasyInvoice: API Demo App](request-network-api/easyinvoice-api-demo-app.md)
-* [API Portal: Manage API Keys and Webhooks](request-network-api/api-portal-manage-api-keys-and-webhooks/README.md)
-  * [Manage API Keys and Webhooks programmatically](request-network-api/api-portal-manage-api-keys-and-webhooks/manage-api-keys-and-webhooks-programmatically.md)
+* [API Portal: Manage API Keys and Webhooks](request-network-api/api-portal-manage-api-keys-and-webhooks.md)
 * [Full API Reference](https://api.request.network/open-api)
 
 ## General
