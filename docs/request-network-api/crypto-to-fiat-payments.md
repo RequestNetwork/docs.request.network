@@ -14,7 +14,7 @@ Crypto-to-fiat payments let a payer pay a Request in cryptocurrency, while the p
 
 [EasyInvoice](easyinvoice-api-demo-app.md) includes a reference implementation for this flow.
 
-### Understanding `clientUserId`
+## Understanding `clientUserId`
 
 Many `/payer` endpoints in the Request Network API require a `clientUserId` as a path parameter. This value is an **arbitrary identifier** chosen by your platform to represent a user (the payer) in your own system.
 
@@ -33,7 +33,7 @@ GET  /v2/payer/{clientUserId}/payment-details
 
 In each case, replace `{clientUserId}` with your chosen identifier for the user.
 
-## 1. Compliance & Payer Onboarding
+## Compliance & Payer Onboarding
 
 Before a payer can use crypto-to-fiat, they must complete compliance steps:
 
@@ -87,7 +87,7 @@ sequenceDiagram
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
-### 2. Setting Up a Crypto-to-Fiat Request (Payee Flow)
+## Setting Up a Crypto-to-Fiat Request (Payee Flow)
 
 Before a payer can pay in crypto and the payee can receive fiat, the platform must:
 
@@ -142,7 +142,7 @@ In EasyInvoice, the Payee Bank Account Registration is integrated directly into 
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
-## 3. Paying a Crypto-to-Fiat Request
+## Paying a Crypto-to-Fiat Request
 
 The payer pays in crypto; Request Tech handles offramping and fiat payout.
 
