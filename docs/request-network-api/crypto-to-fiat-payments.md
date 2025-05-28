@@ -6,8 +6,19 @@ description: >-
 
 # Crypto-to-fiat Payments
 
+{% hint style="warning" %}
+The Crypto-to-fiat Payments feature of the Request Network API is gated by an allowlist. This includes access to the sandbox where none of the KYC or Bank Accounts are real, and the payments use Sepolia testnet funds.&#x20;
+
+To use Crypto-to-fiat Payments, an app builder (aka. platform) must:
+
+1. Create an account on the [Request Network API Portal](https://portal.request.network/)
+2. [Book a call](https://calendly.com/mariana-rn/request-network-demo-docs) with us to request access to the Crypto-to-fiat Payments feature.
+
+Upon approval, one of our engineers will update the Request Network API database to allow the app builder to use Crypto-to-fiat payments.
+{% endhint %}
+
 {% hint style="info" %}
-Crypto-to-fiat payments are only available in V2.
+Crypto-to-fiat payments are only available in V2 of the Request Network API.
 {% endhint %}
 
 Crypto-to-fiat payments let a payer pay a Request in cryptocurrency, while the payee receives fiat directly in their bank account. This is achieved by combining compliance (KYC/Agreement) and bank account registration (payment detail) flows, and combining the Request Network crypto payment with [Request Tech](https://www.request.finance/tech) offramp infrastructure.
@@ -120,9 +131,17 @@ sequenceDiagram
 2. **Approval**: The platform receives a webhook (`payment_detail.updated`) indicating if the payment details are approved, failed, or pending.
 3. **Create Request**: Once approved, the platform creates a new request as usual, but with the `isCryptoToFiatAllowed` flag set to `true`. This signals that the request is eligible for crypto-to-fiat payment.
 
-{% hint style="info" %}
-In EasyInvoice, the Payee Bank Account Registration is integrated directly into the Create Invoice Form. If the user clicks Create before the Payee Bank Account has been approved, a loading indicator appears until approval is granted.
-{% endhint %}
+### **Design Rationale & UX Constraints**
+
+While it is technically possible to create a crypto-to-fiat request before the payer has completed KYC, EasyInvoice intentionally requires the payer to complete KYC first. This decision is based on several practical and UX considerations:
+
+* **Bank Account Association:** The payee’s bank account ("payment details") must be linked to a specific payer, which can only be done after the payer completes KYC. This ensures compliance and accurate association of payment details.
+* **Validation Complexity:** Although the payee could submit their bank account details in advance, the platform cannot validate or approve these details until the payer’s KYC is complete. This would introduce additional communication steps and potential confusion.
+* **UI Simplicity:** EasyInvoice integrates payee bank account registration directly into the Create Invoice form. If the user clicks "Create" before the bank account is approved, a loading indicator appears until approval is granted. This avoids the need for a separate bank account management page and keeps the user experience straightforward.
+* Protocol Fit: The crypto-to-fiat feature is integrated at the API level, not at the Request Network protocol level. Creating a request on the protocol does not require bank account details, because the protocol itself only handles crypto payments. The additional bank account and offramp logic is layered on top via the API, which transfers crypto to Request Tech, who then executes the offramp and sends fiat to the payee’s bank account. This separation adds some complexity, so the UI is intentionally kept simple.
+* **Future Flexibility:** While some clients may want to allow payees to create requests before payer KYC, this is not currently supported in EasyInvoice to avoid increased complexity. We may revisit this if there is sufficient market demand.
+
+This approach ensures a smooth, compliant, and user-friendly experience, even if it means some technical possibilities are not exposed in the current UI.
 
 ### Relevant Endpoints
 
