@@ -32,8 +32,6 @@ At its core, the Request Network API empowers you to:
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
 {% endopenapi %}
 
-
-
 {% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/request/{paymentReference}/pay" method="get" %}
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
 {% endopenapi %}
@@ -42,8 +40,6 @@ At its core, the Request Network API empowers you to:
 [https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
 {% endopenapi %}
 
-
-
 For detailed information on all available endpoints and their parameters, please refer to the full [Request Network API Reference](https://api.request.network/open-api)
 
 ## Create and Pay Request Workflow
@@ -51,6 +47,15 @@ For detailed information on all available endpoints and their parameters, please
 The following diagram illustrates the typical flow for creating and paying requests using the Request Network API:
 
 ```mermaid fullWidth="false"
+---
+config:
+  fontSize: 10
+  sequence:
+    wrap: true
+    actorMargin: 90
+    width: 100
+    height: 50
+---
 sequenceDiagram
     actor User
     participant App

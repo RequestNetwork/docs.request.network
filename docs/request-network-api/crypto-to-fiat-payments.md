@@ -55,6 +55,16 @@ Before a payer can use crypto-to-fiat, they must complete compliance steps:
 ### **Compliance Flow Diagram**
 
 ```mermaid
+---
+config:
+  fontSize: 10
+  sequence:
+    wrap: true
+    actorMargin: 90
+    width: 100
+    height: 30
+---
+
 sequenceDiagram
     participant Payer
     participant Platform
@@ -109,6 +119,16 @@ Before a payer can pay in crypto and the payee can receive fiat, the platform mu
 ### **Payment Details Flow Diagram**
 
 ```mermaid fullWidth="false"
+---
+config:
+  fontSize: 10
+  sequence:
+    wrap: true
+    actorMargin: 90
+    width: 100
+    height: 30
+---
+
 sequenceDiagram
     participant Payee
     participant Platform
@@ -168,6 +188,15 @@ The payer pays in crypto; Request Tech handles offramping and fiat payout.
 ### **Payment Flow Diagram**
 
 ```mermaid
+---
+config:
+  fontSize: 10
+  sequence:
+    wrap: true
+    actorMargin: 50
+    width: 70
+    height: 30
+---
 sequenceDiagram
     participant Payer
     participant Platform
