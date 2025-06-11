@@ -176,7 +176,7 @@ Batch payments support mixing different payment types in a single transaction:
 
 * **ERC20 Token Payments**: Standard token transfers
 * **Native Token Payments**: ETH, MATIC, etc.
-* [**Conversion Payments**](https://vscode-file/vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-sandbox/workbench/workbench.html): Requests denominated in one currency but paid in another (e.g., USD invoices paid with USDC)
+* [**Conversion Payments**](https://docs.request.network/advanced/request-network-sdk/sdk-guides/payment/conversion-request): Requests denominated in one currency but paid in another (e.g., USD invoices paid with USDC)
 
 ## Key Implementation Notes
 
@@ -215,6 +215,6 @@ See the batch payment feature in action in our EasyInvoice demo application:
 
 {% embed url="https://youtu.be/craVMSj8PRs" %}
 
-For detailed information on all available endpoints and their parameters, please refer to the full [Request Network API Reference](https://vscode-file/vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-sandbox/workbench/workbench.html).
+For detailed information on all available endpoints and their parameters, please refer to the full [Request Network API Reference](https://api.request.network/open-api).
 
 For more implementation details, explore the [EasyInvoice source code](https://github.com/RequestNetwork/easy-invoice).
