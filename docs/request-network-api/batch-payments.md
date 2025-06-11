@@ -176,7 +176,7 @@ Batch payments support mixing different payment types in a single transaction:
 
 * **ERC20 Token Payments**: Standard token transfers
 * **Native Token Payments**: ETH, MATIC, etc.
-* [**Conversion Payments**](https://docs.request.network/advanced/request-network-sdk/sdk-guides/payment/conversion-request): Requests denominated in one currency but paid in another (e.g., USD invoices paid with USDC)
+* [**Conversion Payments**](https://docs.request.network/glossary#conversion-payment): Requests denominated in one currency but paid in another (e.g., USD invoices paid with USDC)
 
 ## Key Implementation Notes
 
