@@ -71,7 +71,7 @@ When fetching payment routes, each route displays the total estimated fees in th
 
 1.  **Gas Fees:**
 
-    The total fee includes all gas costs incurred by the payment processor wallet for processing the transaction. this covers:
+    The total fee includes all gas costs incurred by the payment processor wallet for processing the transaction. This covers:
 
     &#x20;      \- Transferring tokens from the payer's wallet.
 
