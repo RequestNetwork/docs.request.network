@@ -19,26 +19,27 @@ At its core, the Request Network API empowers you to:
 * **Create Requests:** Define payment requests with information such as payee, payer (optional), amount, currency, and recurrence (optional).
 * **Facilitate Payments:** Return transaction calldata, ready to be signed by end-users and sent to the blockchain for secure and transparent value transfer.
 * **Deliver Webhook Notifications:** Receive instant updates on payment status changes, enabling your application to react dynamically to completed transactions.
+* **Fee Collection:** When paying a request, you can specify a fee percentage (between 0 and 100) and a fee address, which will add the fee on top of the payment amount - meaning the payer will pay the original amount plus the fee percentage, with the fee portion being sent to the specified fee address.
 
-{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/request" method="post" %}
-[https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endopenapi %}
+{% openapi-operation spec="request-api" path="/v2/request" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
-{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/request/{paymentReference}" method="get" %}
-[https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endopenapi %}
+{% openapi-operation spec="request-api" path="/v2/request/{requestId}" method="get" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
-{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/request/{paymentReference}/stop-recurrence" method="patch" %}
-[https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endopenapi %}
+{% openapi-operation spec="request-api" path="/v2/request/{requestId}" method="patch" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
-{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/request/{paymentReference}/pay" method="get" %}
-[https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endopenapi %}
+{% openapi-operation spec="request-api" path="/v2/request/{requestId}/pay" method="get" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
-{% openapi src="https://api.request.network/open-api/openapi.json" path="/v1/pay" method="post" %}
-[https://api.request.network/open-api/openapi.json](https://api.request.network/open-api/openapi.json)
-{% endopenapi %}
+{% openapi-operation spec="request-api" path="/v2/payouts" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
 For detailed information on all available endpoints and their parameters, please refer to the full [Request Network API Reference](https://api.request.network/open-api)
 
