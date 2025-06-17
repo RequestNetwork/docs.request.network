@@ -6,6 +6,8 @@ description: >-
 
 # Migrate to V2
 
+The Request Network API V2 introduces significant improvements while maintaining backward compatibility. This guide provides a comprehensive overview of the breaking changes between V1 and V2, along with a step-by-step migration guide.
+
 {% hint style="warning" %}
 **V1 API Deprecation Notice**
 
@@ -17,10 +19,8 @@ V1 of the Request Network API is deprecated and in security-fixes-only mode. Thi
 Please migrate to V2 as soon as possible to ensure continued support and access to the latest features.
 {% endhint %}
 
-The Request Network API V2 introduces significant improvements while maintaining backward compatibility. This guide provides a comprehensive overview of the breaking changes between V1 and V2, along with a step-by-step migration guide.
-
 {% hint style="info" %}
-**Important**: V2 is designed to coexist with V1. You can migrate incrementally and don't need to migrate all endpoints at once.
+**Important**: V2 is designed to coexist with V1. You can migrate incrementally and don't need to migrate all endpoints at once. See the [Full API Reference](https://api.request.network/open-api) for documentation of the V1 endpoints.
 {% endhint %}
 
 ## Breaking Changes from V1 to V2
