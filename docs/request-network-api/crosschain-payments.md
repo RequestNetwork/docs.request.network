@@ -32,7 +32,7 @@ Crosschain payments are supported on the following blockchain networks:
 ## Supported Stablecoins
 
 {% hint style="warning" %}
-**Warning:**  Crosschain payments work only with mainnet funds (real money). Test networks are not supported.
+**Warning:** Crosschain payments work only with mainnet funds (real money). Test networks are not supported.
 {% endhint %}
 
 The following stablecoins are supported for crosschain payments on both the sending and receiving networks.
@@ -47,14 +47,14 @@ The following stablecoins are supported for crosschain payments on both the send
 
 To enable crosschain payments, the request must be created with the following parameters:
 
-* `paymentCurrency`  included in the [#supported-stablecoins](crosschain-payments.md#supported-stablecoins "mention") and [#supported-networks](crosschain-payments.md#supported-networks "mention").&#x20;
+* `paymentCurrency` included in the [#supported-stablecoins](crosschain-payments.md#supported-stablecoins "mention") and [#supported-networks](crosschain-payments.md#supported-networks "mention").
 * `amount` greater than 1 - _executing_ crosschain payments under 1 stablecoins is not allowed, even though _creating_ requests has no restrictions on `amount` .
 
-For more details about creating requests, please see the [#v1-request](create-and-pay-requests.md#v1-request "mention") endpoint.
+For more details about creating requests, please see the [#post-v2-request](create-and-pay-requests.md#post-v2-request "mention") endpoint.
 
 ### 2. Payment route fetching
 
-To display a list of possible routes for a given request and payer address, use the [#v1-request-paymentreference-routes](crosschain-payments.md#v1-request-paymentreference-routes "mention") endpoint. It returns all of the possible routes based on the payer's token balances.&#x20;
+To display a list of possible routes for a given request and payer address, use the [#get-v2-request-requestid-routes](crosschain-payments.md#get-v2-request-requestid-routes "mention") endpoint. It returns all of the possible routes based on the payer's token balances.
 
 #### Route Ranking
 
@@ -73,19 +73,19 @@ When fetching payment routes, each route displays the total estimated fees in th
 
     The total fee includes all gas costs incurred by the payment processor wallet for processing the transaction. This covers:
 
-    &#x20;      \- Transferring tokens from the payer's wallet.
+    \- Transferring tokens from the payer's wallet.
 
-    &#x20;      \- Approving the payment execution smart contract.
+    \- Approving the payment execution smart contract.
 
-    &#x20;      \- Executing the crosschain payment transaction.
+    \- Executing the crosschain payment transaction.
 
     **For tokens supporting EIP-2612:**
 
-    &#x20;     \- The payment processor wallet also covers for the onchain permit transaction.
+    \- The payment processor wallet also covers for the onchain permit transaction.
 
     **For tokens that do not support EIP-2612:**
 
-    &#x20;     \- The payer must perform an onchain approval transaction and pay for the gas fee directly. This fee is **not** included in the total fee shown for the route.
+    \- The payer must perform an onchain approval transaction and pay for the gas fee directly. This fee is **not** included in the total fee shown for the route.
 2.  **Service Fees:**
 
     The total fees also include any service fees charged by the crosschain infrastructure for facilitating transfers or swaps between different blockchains.
@@ -95,28 +95,28 @@ When fetching payment routes, each route displays the total estimated fees in th
 The API may return samechain routes if the payer address has supported currencies on the same chain as the `paymentCurrency` .
 
 * Example: `paymentCurrency` is USDC on Base, and the payer has USDT on Base
-* Gassless transactions - the transaction fees are added on top of the request amount
+* Gasless transactions - the transaction fees are added on top of the request amount
 * No native token (ETH, etc..) needed for gas
 
-{% openapi src="https://api.stage.request.network/open-api/openapi.json" path="/v1/request/{paymentReference}/routes" method="get" %}
-[https://api.stage.request.network/open-api/openapi.json](https://api.stage.request.network/open-api/openapi.json)
-{% endopenapi %}
+{% openapi-operation spec="request-api" path="/v2/request/{requestId}/routes" method="get" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
 ### 3. Getting payment calldata
 
 Once the route is selected, the payer needs to fetch the unsigned payment calldata or intents.\
 \
-If the selected route is a crosschain payment, the [#v1-request-paymentreference-pay](crosschain-payments.md#v1-request-paymentreference-pay "mention") endpoint returns an unsigned payment intent. It will also return an unsigned approval permit or unsigned approval calldata, depending on whether the `paymentCurrency` supports [EIP-2612 Permit](https://eips.ethereum.org/EIPS/eip-2612). For crosschain payments, this endpoint is NOT approval aware - it will return an approval permit or approval calldata even if approval has already been granted.
+If the selected route is a crosschain payment, the [#get-v2-request-requestid-pay](crosschain-payments.md#get-v2-request-requestid-pay "mention") endpoint returns an unsigned payment intent. It will also return an unsigned approval permit or unsigned approval calldata, depending on whether the `paymentCurrency` supports [EIP-2612 Permit](https://eips.ethereum.org/EIPS/eip-2612). For crosschain payments, this endpoint is NOT approval aware - it will return an approval permit or approval calldata even if approval has already been granted.
 
-If the selected route is a direct payment, the [#v1-request-paymentreference-pay](crosschain-payments.md#v1-request-paymentreference-pay "mention") returns an unsigned payment calldata. It may also return an approval calldata. For direct payments, this endpoint IS approval aware - it will omit the approval calldata if sufficient approval has already been granted.
+If the selected route is a direct payment, the [#get-v2-request-requestid-pay](crosschain-payments.md#get-v2-request-requestid-pay "mention") returns an unsigned payment calldata. It may also return an approval calldata. For direct payments, this endpoint IS approval aware - it will omit the approval calldata if sufficient approval has already been granted.
 
-{% openapi src="https://api.stage.request.network/open-api/openapi.json" path="/v1/request/{paymentReference}/pay" method="get" %}
-[https://api.stage.request.network/open-api/openapi.json](https://api.stage.request.network/open-api/openapi.json)
-{% endopenapi %}
+{% openapi-operation spec="request-api" path="/v2/request/{requestId}/pay" method="get" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
 ### 4. Signing the payment intent
 
-The intents and calldata returned by the [#v1-request-paymentreference-pay](crosschain-payments.md#v1-request-paymentreference-pay "mention") endpoint in the previous step must be signed by the payer's wallet to authorize the crosschain payment. The process for signing the approval varies depending on whether the `paymentCurrency` supports [EIP-2612 Permit](https://eips.ethereum.org/EIPS/eip-2612), indicated by the `metadata` response parameter.
+The intents and calldata returned by the [#get-v2-request-requestid-pay](crosschain-payments.md#get-v2-request-requestid-pay "mention") endpoint in the previous step must be signed by the payer's wallet to authorize the crosschain payment. The process for signing the approval varies depending on whether the `paymentCurrency` supports [EIP-2612 Permit](https://eips.ethereum.org/EIPS/eip-2612), indicated by the `metadata` response parameter.
 
 ```json
     "metadata": {
@@ -137,7 +137,7 @@ const ethersProvider = new ethers.providers.Web3Provider(
 );
 const signer = await ethersProvider.getSigner();
 
-// Response from the `GET /request/{paymentReference}/pay` endpoint
+// Response from the `GET /request/{requestId}/pay` endpoint
 const response = ...
 
 const paymentIntent = JSON.parse(paymentData.paymentIntent);
@@ -186,11 +186,11 @@ const signedData = {
 
 ### 5. Sending the signed data
 
-Finally, the signed payment intent (and possibly the signed approval permit) are sent back to execute the crosschain payment via the [#v1-request-paymentintentid-send](crosschain-payments.md#v1-request-paymentintentid-send "mention") endpoint. It will handle all the necessary steps to complete the payment. A `payment.complete` event will be sent to the platform's webhooks when the payment is completed.
+Finally, the signed payment intent (and possibly the signed approval permit) are sent back to execute the crosschain payment via the [#post-v2-request-payment-intents-paymentintentid](crosschain-payments.md#post-v2-request-payment-intents-paymentintentid "mention") endpoint. It will handle all the necessary steps to complete the payment. A `payment.complete` event will be sent to the platform's webhooks when the payment is completed.
 
-{% openapi src="https://api.stage.request.network/open-api/openapi.json" path="/v1/request/{paymentIntentId}/send" method="post" %}
-[https://api.stage.request.network/open-api/openapi.json](https://api.stage.request.network/open-api/openapi.json)
-{% endopenapi %}
+{% openapi-operation spec="request-api" path="/v2/request/payment-intents/{paymentIntentId}" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
 ## Custom fee configuration
 
