@@ -20,25 +20,35 @@ At its core, the Request Network API empowers you to:
 * **Facilitate Payments:** Return transaction calldata, ready to be signed by end-users and sent to the blockchain for secure and transparent value transfer.
 * **Deliver Webhook Notifications:** Receive instant updates on payment status changes, enabling your application to react dynamically to completed transactions.
 * **Fee Collection:** When paying a request, you can specify a fee percentage (between 0 and 100) and a fee address, which will add the fee on top of the payment amount - meaning the payer will pay the original amount plus the fee percentage, with the fee portion being sent to the specified fee address.
+*   **Partial Payment Support:** Pay a portion of a request instead of the full amount at once. This unlocks powerful use cases such as:
+
+    * **Split payment**: split a payment 50% USDC on Base and 50% with USDT on Optimism.
+    * **Gradual payment plans:** Allow users to pay large invoices in smaller chunks.
+    * **Risk mitigation:** Test with small amounts before completing large payments.
+
+    The API automatically tracks payment progress, showing `partially_paid` status until the request is fully paid, and prevents overpayment by capping amounts to the remaining balance.\
+
 
 {% openapi-operation spec="request-api" path="/v2/request" method="post" %}
-[Broken link](broken-reference)
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
+
+
 {% openapi-operation spec="request-api" path="/v2/request/{requestId}" method="get" %}
-[Broken link](broken-reference)
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
 {% openapi-operation spec="request-api" path="/v2/request/{requestId}" method="patch" %}
-[Broken link](broken-reference)
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
 {% openapi-operation spec="request-api" path="/v2/request/{requestId}/pay" method="get" %}
-[Broken link](broken-reference)
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
 {% openapi-operation spec="request-api" path="/v2/payouts" method="post" %}
-[Broken link](broken-reference)
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
 For detailed information on all available endpoints and their parameters, please refer to the full [Request Network API Reference](https://api.request.network/open-api)
