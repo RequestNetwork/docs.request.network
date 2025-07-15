@@ -82,3 +82,91 @@ sequenceDiagram
         API->>App: Webhook notification (payment.confirmed / payment.failed)
     end
 ```
+
+
+
+## Supported Networks
+
+Recurring payments are supported on the following Blockchain networks:
+
+* Ethereum
+* Polygon
+* Arbitrum
+* Gnosis
+* Base
+* Binance Smart Chain
+* Sepolia
+
+## Supported currencies
+
+The recurring payments support **all** **ERC20** currencies available in the supported networks
+
+## How it works
+
+### 1.  Create a recurring payment
+
+To enable recurring payments, a schedule must be created with the following endpoint:
+
+{% openapi-operation spec="request-api" path="/v2/payouts" method="post" %}
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
+{% endopenapi-operation %}
+
+The response includes a payment permit payload (EIP-712 typed data) for signature, and, if required, transactions for token allowance approval.
+
+### 2. Payer authorization
+
+The payer must:
+
+* Approve the recurring payment contract to spend the required amount of tokens (if not already approved)
+* Sign the payment permit using EIP-712 compatible wallet
+
+**Example**
+
+```javascript
+import { Wallet, providers } from "ethers";
+
+const privateKey = 'WALLET_PRIVATE_KEY'
+const provider = const provider = new providers.JsonRpcProvider(
+	"RPC_URL",
+);
+
+const wallet = new Wallet(privateKey, provider);
+
+const recurringPaymentPermit = ... // from API response
+const signature = await wallet._signTypedData(
+  recurringPaymentPermit.domain,
+  recurringPaymentPermit.types,
+  recurringPaymentPermit.values
+);
+
+```
+
+### 3. Recurring payment activation
+
+To activate the recurring payment, the resulting signature must be submitted to the following endpoint:
+
+{% openapi-operation spec="request-api" path="/v2/payouts/recurring/{id}" method="post" %}
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
+{% endopenapi-operation %}
+
+A successful response confirms activation. The schedule is now active and payments will be executed automatically.
+
+### 4. Status monitoring
+
+The status, processed payments, next payment date, and other details can be retrieved at any time.
+
+{% openapi-operation spec="request-api" path="/v2/payouts/recurring/{id}" method="get" %}
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
+{% endopenapi-operation %}
+
+### 5. Recurring payment management
+
+Recurring payments can be `cancelled` or `unpaused`.
+
+* **Cancel**: stops all future payments
+* **Unpause**: resume the recurring payment after it fails three times (due to insufficient balance or allowance)\
+
+
+{% openapi-operation spec="request-api" path="/v2/payouts/recurring/{id}" method="patch" %}
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
+{% endopenapi-operation %}
