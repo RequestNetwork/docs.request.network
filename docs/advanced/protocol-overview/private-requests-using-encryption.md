@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Private Requests using Encryption
 
 The Request Network protocol persists request contents on IPFS. When privacy is required, the SDK supports the creation and subsequent reading of encrypted requests.

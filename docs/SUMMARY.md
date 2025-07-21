@@ -9,7 +9,7 @@
 * [Crypto-to-fiat Payments](request-network-api/crypto-to-fiat-payments.md)
 * [Batch Payments](request-network-api/batch-payments.md)
 * [Recurring payments](request-network-api/recurring-payments.md)
-* [Currencies](request-network-api/currencies.md)
+* [Supported Chains and Currencies](request-network-api/supported-chains-and-currencies.md)
 * [EasyInvoice: API Demo App](request-network-api/easyinvoice-api-demo-app.md)
 * [API Portal: Manage API Keys and Webhooks](request-network-api/api-portal-manage-api-keys-and-webhooks.md)
 * [Full API Reference](https://api.request.network/open-api)

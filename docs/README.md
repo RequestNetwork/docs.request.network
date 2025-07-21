@@ -2,20 +2,11 @@
 description: >-
   Request Network is a protocol for creating payment requests and reconciling
   payments.
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
 ---
 
 # Request Network Docs
+
+
 
 {% hint style="info" %}
 **Talk to an expert**

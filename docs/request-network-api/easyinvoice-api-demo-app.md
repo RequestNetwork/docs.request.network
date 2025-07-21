@@ -16,6 +16,10 @@ Discover how your app can have its own EasyInvoice features - [book a call](http
 
 ## Key Features
 
+### Overall Supported Currencies and Chains
+
+15 stablecoins: USDC/USDT/DAI on 5 chains (Ethereum, Polygon, Arbitrum One, Base, OP Mainnet) + 4 testnet tokens on Sepolia + USD fiat for Conversion and Crypto-to-fiat payments.
+
 ### **Invoice Creation**
 
 * **Invoice Creation**: A simple form to create invoices.
@@ -36,12 +40,12 @@ Discover how your app can have its own EasyInvoice features - [book a call](http
 
 * **Invoice Payment:**
   * View invoice details and initiate payment using transaction calldata provided by the Request Network API.
-  * Compatible with 50+ different crypto wallets.
+  * Compatible with 80+ different crypto wallets via Reown AppKit
 * **Real-time Updates**: The app receives webhooks from the Request Network API to update the invoice status in real-time.
 
 <figure><img src="../.gitbook/assets/Screenshot from 2025-02-14 01-01-00 (2).png" alt=""><figcaption><p>EasyInvoice Invoice Payment Page</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (1) (3).png" alt=""><figcaption><p>EasyInvoice supports 50+ wallets via Reown AppKit</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (3).png" alt=""><figcaption><p>EasyInvoice supports 80+ wallets via Reown AppKit</p></figcaption></figure>
 
 ### Invoice Crosschain Payment
 
@@ -49,9 +53,17 @@ Discover how your app can have its own EasyInvoice features - [book a call](http
 
 {% embed url="https://youtu.be/OpAd3Xzu8zU" %}
 
+#### Crosschain Payment Supported Currencies
+
+For Crosschain (and Samechain) Payments, EasyInvoice supports 12 stablecoins: USDC/USDT/DAI on 4 chains (Ethereum, Arbitrum One, Base, OP Mainnet)
+
 ### Crypto-to-fiat Payment
 
 {% embed url="https://youtu.be/1Y7QIi6oZoU" %}
+
+#### Crypto-to-fiat Payment Supported Currencies
+
+For Crypto-to-fiat Payments, EasyInvoice supports USDC on Sepolia.
 
 ### Batch Pay Invoices
 

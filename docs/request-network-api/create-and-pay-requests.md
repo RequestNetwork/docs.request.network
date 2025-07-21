@@ -26,8 +26,11 @@ At its core, the Request Network API empowers you to:
     * **Gradual payment plans:** Allow users to pay large invoices in smaller chunks.
     * **Risk mitigation:** Test with small amounts before completing large payments.
 
-    The API automatically tracks payment progress, showing `partially_paid` status until the request is fully paid, and prevents overpayment by capping amounts to the remaining balance.\
+    The API automatically tracks payment progress, showing `partially_paid` status until the request is fully paid, and prevents overpayment by capping amounts to the remaining balance.
 
+### Supported Chains and Currencies
+
+See [#request-network-api-supported-currencies](supported-chains-and-currencies.md#request-network-api-supported-currencies "mention")
 
 {% openapi-operation spec="request-api" path="/v2/request" method="post" %}
 [OpenAPI request-api](https://api.request.network/open-api/openapi.json)
@@ -96,3 +99,4 @@ sequenceDiagram
     Request Network API->>App: POST <webhook url> {"payment.confirmed", requestId, paymentReference, request scan link, timestamp}
     App-->>User: Payment Complete
 ```
+

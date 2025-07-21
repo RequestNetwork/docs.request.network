@@ -1,16 +1,5 @@
 ---
 description: A dashboard for viewing and paying invoices in Request Network
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Invoice Dashboard

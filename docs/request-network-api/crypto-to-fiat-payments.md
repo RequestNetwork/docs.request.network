@@ -52,6 +52,10 @@ Production access includes:
 * Live bank account validation
 * Fiat deposits to real bank accounts
 
+### Crypto-to-fiat Supported Chains and Currencies
+
+For Crypto-to-fiat Payments, the Request Network API supports USDC on Ethereum, Polygon, Arbitrum One, and Sepolia.
+
 ## Understanding `clientUserId`
 
 Many `/payer` endpoints in the Request Network API require a `clientUserId` as a path parameter. This value is an **arbitrary identifier** chosen by your platform to represent a user (the payer) in your own system.
@@ -124,15 +128,15 @@ sequenceDiagram
 * `PATCH /payer/{clientUserId}`: Update agreement status after signature.
 
 {% openapi-operation spec="request-api-staging" path="/v2/payer" method="post" %}
-[Broken link](broken-reference)
+[OpenAPI request-api-staging](https://api.stage.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
 {% openapi-operation spec="request-api-staging" path="/v2/payer/{clientUserId}" method="get" %}
-[Broken link](broken-reference)
+[OpenAPI request-api-staging](https://api.stage.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
 {% openapi-operation spec="request-api-staging" path="/v2/payer/{clientUserId}" method="patch" %}
-[Broken link](broken-reference)
+[OpenAPI request-api-staging](https://api.stage.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
 ## Setting Up a Crypto-to-Fiat Request (Payee Flow)
@@ -197,15 +201,15 @@ This approach ensures a smooth, compliant, and user-friendly experience, even if
 * `POST /v2/request` with `isCryptoToFiatAllowed = true`: Create a new crypto-to-fiat request&#x20;
 
 {% openapi-operation spec="request-api-staging" path="/v2/payer/{clientUserId}/payment-details" method="post" %}
-[Broken link](broken-reference)
+[OpenAPI request-api-staging](https://api.stage.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
 {% openapi-operation spec="request-api-staging" path="/v2/payer/{clientUserId}/payment-details" method="get" %}
-[Broken link](broken-reference)
+[OpenAPI request-api-staging](https://api.stage.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
 {% openapi-operation spec="request-api-staging" path="/v2/request" method="post" %}
-[Broken link](broken-reference)
+[OpenAPI request-api-staging](https://api.stage.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
 ## Paying a Crypto-to-Fiat Request

@@ -20,16 +20,20 @@ Crosschain payments allow users to pay a request using a stablecoin from a diffe
 * **Time-Saving:** Payers don't need to swap or bridge tokens manually.
 * **Simplified UX:** Payment settlement requires only 1 or 2 signatures from the Payer.
 
-## Supported Networks
+## Crosschain Payments Supported Chains and Currencies
+
+For Crosschain (and Samechain) Payments, the Request Network API supports 12 stablecoins: USDC/USDT/DAI on 4 chains (Ethereum, Arbitrum One, Base, OP Mainnet).
+
+### Crosschain Payments Supported Chains
 
 Crosschain payments are supported on the following blockchain networks:
 
-* Base
-* Optimism
-* Arbitrum
 * Ethereum
+* Arbitrum One
+* Base
+* OP Mainnet
 
-## Supported Stablecoins
+### Crosschain Payments Supported Currencies
 
 {% hint style="warning" %}
 **Warning:** Crosschain payments work only with mainnet funds (real money). Test networks are not supported.
@@ -99,7 +103,7 @@ The API may return samechain routes if the payer address has supported currencie
 * No native token (ETH, etc..) needed for gas
 
 {% openapi-operation spec="request-api" path="/v2/request/{requestId}/routes" method="get" %}
-[Broken link](broken-reference)
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
 ### 3. Getting payment calldata
@@ -111,7 +115,7 @@ If the selected route is a crosschain payment, the [#get-v2-request-requestid-pa
 If the selected route is a direct payment, the [#get-v2-request-requestid-pay](crosschain-payments.md#get-v2-request-requestid-pay "mention") returns an unsigned payment calldata. It may also return an approval calldata. For direct payments, this endpoint IS approval aware - it will omit the approval calldata if sufficient approval has already been granted.
 
 {% openapi-operation spec="request-api" path="/v2/request/{requestId}/pay" method="get" %}
-[Broken link](broken-reference)
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
 ### 4. Signing the payment intent
@@ -189,7 +193,7 @@ const signedData = {
 Finally, the signed payment intent (and possibly the signed approval permit) are sent back to execute the crosschain payment via the [#post-v2-request-payment-intents-paymentintentid](crosschain-payments.md#post-v2-request-payment-intents-paymentintentid "mention") endpoint. It will handle all the necessary steps to complete the payment. A `payment.complete` event will be sent to the platform's webhooks when the payment is completed.
 
 {% openapi-operation spec="request-api" path="/v2/request/payment-intents/{paymentIntentId}" method="post" %}
-[Broken link](broken-reference)
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
 ## Custom fee configuration
