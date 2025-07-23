@@ -95,6 +95,10 @@ For Crypto-to-fiat Payments, EasyInvoice supports USDC on Sepolia.
 
 <figure><img src="../.gitbook/assets/image7.png" alt=""><figcaption><p>Create Invoice via InvoiceMe Link</p></figcaption></figure>
 
+### Subscriptions
+
+{% embed url="https://www.youtube.com/watch?v=jEo5tYFuUs0" %}
+
 ### Login
 
 * **Google Login**: Securely log in to your account using Google OAuth.
