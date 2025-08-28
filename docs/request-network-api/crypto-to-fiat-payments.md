@@ -56,6 +56,19 @@ Production access includes:
 
 For Crypto-to-fiat Payments, the Request Network API supports USDC on Ethereum, Polygon, Arbitrum One, and Sepolia.
 
+{% hint style="info" %}
+**Crypto-to-fiat Payment with non-USDC currencies:**
+
+While crypto-to-fiat requests must be created in USDC, users can pay in alternative currencies through a four-step process, using [crosschain-payments.md](crosschain-payments.md "mention"):
+
+1. **Create Crosschain Request**: Create a request to swap the payer's currency (e.g., ETH on Ethereum) to USDC on the target chain (e.g., USDC on Polygon). Note: Don't specify a payer address during request creation to allow flexibility in who can pay.
+2. **Pay Crosschain Request**: Execute the crosschain payment to fulfill the first request
+3. **Create Crypto-to-Fiat Request**: Create a separate request for the USDC offramp to fiat and bank deposit
+4. **Pay Crypto-to-Fiat Request**: Execute the crypto-to-fiat payment to complete the flow
+
+This four-step approach is required due to current API limitations - more streamlined flows are not yet implemented.
+{% endhint %}
+
 ## Understanding `clientUserId`
 
 Many `/payer` endpoints in the Request Network API require a `clientUserId` as a path parameter. This value is an **arbitrary identifier** chosen by your platform to represent a user (the payer) in your own system.

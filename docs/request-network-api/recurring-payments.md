@@ -99,7 +99,9 @@ Recurring payments are supported on the following Blockchain networks:
 
 ## Supported currencies
 
-The recurring payments support **all** **ERC20** currencies available in the supported networks
+The recurring payments support **all** **ERC20** currencies available in the supported networks.
+
+See the full list here [supported-chains-and-currencies.md](supported-chains-and-currencies.md "mention")
 
 ## How it works
 

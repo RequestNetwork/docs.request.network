@@ -54,6 +54,8 @@ For Conversion Payments, the Request Network API supports the following _payment
 * DAI
 * FAU on Sepolia
 
+To get a list of supported _payment_ currencies for a given _invoice_ currency, use the [#get-v2-currencies-currencyid-conversion-routes](supported-chains-and-currencies.md#get-v2-currencies-currencyid-conversion-routes "mention") endpoint.
+
 ### Crosschain Payments Supported Currencies
 
 See [#crosschain-payments-supported-chains-and-currencies](crosschain-payments.md#crosschain-payments-supported-chains-and-currencies "mention")
@@ -92,4 +94,8 @@ Each token in the response includes:
 
 {% openapi-operation spec="request-api" path="/v2/currencies" method="get" %}
 [OpenAPI request-api](https://api.request.network/open-api/openapi.json)
+{% endopenapi-operation %}
+
+{% openapi-operation spec="request-api-staging" path="/v2/currencies/{currencyId}/conversion-routes" method="get" %}
+[OpenAPI request-api-staging](https://api.stage.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
