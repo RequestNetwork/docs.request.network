@@ -81,7 +81,7 @@ For Crypto-to-fiat Payments, EasyInvoice supports USDC on Sepolia.
 
 * **Payout**: Send a payment without having to create a request first.
 
-<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>EasyInvoice Direct Payment page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption><p>EasyInvoice Direct Payment page</p></figcaption></figure>
 
 ### Batch Payout
 
@@ -103,4 +103,4 @@ For Crypto-to-fiat Payments, EasyInvoice supports USDC on Sepolia.
 
 * **Google Login**: Securely log in to your account using Google OAuth.
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption><p>EasyInvioce Login Page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1).png" alt=""><figcaption><p>EasyInvioce Login Page</p></figcaption></figure>

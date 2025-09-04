@@ -15,6 +15,7 @@
 * [Full API Reference](https://api.request.network/open-api)
 * [Migrate to V2](request-network-api/migrate-to-v2.md)
 * [Payment Detection](request-network-api/payment-detection.md)
+* [Integration Tutorial](request-network-api/integration-tutorial.md)
 
 ## General
 
