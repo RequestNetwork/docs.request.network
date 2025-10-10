@@ -9,7 +9,7 @@ description: >-
 {% hint style="info" %}
 **Talk to an expert**
 
-Discover how Request Network API can enhance your app's features - [book a call](https://calendly.com/mariana-rn/request-network-demo-docs) with us.
+Discover how Request Network API can enhance your app's features - [book a call](https://meetings-eu1.hubspot.com/quentin-callec/request-network?utm_source=request.network\&utm_medium=docs\&utm_campaign=evergreen\&utm_content=book_a_demo_onpage) with us.
 {% endhint %}
 
 ## Overview
@@ -88,7 +88,7 @@ sequenceDiagram
 ## Endpoints
 
 {% openapi-operation spec="request-api" path="/v2/payouts/batch" method="post" %}
-[Broken link](broken-reference)
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
 ## Implementation Examples
