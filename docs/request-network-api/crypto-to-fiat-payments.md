@@ -40,7 +40,7 @@ The "Crypto-to-fiat Sandbox" setting for API keys only affects crypto-to-fiat pa
 
 When you're ready to go live with real transactions:
 
-1. [**Book a call**](https://meetings-eu1.hubspot.com/quentin-callec/request-network?utm_source=request.network\&utm_medium=docs\&utm_campaign=evergreen\&utm_content=book_a_demo_onpage) to request production access
+1. [**Book a call**](https://meetings-eu1.hubspot.com/quentin-callec) to request production access
 2. **Discuss your use case** with our team to ensure the best integration approach
 3. **Complete the approval process** - we'll work with you to get everything set up
 4. **Generate Production API keys** once approved

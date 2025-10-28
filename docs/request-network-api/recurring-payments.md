@@ -7,7 +7,7 @@ description: Create subscriptions that would automatically be paid through out a
 {% hint style="info" %}
 **Talk to an expert**
 
-Discover how Request Network API can enhance your app's features - [book a call](https://meetings-eu1.hubspot.com/quentin-callec/request-network?utm_source=request.network\&utm_medium=docs\&utm_campaign=evergreen\&utm_content=book_a_demo_onpage) with us.
+Discover how Request Network API can enhance your app's features - [book a call](https://meetings-eu1.hubspot.com/quentin-callec) with us.
 {% endhint %}
 
 ## Overview
