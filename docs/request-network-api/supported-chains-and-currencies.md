@@ -96,6 +96,6 @@ Each token in the response includes:
 [OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
-{% openapi-operation spec="request-api-staging" path="/v2/currencies/{currencyId}/conversion-routes" method="get" %}
-[OpenAPI request-api-staging](https://api.stage.request.network/open-api/openapi.json)
+{% openapi-operation spec="request-api" path="/v1/currencies/{currencyId}/conversion-routes" method="get" %}
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}

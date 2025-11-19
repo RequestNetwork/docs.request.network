@@ -140,16 +140,16 @@ sequenceDiagram
 * `GET /payer/{clientUserId}`: Get compliance status for a payer.&#x20;
 * `PATCH /payer/{clientUserId}`: Update agreement status after signature.
 
-{% openapi-operation spec="request-api-staging" path="/v2/payer" method="post" %}
-[OpenAPI request-api-staging](https://api.stage.request.network/open-api/openapi.json)
+{% openapi-operation spec="request-api" path="/v2/payer" method="post" %}
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
-{% openapi-operation spec="request-api-staging" path="/v2/payer/{clientUserId}" method="get" %}
-[OpenAPI request-api-staging](https://api.stage.request.network/open-api/openapi.json)
+{% openapi-operation spec="request-api" path="/v2/payer/{clientUserId}" method="get" %}
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
-{% openapi-operation spec="request-api-staging" path="/v2/payer/{clientUserId}" method="patch" %}
-[OpenAPI request-api-staging](https://api.stage.request.network/open-api/openapi.json)
+{% openapi-operation spec="request-api" path="/v2/payer/{clientUserId}" method="patch" %}
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
 ## Setting Up a Crypto-to-Fiat Request (Payee Flow)
@@ -213,16 +213,16 @@ This approach ensures a smooth, compliant, and user-friendly experience, even if
 * `GET /payer/{clientUserId}/payment-details`: Get payment details (bank accounts) for a payee.&#x20;
 * `POST /v2/request` with `isCryptoToFiatAllowed = true`: Create a new crypto-to-fiat request&#x20;
 
-{% openapi-operation spec="request-api-staging" path="/v2/payer/{clientUserId}/payment-details" method="post" %}
-[OpenAPI request-api-staging](https://api.stage.request.network/open-api/openapi.json)
+{% openapi-operation spec="request-api" path="/v2/payer/{clientUserId}/payment-details" method="post" %}
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
-{% openapi-operation spec="request-api-staging" path="/v2/payer/{clientUserId}/payment-details" method="get" %}
-[OpenAPI request-api-staging](https://api.stage.request.network/open-api/openapi.json)
+{% openapi-operation spec="request-api" path="/v2/payer/{clientUserId}/payment-details" method="get" %}
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
-{% openapi-operation spec="request-api-staging" path="/v2/request" method="post" %}
-[OpenAPI request-api-staging](https://api.stage.request.network/open-api/openapi.json)
+{% openapi-operation spec="request-api" path="/v2/request" method="post" %}
+[OpenAPI request-api](https://api.request.network/open-api/openapi.json)
 {% endopenapi-operation %}
 
 ## Paying a Crypto-to-Fiat Request
