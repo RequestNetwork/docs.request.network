@@ -5,6 +5,7 @@
 ## Request Network API
 
 * [Create and Pay Requests](request-network-api/create-and-pay-requests.md)
+* [Fees](request-network-api/fees.md)
 * [Crosschain Payments](request-network-api/crosschain-payments.md)
 * [Crypto-to-fiat Payments](request-network-api/crypto-to-fiat-payments.md)
 * [Batch Payments](request-network-api/batch-payments.md)
