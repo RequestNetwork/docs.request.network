@@ -151,6 +151,14 @@ Yes. See:
 
 <details>
 
+<summary>How can I contribute to the Request Network as an advocate?</summary>
+
+We have an Advocates program where you can earn REQ tokens by contributing to the protocol's growth, documentation, and community. Check out our [Advocates Welcome Kit](general/advocates-welcome-kit.md) to get started!
+
+</details>
+
+<details>
+
 <summary>Does Request Network support private payments?</summary>
 
 Yes. See [hinkal-private-payments.md](advanced/request-network-sdk/sdk-guides/payment/hinkal-private-payments.md "mention")

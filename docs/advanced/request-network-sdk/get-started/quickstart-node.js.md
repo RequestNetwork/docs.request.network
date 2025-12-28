@@ -8,7 +8,7 @@ This approach works well for Node.js environments _without_ access to a Web3 wal
 You will learn:
 
 * How to create a request
-* How to update a request (coming soon...)
+* How to update a request
 * How to pay a request
 * How to detect a payment
 * How to retrieve a user’s requests
@@ -127,6 +127,23 @@ Altogether it looks like this:
 
 {% @github-files/github-code-block url="https://github.com/RequestNetwork/quickstart-node-js/blob/main/src/createRequest.js" %}
 
+## Update a request
+
+After creating a request, you might need to update it (e.g., to cancel it or adjust the amount). Updates require a `signatureProvider`.
+
+```javascript
+const request = await requestClient.fromRequestId('YOUR_REQUEST_ID');
+
+// Payer accepts the request
+await request.accept({
+  type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
+  value: payerAddress,
+});
+await request.waitForConfirmation();
+```
+
+See the [Updating a Request](../sdk-guides/request-client/updating-a-request.md) guide for more details.
+
 ## Pay a request / Detect a payment
 
 First, construct a `RequestNetwork` object and connect it to a Request Node. In this example, we use the Sepolia Request Node Gateway:
@@ -171,7 +188,31 @@ const payerWallet = new Wallet(
 {% endtab %}
 
 {% tab title="viem" %}
-Coming soon. Probably involves `publicClientToProvider()` and `walletClientToSigner()`.
+```javascript
+const { createPublicClient, createWalletClient, http } = require("viem");
+const { mainnet } = require("viem/chains");
+const { privateKeyToAccount } = require("viem/accounts");
+const { providers } = require("ethers");
+
+const publicClient = createPublicClient({
+  chain: mainnet,
+  transport: http(process.env.JSON_RPC_PROVIDER_URL),
+});
+
+const account = privateKeyToAccount(process.env.PAYER_PRIVATE_KEY);
+const walletClient = createWalletClient({
+  account,
+  chain: mainnet,
+  transport: http(process.env.JSON_RPC_PROVIDER_URL),
+});
+
+// Convert viem WalletClient to ethers v5 Signer
+const provider = new providers.Web3Provider(walletClient.transport, {
+  chainId: mainnet.id,
+  name: mainnet.name,
+});
+const signer = provider.getSigner(account.address);
+```
 {% endtab %}
 {% endtabs %}
 
