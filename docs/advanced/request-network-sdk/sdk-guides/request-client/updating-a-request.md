@@ -10,6 +10,7 @@ After a request is created, it can be updated by the authorized parties. Each up
 | **cancel** | Cancel a request | Payee or Payer |
 | **reduceExpectedAmount** | Reduce the expected amount | Payee |
 | **increaseExpectedAmount** | Increase the expected amount | Payer |
+| **addStakeholders** | Grant 1 or more third parties access to view an encrypted request | Payee, Payer, or Third Party |
 
 ## Examples
 

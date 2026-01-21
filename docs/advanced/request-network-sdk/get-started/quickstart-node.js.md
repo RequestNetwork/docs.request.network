@@ -188,31 +188,9 @@ const payerWallet = new Wallet(
 {% endtab %}
 
 {% tab title="viem" %}
-```javascript
-const { createPublicClient, createWalletClient, http } = require("viem");
-const { mainnet } = require("viem/chains");
-const { privateKeyToAccount } = require("viem/accounts");
-const { providers } = require("ethers");
+In Node.js with a private key, use ethers v5 directly (see tab above).
 
-const publicClient = createPublicClient({
-  chain: mainnet,
-  transport: http(process.env.JSON_RPC_PROVIDER_URL),
-});
-
-const account = privateKeyToAccount(process.env.PAYER_PRIVATE_KEY);
-const walletClient = createWalletClient({
-  account,
-  chain: mainnet,
-  transport: http(process.env.JSON_RPC_PROVIDER_URL),
-});
-
-// Convert viem WalletClient to ethers v5 Signer
-const provider = new providers.Web3Provider(walletClient.transport, {
-  chainId: mainnet.id,
-  name: mainnet.name,
-});
-const signer = provider.getSigner(account.address);
-```
+The viem-to-ethers adapter patterns in the [Browser Quickstart](quickstart-browser.md) are designed for browser wallets with EIP-1193 interfaces. In Node.js, simply create an ethers `JsonRpcProvider` and `Wallet` from your RPC URL and private key.
 {% endtab %}
 {% endtabs %}
 
