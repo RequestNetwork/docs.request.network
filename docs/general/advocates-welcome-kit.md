@@ -13,7 +13,7 @@ Welcome to the Request Network Advocates program! We are excited to have you onb
 As an advocate, your first week is about getting to know the team and the tools.
 
 ### 1. Join the Community
-*   **Discord:** Join our [Discord server](https://discord.gg/request) and introduce yourself in the `#advocates` channel.
+*   **Discord:** Join our [Discord server](https://request.network/discord) and introduce yourself in the `#advocates` channel.
 *   **Twitter/X:** Follow [@RequestNetwork](https://twitter.com/RequestNetwork) for updates.
 
 ### 2. Access Your Tools
