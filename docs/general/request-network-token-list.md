@@ -20,15 +20,31 @@ Each token in the list contains the following information:
 
 ```json
 {
-  "id": "TKN-mainnet"
-  "name": "Token Name",
-  "address": "0x...",
-  "symbol": "TKN",
-  "decimals": 18,
-  "chainId": 1,
-  "logoURI": "https://..."
+  "id": "USDC-mainnet",
+  "name": "USD Coin",
+  "symbol": "USDC",
+  "decimals": 6,
+  "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+  "network": "mainnet",
+  "type": "ERC20",
+  "hash": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+  "chainId": 1
 }
 ```
+
+| Field | Description |
+|-------|-------------|
+| `id` | Unique identifier, typically `SYMBOL-network` (e.g., `USDC-mainnet`) |
+| `name` | Human-readable token name |
+| `symbol` | Token symbol |
+| `decimals` | Number of decimal places |
+| `address` | Token contract address |
+| `network` | Network name (e.g., `mainnet`, `matic`, `bsc`) |
+| `type` | Currency type (e.g., `ERC20`, `ETH`, `ISO4217`) |
+| `hash` | For ERC20 tokens, same as `address`. For native tokens, a calculated hash. |
+| `chainId` | Chain ID of the network |
+
+See the [SDK source code](https://github.com/RequestNetwork/requestNetwork/blob/master/packages/types/src/currency-types.ts) for the full list of supported networks and types.
 
 ## Adding a New Token
 
