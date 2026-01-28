@@ -5,9 +5,9 @@ description: The Request Network API supports 500+ currencies across 10 EVM chai
 # Supported Chains and Currencies
 
 {% hint style="info" %}
-**Talk to an expert**
+**Reach out**
 
-Discover how Request Network API can enhance your app's features - [book a call](https://meetings-eu1.hubspot.com/quentin-callec) with us.
+For more details on how to start accepting crypto payments, [get in touch](https://2deywy.share-eu1.hsforms.com/2b92phs9LR_eJdeZoxzmoMA?utm_source=request.network&utm_medium=docs&utm_campaign=evergreen&utm_content=get_in_touch) and we will reach out.
 {% endhint %}
 
 ## Request Network API Supported Chains and Currencies
