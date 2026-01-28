@@ -36,7 +36,7 @@ The payer can accept a request to signal their intention to pay.
 ```javascript
 const updatedRequestData = await request.accept({
   type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
-  value: payerAddress,
+  value: payerIdentity,
 });
 
 // Wait for the update to be persisted
@@ -50,7 +50,7 @@ Either the payee or the payer can cancel a request.
 ```javascript
 const updatedRequestData = await request.cancel({
   type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
-  value: signerAddress,
+  value: signerIdentity,
 });
 
 await request.waitForConfirmation();
@@ -65,7 +65,7 @@ const updatedRequestData = await request.increaseExpectedAmountRequest(
   '100000000000000000', // Amount to add in base units (e.g., 0.1 ETH)
   {
     type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
-    value: payerAddress,
+    value: payerIdentity,
   }
 );
 
@@ -81,7 +81,7 @@ const updatedRequestData = await request.reduceExpectedAmountRequest(
   '100000000000000000', // Amount to subtract in base units
   {
     type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
-    value: payeeAddress,
+    value: payeeIdentity,
   }
 );
 
