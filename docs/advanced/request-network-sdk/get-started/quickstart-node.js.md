@@ -8,7 +8,7 @@ This approach works well for Node.js environments _without_ access to a Web3 wal
 You will learn:
 
 * How to create a request
-* How to update a request (coming soon...)
+* How to update a request
 * How to pay a request
 * How to detect a payment
 * How to retrieve a user’s requests
@@ -16,7 +16,7 @@ You will learn:
 
 ## Repository
 
-All of the following examples can be found in this repository [https://github.com/RequestNetwork/quickstart-node.js](https://github.com/RequestNetwork/quickstart-node.js)
+All of the following examples can be found in this repository [https://github.com/RequestNetwork/quickstart-node-js](https://github.com/RequestNetwork/quickstart-node-js)
 
 ## Create a request
 
@@ -127,6 +127,23 @@ Altogether it looks like this:
 
 {% @github-files/github-code-block url="https://github.com/RequestNetwork/quickstart-node-js/blob/main/src/createRequest.js" %}
 
+## Update a request
+
+After creating a request, you might need to update it (e.g., to cancel it or adjust the amount). Updates require a `signatureProvider`.
+
+```javascript
+const request = await requestClient.fromRequestId('YOUR_REQUEST_ID');
+
+// Payer accepts the request
+await request.accept({
+  type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
+  value: payerIdentity,
+});
+await request.waitForConfirmation();
+```
+
+See the [Updating a Request](../sdk-guides/request-client/updating-a-request.md) guide for more details.
+
 ## Pay a request / Detect a payment
 
 First, construct a `RequestNetwork` object and connect it to a Request Node. In this example, we use the Sepolia Request Node Gateway:
@@ -171,7 +188,9 @@ const payerWallet = new Wallet(
 {% endtab %}
 
 {% tab title="viem" %}
-Coming soon. Probably involves `publicClientToProvider()` and `walletClientToSigner()`.
+In Node.js with a private key, use ethers v5 directly (see tab above).
+
+The viem-to-ethers adapter patterns in the [Browser Quickstart](quickstart-browser.md) are designed for browser wallets with EIP-1193 interfaces. In Node.js, simply create an ethers `JsonRpcProvider` and `Wallet` from your RPC URL and private key.
 {% endtab %}
 {% endtabs %}
 

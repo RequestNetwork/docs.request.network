@@ -1,7 +1,89 @@
 # Updating a Request
 
-After a request is created, it can be updated:
+After a request is created, it can be updated by the authorized parties. Each update requires a signature and is persisted to the Request Network.
 
-<table data-full-width="true"><thead><tr><th>Name</th><th>Description</th><th>Role Authorized</th></tr></thead><tbody><tr><td><strong>accept</strong></td><td>accept a request, indicating that it will be paid</td><td>payer</td></tr><tr><td><strong>cancel</strong></td><td>cancel a request</td><td>payee, payer</td></tr><tr><td><strong>reduceExpectedAmount</strong></td><td>reduce the expected amount</td><td>payee</td></tr><tr><td><strong>increaseExpectedAmount</strong></td><td>increase the expected amount</td><td>payer</td></tr><tr><td><strong>addStakeholders</strong></td><td>grant 1 or more third parties access to view an encrypted request</td><td>payee, payer, third party</td></tr></tbody></table>
+## Summary of Actions
 
-Feature exists. More docs coming soon...
+| Action | Description | Authorized Role |
+| :--- | :--- | :--- |
+| **accept** | Accept a request, indicating that it will be paid | Payer |
+| **cancel** | Cancel a request | Payee or Payer |
+| **reduceExpectedAmount** | Reduce the expected amount | Payee |
+| **increaseExpectedAmount** | Increase the expected amount | Payer |
+| **addStakeholders** | Grant 1 or more third parties access to view an encrypted request | Payee, Payer, or Third Party |
+
+## Examples
+
+### Initialize the Request Client
+
+First, retrieve the request you want to update. You must provide a `signatureProvider` to sign the update transactions.
+
+```javascript
+const { RequestNetwork, Types } = require("@requestnetwork/request-client.js");
+
+const requestClient = new RequestNetwork({
+  nodeConnectionConfig: { baseURL: "https://sepolia.gateway.request.network/" },
+  signatureProvider: epkSignatureProvider, // Required for updates
+});
+
+const request = await requestClient.fromRequestId('YOUR_REQUEST_ID');
+```
+
+### Accept a Request (Payer)
+
+The payer can accept a request to signal their intention to pay.
+
+```javascript
+const updatedRequestData = await request.accept({
+  type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
+  value: payerIdentity,
+});
+
+// Wait for the update to be persisted
+await request.waitForConfirmation();
+```
+
+### Cancel a Request (Payee or Payer)
+
+Either the payee or the payer can cancel a request.
+
+```javascript
+const updatedRequestData = await request.cancel({
+  type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
+  value: signerIdentity,
+});
+
+await request.waitForConfirmation();
+```
+
+### Increase Expected Amount (Payer)
+
+The payer can increase the expected amount (e.g., adding a tip or adjusting for additional services).
+
+```javascript
+const updatedRequestData = await request.increaseExpectedAmountRequest(
+  '100000000000000000', // Amount to add in base units (e.g., 0.1 ETH)
+  {
+    type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
+    value: payerIdentity,
+  }
+);
+
+await request.waitForConfirmation();
+```
+
+### Reduce Expected Amount (Payee)
+
+The payee can reduce the expected amount (e.g., applying a discount).
+
+```javascript
+const updatedRequestData = await request.reduceExpectedAmountRequest(
+  '100000000000000000', // Amount to subtract in base units
+  {
+    type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
+    value: payeeIdentity,
+  }
+);
+
+await request.waitForConfirmation();
+```
