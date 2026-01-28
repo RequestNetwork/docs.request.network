@@ -137,7 +137,7 @@ const request = await requestClient.fromRequestId('YOUR_REQUEST_ID');
 // Payer accepts the request
 await request.accept({
   type: Types.Identity.TYPE.ETHEREUM_ADDRESS,
-  value: payerAddress,
+  value: payerIdentity,
 });
 await request.waitForConfirmation();
 ```
