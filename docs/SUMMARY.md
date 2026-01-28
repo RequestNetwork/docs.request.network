@@ -20,7 +20,6 @@
 
 ## General
 
-* [Advocates Welcome Kit](general/advocates-welcome-kit.md)
 * [Lifecycle of a Request](general/lifecycle-of-a-request.md)
 * [Request Scan](general/request-scan.md)
 * [Supported Chains](general/supported-chains/README.md)
