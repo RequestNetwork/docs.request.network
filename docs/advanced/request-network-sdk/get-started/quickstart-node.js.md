@@ -16,7 +16,7 @@ You will learn:
 
 ## Repository
 
-All of the following examples can be found in this repository [https://github.com/RequestNetwork/quickstart-node.js](https://github.com/RequestNetwork/quickstart-node.js)
+All of the following examples can be found in this repository [https://github.com/RequestNetwork/quickstart-node-js](https://github.com/RequestNetwork/quickstart-node-js)
 
 ## Create a request
 
